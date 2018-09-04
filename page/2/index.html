@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '6.4.1',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -443,30 +443,15 @@
       
         
           
-            <p>最近看到实验室其他同学在学习OpenGL，看起来非常高大上。本着个人兴趣以及项目需求，也想学习一下WebGL。学习一段时间后，顿悟WebGL之强大！虽然在目前来说，WebGL的使用还不是特别广泛，但可以预见在将来必定有很大用途。于是想把自己的学习心得记录下来，希望有兴趣的朋友一起讨论。在学习WebGL之前，我没有任何计算机图形学的基础，所以为了理解某些内容查阅了很多资料，结合自己的理解，我都会在博客中写出来，与大家共享，所以这套博文非常适合WebGL初学者一起学习讨论。</p>
-<p>我学习的参考书：</p>
-<ol>
-<li>《WebGL高级编程–开发Web 3D图形》，[美]Andreas Anyuru 著，吴文国 译</li>
-<li>《WebGL编程指南》，[美]Kouichi Matsuda, Rodger Lea 著， 谢光磊 译</li>
-</ol>
-<h2 id="什么是WebGL？"><a href="#什么是WebGL？" class="headerlink" title="什么是WebGL？"></a>什么是WebGL？</h2><p>为了搞清楚这个问题，首先都是习惯性的去谷歌一下，然而看了维基百科和官网上的解释之后，感觉似懂非懂。书上的解释是：WebGL是一个用来在Web上生成三维图形效果的应用编程接口。分析这句话：首先WebGL是一个编程接口，即API，也就是说WebGL就是一套可以给我们调用的API，然后，WebGL的作用是在Web上生成三维图形效果的。看到这里好像明白了一点，后来还是自己找了个example去看一下代码，最后我的理解是：WebGL是<strong>支持WebGL功能</strong>的浏览器给我们提供的<strong>一套API</strong>，调用这些API可以<strong>驱动GPU</strong>帮我们在<strong>浏览器上</strong>绘制3D图形。我们常说CPU是电脑的大脑，那么GPU就是显卡的大脑。我们在买电脑时要看的一个重要参数就是显卡，我们都知道好的显卡能够呈现更好的画质，尤其是在玩游戏时。那么同样的，如果我们能够调用GPU帮我们在浏览器上绘图，那么3D效果肯定要好很多，这也就是我们使用WebGL的一个重要原因。为了让大家感受一下WebGL带来的好处，这里有一个<a href="http://labs.gooengine.com/pearl-boy/" target="_blank" rel="noopener">非常棒的例子</a>。这就是用WebGL实现的一个3D小游戏，如此酷炫的3D效果，就是在浏览器中实现的，是不是很棒？！</p>
-<p>而且，WebGL目前已经得到了大部分浏览器的支持。目前支持 WebGL 的浏览器：Firefox 4+, Google Chrome 9+, Opera 12+, Safari 5.1+ and Internet Explorer 11+; 然而, WebGL一些特性也需要用户设备支持。</p>
-<h2 id="如何使用API"><a href="#如何使用API" class="headerlink" title="如何使用API"></a>如何使用API</h2><p>上面提到，WebGL是支持WebGL功能的浏览器给我们提供的一套API，调用这些API可以驱动GPU帮我们在浏览器上绘制3D图形。那么要如何获取和使用这些API呢？要使用这套API，首先要创建一个<strong>WebGL绘图环境</strong>，创建这个绘图环境的结果是，我们会得到一个WebGLRenderingContext对象，在这个对象中包含了WebGL提供的一些属性和API，供我们使用。</p>
-<p>要在浏览器上绘制3D图形，就要使用到canvas标签，这也是创建WebGL绘图环境的一部分。它是一个html5标签，其语义就是一块画布，在这块画布上就可以进行绘制了。现在有很多html5小游戏，就是用到了这个标签。所以，在html代码部分，我们也需要一个canvas标签，然后通过canvas标签来获取WebGLRenderingContext。如下面的代码所示：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"draw()"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span>Your browser does not support the HTML5 canvas element.<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> gl;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span></span><br><span class="line"><span class="javascript">            gl = canvas.getContext(<span class="string">"webgl"</span>) || canvas.getContext(<span class="string">"experimental-webgl"</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>我们定义了一块宽高都是300px的canvas画布，canvas标签之间的语句是为了在不支持html5的浏览器中显示。在js代码中，我们用document.getElementById()方法获取这个标签，然后用canvas.getContext()方法获取WebGlRenderingContext对象，保存在一个全局变量gl中。然后，通过gl我们就可以调用WebGL的API了。比如，<code>gl.createShader()</code>方法就是WebGL提供的API之一。注意到这里我们传递给getContext()方法的参数有两个，两者其实是等价的。在WebGL标准定稿之前用的是”experimental-webgl”，定稿之后用的是”webgl”，为了浏览器的兼容性，最好两个都使用。用<code>||</code>符号的好处在于，如果第一个语句能够成功获取WebGLRenderingContext对象，就不必执行第二条语句。</p>
-<h2 id="WebGL与OpenGL，OpenGL-ES-2-0"><a href="#WebGL与OpenGL，OpenGL-ES-2-0" class="headerlink" title="WebGL与OpenGL，OpenGL ES 2.0"></a>WebGL与OpenGL，OpenGL ES 2.0</h2><p>在网上搜索WebGL时，可以看到OpenGL，OpenGL ES 2.0相关的内容。那么这几个之间到底是什么关系呢？相同之处在于，它们都是为了驱动GPU绘图而提供的一套API。现在我将它们各自的特点列举出来对比如下：</p>
-<ol>
-<li>OpenGL： 1992年发布第一个版本，跨平台在linux,Unix的几个版本，Mac OS X和Windows操作系统平台中使用，主要用于台式机。</li>
-<li>OpenGL ES2.0： 由桌面OpenGL的子集组成，适用于移动手机等嵌入式设备的，开放的3D图形标准。</li>
-<li>WebGL：2011年发布第一个版本，主要是在Web上使用。建立在OpenGL ES 2.0之上，所以非常类似，最大的不同之处在于WebGL运行在HTML和JavaScript上下文中，而OpenGL ES 2.0 通常用在C/C++、Objective C或Java上下文。</li>
-</ol>
-<p>可以看到，OpenGL是最早发布的，是鼻祖，主要适用于台式机，如台式机上的游戏开发。OpenGL ES是OpenGL的子集，而WebGL又基于OpenGL ES2.0而来。三者是相互继承发展的关系。主要区别在于其运行环境和适用范围的不同。</p>
-<p>顺便提一下，还有一项技术叫做DirectX，如Directx 11，这是微软多媒体和游戏编程API的名称，它也是可以用来做3D图形编程的，但是这项技术只能用于Windows操作系统，OpenGL与此相比最大的一个好处就是其跨平台性，即可以运行在多种操作系统中。</p>
-<h2 id="WebGL如何驱动GPU"><a href="#WebGL如何驱动GPU" class="headerlink" title="WebGL如何驱动GPU"></a>WebGL如何驱动GPU</h2><p>在WebGL中，除了使用JavaScript之外，我们还需要使用另一种GLSL ES语言，即OpenGL ES Shading Language，主要用来编写着色器（后面介绍）。这是一种类似于C风格的代码，它要经过编译和链接之后，在GPU上执行。而我们知道JavaScript是脚本语言，不需要经过编译和链接的。WebGL集成了多种GPU的编译器，可以确保GLSL ES编译后能在GPU上正确的执行。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客对WebGL的一般性概念做了介绍，并且与OpenGL、OpenGL ES等做了对比，希望对大家初步认识和理解WebGL有帮助。</p>
-
-          
+          最近看到实验室其他同学在学习OpenGL，看起来非常高大上。本着个人兴趣以及项目需求，也想学习一下WebGL。学习一段时间后，顿悟WebGL之强大！虽然在目前来说，WebGL的使用还不是特别广泛，但可
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/22/学习WebGL-一-：什么是WebGL/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -634,197 +619,17 @@
       
         
           
-            <p>前面博客介绍了应用层协议之下的各种协议，现在介绍应用层的HTTP协议，因为这个协议是前端开发中用到的最多的协议。</p>
-<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>在介绍HTTP协议之前，先简单介绍一下DNS协议。</p>
-<p>DNS(Domain Name Service)提供域名服务，将域名映射到IP地址。如果没有DNS，那需要记住每个网站的IP地址，这是非常不方便的，但是域名就更加方便记忆和使用了。DNS协议基于 UDP，使用端口号 53。DNS服务器是个分层次的系统：</p>
-<ol>
-<li>根 DNS 服务器 ：全世界共有 13 台根域名服务器，编号 A 到 M，其中大部分位于美国。</li>
-<li>顶级(TLD)DNS 服务器 ：负责如 com 、org 、edu 等顶级域名和所有国家的顶级域名(如 cn 、uk 、jp )。</li>
-<li>权威 DNS 服务器 ：大型组织、大学、企业的域名解析服务。</li>
-<li>本地 DNS 服务器 ：通常与我们主机最近的 DNS 服务器。</li>
-</ol>
-<p>在域名解析的过程中，有迭代查询和递归查询两种方式。</p>
-<ul>
-<li>迭代查询：请求主机将需要解析的域名交给本地DNS服务器，如果本地DNS服务器没有，那么本地服务器先去请求根DNS服务器，如果根DNS有则返回，否则本地DNS服务器继续请求顶级DNS服务器，如果顶级DNS服务器有则返回，否则本地服务器继续请求权威DNS服务器。也就是说，由本地服务器分别查询各层的DNS服务器获取结果。</li>
-<li>递归查询：请求主机将需要解析的域名交给本地服务器，如果本地服务器没有，那么本地服务器把这个请求交给根DNS服务器，如果根DNS服务器有则返回给本地DNS服务器，如果没有，则由根DNS服务器向顶级DNS服务器发送请求，如果顶级DNS服务器有，则逐级返回到请求主机，否则再由顶级DNS服务器向权威DNS服务器发送请求</li>
-</ul>
-<p><img src="/images/protocol/dns.png" alt="DNS服务器解析的过程"></p>
-<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>HTTP (HyperText Transfer Protocol 超文本传输协议) 基于 TCP，使用端口号 80 或 8080。每当你在浏览器里输入一个网址或点击一个链接时，浏览器就通过 HTTP 协议将网页信息从服务器提取再显示出来，这是现在使用频率最大的应用层协议。</p>
-<p>这个原理很简单：</p>
-<ul>
-<li>点击一个链接后，浏览器向服务器发起 TCP 连接；</li>
-<li>连接建立后浏览器发送 HTTP 请求报文，然后服务器回复响应报文；</li>
-<li>浏览器将收到的响应报文内容显示在网页上；</li>
-<li>报文收发结束，关闭 TCP 连接。</li>
-</ul>
-<h3 id="HTTP协议的特点"><a href="#HTTP协议的特点" class="headerlink" title="HTTP协议的特点"></a>HTTP协议的特点</h3><ul>
-<li>HTTP协议构建与TCP/IP协议之上，默认端口号是80</li>
-<li>HTTP是无连接无状态的</li>
-</ul>
-<h4 id="无连接"><a href="#无连接" class="headerlink" title="无连接"></a>无连接</h4><p>所谓无连接，是指限制每次<strong>连接</strong>只处理一个<strong>请求</strong>，服务器处理完客户的请求，并收到客户的应答后，即断开连接。在实际应用中，有一种Keep-alive连接（下面会继续介绍），他使客户端到服务器端的连接持续有效，当出现对服务器的后续请求时，Keep-Alive功能避免了建立或者重新建立连接。但是HTTP协议本身是无连接的。</p>
-<h4 id="无状态"><a href="#无状态" class="headerlink" title="无状态"></a>无状态</h4><p>所谓无状态，是指协议对于事物处理没有记忆能力，服务器不知道客户端是什么状态。即我们给服务器发送 HTTP 请求之后，服务器根据请求，会给我们发送数据过来，但是，发送完，不会记录任何信息。打开一个服务器上的网页和你之前打开这个服务器上的网页之间没有任何联系。HTTP 是一个无状态协议，这意味着每个请求都是独立的，Keep-Alive 没能改变这个结果。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
-<p>客户端与服务器进行动态交互的 Web 应用程序出现之后，HTTP 无状态的特性严重阻碍了这些应用程序的实现，毕竟交互是需要承前启后的，简单的购物车程序也要知道用户到底在之前选择了什么商品。于是，两种用于保持 HTTP 连接状态的技术就应运而生了，一个是 <strong>Cookie</strong>，而另一个则是 <strong>Session</strong>。</p>
-<h3 id="Cookie与Session"><a href="#Cookie与Session" class="headerlink" title="Cookie与Session"></a>Cookie与Session</h3><h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p>Cookies是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。网络服务器用HTTP头向客户端发送cookies，在客户终端，浏览器解析这些cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些cookies 。cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的cookie，如果某个cookie所声明的<strong>作用范围</strong>大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。</p>
-<p>cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。若不设置过期时间，则表示这个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。这种生命期为浏览器会话期的cookie被称为会话cookie。会话cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。若设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。存储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。</p>
-<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h4><p>session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并且生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。</p>
-<p>保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发挥给服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。</p>
-<p>经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。</p>
-<h3 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h3><h4 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h4><p>HTTP请求分为三个部分：状态行、请求头、消息主体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;entity-body&gt;</span><br></pre></td></tr></table></figure>
-<p>状态行包括请求方法、请求的URL和使用的HTTP协议版本三个部分。请求的方法以下几种：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-<th>支持的HTTP协议版本</th>
-<th>请求行例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td>如果请求的是文本资源，那就保持原样返回；如果是像CGI（Common Gateway Interface，通用网管接口）那样的程序，则返回执行后的结果。</td>
-<td>1.0、1.1</td>
-<td><code>GET /csrfToken HTTP/1.1</code></td>
-</tr>
-<tr>
-<td>POST</td>
-<td>传输实体主体</td>
-<td>1.0、1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>PUT</td>
-<td>PUT方法用来传输文件。就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求的URI制定的位置。</td>
-<td>1.0、1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>HEAD</td>
-<td>HEAD方法和GET方法一样，只是不返回报文主体部分。用于确认URI的有效性及资源更新的日期时间等。</td>
-<td>1.0、1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>DELETE方法用来删除文件，是与PUT相反的方法。DELETE方法按请求URI删除指定的资源。</td>
-<td>1.0、1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>OPTIONS</td>
-<td>OPTIONS方法用来查询针对请求的URI指定的资源支持的方法</td>
-<td>1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>TRACE</td>
-<td>让Web服务器端将之前的请求通信环回给客户端的方法</td>
-<td>1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>CONNECT</td>
-<td>用于代理服务器</td>
-<td>1.1</td>
-<td></td>
-</tr>
-<tr>
-<td>LINK</td>
-<td>建立和资源之间的联系</td>
-<td>1.0</td>
-<td></td>
-</tr>
-<tr>
-<td>UNLINK</td>
-<td>断开连接关系</td>
-<td>1.0</td>
-</tr>
-</tbody>
-</table>
-<p>其中最常用到的是GET请求和POST请求，这也是在前端开发中使用AJAX请求的常用方法。</p>
-<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>HTTP 响应与 HTTP 请求相似，HTTP响应也由3个部分构成，分别是：</p>
-<ul>
-<li>状态行：状态行由协议版本、数字形式的状态代码、及相应的状态描述</li>
-<li>响应头(Response Header)</li>
-<li>响应正文</li>
-</ul>
-<p>状态码（Status-Code）都是三位数字的，分为 5 大类共 33 种。</p>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>说明</th>
-<th>请求行例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1xx</td>
-<td>表示通知信息的，如请求收到了或正在进行处理</td>
-<td></td>
-</tr>
-<tr>
-<td>2xx</td>
-<td>表示成功</td>
-<td><code>HTTP/1.1 200 OK</code></td>
-</tr>
-<tr>
-<td>3xx</td>
-<td>表示重定向</td>
-<td></td>
-</tr>
-<tr>
-<td>4xx</td>
-<td>表示客户端的差错，如请求链接为不存在</td>
-<td><code>HTTP/1.1 404 Not Found</code></td>
-</tr>
-<tr>
-<td>5xx</td>
-<td>表示服务器的差错</td>
-</tr>
-</tbody>
-</table>
-<h3 id="条件GET"><a href="#条件GET" class="headerlink" title="条件GET"></a>条件GET</h3><p>HTTP 条件 GET 是 HTTP 协议为了减少不必要的带宽浪费，提出的一种方案。</p>
-<ol>
-<li><p>HTTP 条件 GET 使用的时机</p>
-<p>客户端之前已经访问过某网站，并打算再次访问该网站。</p>
-</li>
-<li><p>HTTP 条件 GET 使用的方法</p>
-<p>客户端向服务器发送一个包询问是否在上一次访问网站的时间后是否更改了页面，如果服务器没有更新，显然不需要把整个网页传给客户端，客户端只要使用本地缓存即可，如果服务器对照客户端给出的时间已经更新了客户端请求的网页，则发送这个更新了的网页给用户。</p>
-<p>客户端发送：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1  </span><br><span class="line">Host: www.sina.com.cn:80  </span><br><span class="line">If-Modified-Since:Thu, 4 Feb 2010 20:39:13 GMT  </span><br><span class="line">Connection: Close</span><br></pre></td></tr></table></figure>
-<p>第一次请求时，服务器端返回请求数据，之后的请求，服务器根据请求中的 <code>If-Modified-Since</code> 字段判断响应文件没有更新，如果没有更新，服务器返回一个 <code>304 Not Modified</code>响应，告诉浏览器请求的资源在浏览器上没有更新，可以使用已缓存的上次获取的文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 304 Not Modified  </span><br><span class="line">Date: Thu, 04 Feb 2010 12:38:41 GMT  </span><br><span class="line">Content-Type: text/html  </span><br><span class="line">Expires: Thu, 04 Feb 2010 12:39:41 GMT  </span><br><span class="line">Last-Modified: Thu, 04 Feb 2010 12:29:04 GMT  </span><br><span class="line">Age: 28  </span><br><span class="line">X-Cache: HIT from sy32-21.sina.com.cn  </span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h3><p>我们知道 HTTP 协议采用“请求-应答”模式，当使用普通模式，即非 Keep-Alive 模式时，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP协议为无连接的协议）；当使用 Keep-Alive 模式（又称持久连接、连接重用）时，Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接。</p>
-<p>在 HTTP 1.1 版本中，默认情况下所有连接都被保持，如果加入 “Connection: close” 才关闭。目前大部分浏览器都使用 HTTP 1.1 协议，也就是说默认都会发起 Keep-Alive 的连接请求了，所以是否能完成一个完整的 Keep-Alive 连接就看服务器设置情况。</p>
-<ul>
-<li>HTTP Keep-Alive 简单说就是保持当前的TCP连接，避免了重新建立连接。</li>
-<li>HTTP 长连接不可能一直保持，例如 <code>Keep-Alive: timeout=5, max=100</code>，表示这个TCP通道可以保持5秒，max=100，表示这个长连接最多接收100次请求就断开。</li>
-<li>HTTP是一个无状态协议，这意味着每个请求都是独立的，Keep-Alive没能改变这个结果。另外，Keep-Alive也不能保证客户端和服务器之间的连接一定是活跃的，在HTTP1.1版本中也如此。唯一能保证的就是当连接被关闭时你能得到一个通知，所以不应该让程序依赖于Keep-Alive的保持连接特性，否则会有意想不到的后果。</li>
-<li>使用长连接之后，客户端、服务端怎么知道本次传输结束呢？两部分：1. 判断传输数据是否达到了Content-Length 指示的大小；2. 动态生成的文件没有 Content-Length ，它是分块传输（chunked），这时候就要根据 chunked 编码来判断，chunked 编码的数据在最后有一个空 chunked 块，表明本次传输数据结束</li>
-</ul>
-<h3 id="HTTP-Pipelining（HTTP-管线化）"><a href="#HTTP-Pipelining（HTTP-管线化）" class="headerlink" title="HTTP Pipelining（HTTP 管线化）"></a>HTTP Pipelining（HTTP 管线化）</h3><p>默认情况下 HTTP 协议中每个传输层连接只能承载一个 HTTP 请求和响应，浏览器会在收到上一个请求的响应之后，再发送下一个请求。在使用持久连接的情况下，某个连接上消息的传递类似于<code>请求1 -&gt; 响应1 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3</code>。</p>
-<p>HTTP Pipelining（管线化）是将多个 HTTP 请求整批提交的技术，在传送过程中不需等待服务端的回应。使用 HTTP Pipelining 技术之后，某个连接上的消息变成了类似这样<code>请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3</code>。</p>
-<p>实际应用中，接收方也不必对收到的每个报文都做回复，而是采用累积确认方式：接收者收到多个连续的报文段后，只回复确认最后一个报文段，表示在这之前的数据都已收到。</p>
-<ul>
-<li>管线化机制通过持久连接（persistent connection）完成，仅 HTTP/1.1 支持此技术（HTTP/1.0不支持）</li>
-<li>只有 GET 和 HEAD 请求可以进行管线化，而 POST 则有所限制</li>
-<li>初次创建连接时不应启动管线机制，因为对方（服务器）不一定支持 HTTP/1.1 版本的协议</li>
-<li>管线化不会影响响应到来的顺序，如上面的例子所示，响应返回的顺序并未改变</li>
-<li>HTTP /1.1 要求服务器端支持管线化，但并不要求服务器端也对响应进行管线化处理，只是要求对于管线化的请求不失败即可</li>
-<li>由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器如 Chrome 和 Firefox 默认并未开启管线化支持</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="http://blog.csdn.net/sunansheng/article/details/52056235" target="_blank" rel="noopener">http://blog.csdn.net/sunansheng/article/details/52056235</a></li>
-<li><a href="https://hit-alibaba.github.io/interview/basic/network/HTTP.html" target="_blank" rel="noopener">https://hit-alibaba.github.io/interview/basic/network/HTTP.html</a></li>
-</ul>
-
-          
+          前面博客介绍了应用层协议之下的各种协议，现在介绍应用层的HTTP协议，因为这个协议是前端开发中用到的最多的协议。
+DNS在介绍HTTP协议之前，先简单介绍一下DNS协议。
+DNS(Domain Nam
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/17/TCP:IP协议之应用层HTTP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -992,53 +797,16 @@
       
         
           
-            <p>上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。</p>
-<h2 id="点到点与端到端"><a href="#点到点与端到端" class="headerlink" title="点到点与端到端"></a>点到点与端到端</h2><p>计算机网络中经常提到点到点和端到端，但对于这两个概念很多博客上并不会单独解释，根据我查阅的资料和自己的理解，总结如下：</p>
-<p>点到点是物理拓扑结构，是网络层的，即两头都是机器，中间通过线路连接，中间可以没有其他机器，IP协议就是解决这点到点之间的通信问题。</p>
-<p>端到端是网络连接，中间可能经理多个路由器、主机等，一旦连接建立起来，就形成了端到端的逻辑链路，这条路可能经过了很复杂的物理路线，但两端主机不管，只认为是有两端的连接，TCP和UDP就是提供端到端的服务。</p>
-<p>也就是说，点到点是拓扑结构上点到点，端到端是服务上的端到端，可能包含多个点到点。</p>
-<h2 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h2><h3 id="TCP的特性"><a href="#TCP的特性" class="headerlink" title="TCP的特性"></a>TCP的特性</h3><ul>
-<li>TCP提供一种面向连接的、可靠地字节流服务</li>
-<li>在一个TCP连接中，仅有两方进行彼此通信，<strong>广播和多播不能用于TCP</strong></li>
-<li>TCP使用校验和，确认和重传机制来保证可靠传输</li>
-<li>TCP给数据分节进行排序，并使用累计确认保证数据的顺序不变和非重复</li>
-<li>TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制</li>
-</ul>
-<p><strong>注意</strong>：TCP 并不能保证数据一定会被对方接收到，因为这是不可能的。TCP 能够做到的是，如果有可能，就把数据递送到接收方，否则就（通过放弃重传并且中断连接这一手段）通知用户。因此准确说 TCP 也不是 100% 可靠的协议，它所能提供的是数据的可靠递送或故障的可靠通知。</p>
-<h3 id="TCP建立连接的三次握手"><a href="#TCP建立连接的三次握手" class="headerlink" title="TCP建立连接的三次握手"></a>TCP建立连接的三次握手</h3><p>指在建立一个TCP连接时，需要客户端和服务器总共发送3个包</p>
-<ol>
-<li>第一次握手：客户端发送一个SYN包，SYN=1，Seq=x，发送完毕后进入<code>SYN_SEND</code>状态</li>
-<li>第二次握手：服务器发送回发ACK+SYN包，ACK=1，SYN=1，ACKnum=x+1，Seq=y发送完毕后服务器进入<code>SYN_RCVD</code>状态</li>
-<li>第三次握手：客户端再次发送ACK包，SYN=0，ACK=1，ACKnum=y+1，发送完毕后客户端进入<code>EATABLISHED</code>状态，当服务器收到这个包之后也进入<code>ESTABLISHED</code>状态，三次握手结束</li>
-</ol>
-<p><img src="/images/protocol/tcp_three.png" alt="TCP协议的三次握手"></p>
-<h3 id="TCP断开连接的四次挥手"><a href="#TCP断开连接的四次挥手" class="headerlink" title="TCP断开连接的四次挥手"></a>TCP断开连接的四次挥手</h3><p>TCP连接的拆除需要发送4个包，称为4次挥手</p>
-<ol>
-<li>客户端发送FIN=1的包，表示已经没有数据可以发送了，发送完毕后客户端进入<code>FIN_WAIT_1</code>状态</li>
-<li>服务器收到FIN包后发送一个ACK包，表示已经收到客户端关闭连接的请求，但还没有准备好关闭连接，发送完毕后，服务器进入<code>CLOSE_WAIT</code>状态，客户端收到这个请求后，进入<code>FIN_WAIT_2</code>状态，等待服务器关闭连接</li>
-<li>服务器端准备好关闭连接，向客户端发送结束连接请求，发送FIN包和ACK包，发送完毕后，服务器进入<code>LAST_ACK</code>状态，表示等待来自客户端的最后一个ACK</li>
-<li>客户端收到服务器端的关闭请求，发送一个ACK包，并且进入<code>TIME_WAIT</code>状态，等待可能出现的要求重传的ACK包。服务器端接收到这个确认包之后，关闭连接，进入<code>CLOSED</code>状态。客户端等待某个固定的之间之后，没有收到服务器的ACK，认为服务器已经正常关闭，于是进入<code>CLOSED</code>状态。</li>
-</ol>
-<p><img src="/images/protocol/tcp_four.png" alt="TCP协议的四次挥手"></p>
-<h3 id="TCP如何保证可靠性"><a href="#TCP如何保证可靠性" class="headerlink" title="TCP如何保证可靠性"></a>TCP如何保证可靠性</h3><p>TCP连接的一个重要特点就是提供可靠的传输服务，主要来说，有以下几点措施保证传输的可靠性：</p>
-<ol>
-<li>TCP 报文段的长度可变，根据收发双方的缓存状态、网络状态而调整。</li>
-<li>当 TCP 收到发自 TCP 连接另一端的数据，它将发送一个确认。</li>
-<li>当 TCP 发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段，如果不能及时收到一个确认，将重发这个报文段。这就是稍后介绍的超时重传。</li>
-<li>TCP 将保持它首部和数据的检验和。如果通过检验和发现报文段有差错，这个报文段将被丢弃，等待超时重传。</li>
-<li>TCP 将数据按字节排序，报文段中有序号，以确保顺序的正确性。</li>
-<li>TCP 还能提供流量控制。TCP 连接的每一方都有收发缓存。TCP 的接收端只允许另一端发送接收端缓冲区所能接纳的数据。这将防止较快主机致使较慢主机的缓冲区溢出。</li>
-</ol>
-<h2 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h2><p>UDP是一个简单的<strong>传输层</strong>协议，UDP不是面向连接的，UDP传送数据前并不与对方建立连接，对接收到的数据也不发送确认信号，发送端不知道数据是否会正确接收，当然也不用重发，所以说UDP是无连接的、不可靠的一种数据传输协议。与TCP相比，有以下几个特性：</p>
-<ul>
-<li>UDP 缺乏可靠性。UDP 本身不提供确认，序列号，超时重传等机制。UDP 数据报可能在网络中被复制，被重新排序。即 UDP 不保证数据报会到达其最终目的地，也不保证各个数据报的先后顺序，也不保证每个数据报只到达一次</li>
-<li>UDP 数据报是有长度的。而 TCP 是一个字节流协议。对于TCP，发送一串数字（1，2，3，4，5），接收时有可能变成两次（1，2）和（3，4，5），或者变成任意接收方式，协议栈只保证接收顺序正确；UDP发送一个分组，接收方要么接收完全失败，要么成功整个分组都会接收到。</li>
-<li>UDP 是无连接的，TCP是面向连接的。TCP需要经过三次握手建立连接，而UDP 发送数据报之前不需要经过握手创建连接的过程。</li>
-<li>UDP 支持多播和广播。</li>
-</ul>
-<p>参考：<a href="https://hit-alibaba.github.io/interview/basic/network/TCP.html" target="_blank" rel="noopener">https://hit-alibaba.github.io/interview/basic/network/TCP.html</a></p>
-
-          
+          上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。
+点到点与端到端计算机网络中经常提到点到点和端到端，但对于这两个概念
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/15/TCP:IP协议之传输层TCP和UDP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1206,54 +974,17 @@
       
         
           
-            <p>上一篇博客介绍了网络接口层，这篇博客介绍位于网络接口层之上的网络层。重点是网络层里面的IP协议、ARP协议，RARP协议和ICMP协议等</p>
-<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p>在介绍IP协议之前，先简单介绍一下IP地址</p>
-<p>IP地址是一个32位的二进制数，一般分个成4个数字用点连接，如<code>115.156.163.222</code>，将每个数字转换成二进制数，就得到IP地址的二进制数表示形式。IP地址可被看作是分为两部分：网络号和主机号，可以分为A，B，C三类：</p>
-<ol>
-<li>A类地址：8位网络号+24位主机号</li>
-<li>B类地址：16位网络号+16位主机地址</li>
-<li>C类地址：24位网络号+8位主机号</li>
-</ol>
-<p>当然，这种分类方法是比较浪费的，因为位数太过固定。比如一个单位有500台机器，那么C类地址就不够用了，至少使用B类地址，而B类地址中同一个网络号下包含65536个IP地址，但实际用到的只有500个，造成了非常大的浪费。于是就另一种分法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IP = 网络号 + 子网号 + 主机号</span><br></pre></td></tr></table></figure>
-<p>也就是从网络号中提取出某几位当成子网号。当然，还有一种更灵活的方式：不固定网络号和主机号的位数，用一个子网掩码来确定网络号，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IP地址: 115.156.163.222</span><br><span class="line">子网掩码：255.255.255.0</span><br></pre></td></tr></table></figure>
-<p>将IP地址和子网掩码进行位与，得到的结果就是网络号，余下的位数就表示主机号。</p>
-<h3 id="私有地址与NAT技术"><a href="#私有地址与NAT技术" class="headerlink" title="私有地址与NAT技术"></a>私有地址与NAT技术</h3><p>所谓私有地址，就是在互联网上不使用，而在局域网络中使用的地址。相当于从IP地址中抽了一些出来，只在局域网中使用。比如，对于A类、B类和C类地址，其对应的私有地址范围是：</p>
-<ul>
-<li>A类：10.0.0.0—10.255.255.255</li>
-<li>B类：172.16.0.0—172.31.255.255</li>
-<li>C类：192.168.0.0—192.168.255.255</li>
-</ul>
-<p>私有地址的一个重要应用就是NAT(Network Address Translation，网络地址转换)技术。在局域网内的一些主机上可以使用私有地址，但由于私有地址只能在局域网内部使用，如果需要和因特网上的主机通信时，就需要使用NAT技术将内网使用的<strong>内网IP地址</strong>转换成可以在互联网上使用的<strong>全球IP地址</strong>，然后与因特网连接，这就实现了内网的数台主机使用了同一个全球 IP 地址在上网。在不同的内网上，都可以使用相同的私有地址，只要不同的内网对外有不同的全球IP地址即可。这有助于缓解 IP 地址空间枯竭的问题，同时实现了贷款共享。</p>
-<h2 id="IP网际协议"><a href="#IP网际协议" class="headerlink" title="IP网际协议"></a>IP网际协议</h2><p>前一篇博客中提到，以太网解决了子网内部的点对点通信，那么IP协议依靠IP地址和路由解决了多个局域网的通信问题。IP协议位于网络层，它是 TCP/IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是无连接、不可靠的数据报传送服务。</p>
-<p>所以无连接，是指IP 协议对每个数据报的处理是相互独立的。如果发送方向接收方发送了两个连续的数据报（先是 A，然后是 B），每个数据报可以选择不同的路线，因此 B 可能在 A 到达之前先到达。</p>
-<p>所谓不可靠，是指IP协议不能保证IP数据报能成功地到达目的地，它仅提供传输服务。当发生某种错误时，IP 协议会丢弃该数据报。传输的可靠性全由上层协议来提供。</p>
-<h3 id="IP路由选择"><a href="#IP路由选择" class="headerlink" title="IP路由选择"></a>IP路由选择</h3><p>如果发送方与接收方直接相连（点对点）或都在一个共享网络上（以太网），那么 IP 数据报就能直接送达。 而大多数情况则是发送方与接收方通过若干个路由器(router)连接，那么数据报就需要经过若干个路由器的转发才能送达，它是怎么选择一个合适的路径来”送货”的呢？</p>
-<p>IP 层在内存中有一个路由表，路由表存储着指向特定网络地址的路径。当收到一份数据报并进行发送时，都要对该表进行搜索：</p>
-<p>1、搜索路由表，如果能找到和目的 IP 地址完全一致的主机，则将 IP 数据报发向该主机；</p>
-<p>2、搜索路由表，如果匹配主机失败，则匹配同子网的路由器(这需要子网掩码的协助)。如果找到路由器，则将 IP 该数据报发向该路由器；</p>
-<p>3、搜索路由表，如果匹配同子网路由器失败，则匹配同网络号路由器，如果找到路由器，则将该 IP 数据报发向该路由器；</p>
-<p>4、如果以上都失败了，就搜索默认路由，如果默认路由存在，则发报；</p>
-<p>5、如果都失败了，就丢掉这个包；</p>
-<p>6、接收到数据报的路由器再按照它自己的路由表继续转发，直到数据报被转发到目的主机；</p>
-<p>7、如果在转发过程中，IP 数据报的 TTL（生命周期）已经被减为 0，则该 IP 数据报就被抛弃。TTL设定了一个初始值，每转发一次，TTL的值减1。</p>
-<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>当主机通过数据链路发送数据的时候， IP数据报会先被封装为一个数据帧 ，而 MAC地址会被添加到数据帧的报头。MAC地址是物理地址，是不变的。 ARP便是在这个过程中通过目标主机的 IP地址，查询目标主机的 MAC 地址。</p>
-<p>ARP 缓存表使用过程：</p>
-<ul>
-<li>当主机要发送一个 IP 数据报的时候，会首先查询一下自己的 ARP 缓存表；</li>
-<li>如果在 ARP 缓存表中找到对应的 MAC 地址，则将 IP 数据报封装为数据帧，把 MAC 地址放在帧首部，发送数据帧；</li>
-<li>如果查询的 IP－MAC 值对不存在，那么主机就向网络中广播发送一个 ARP 请求数据帧，ARP 请求中包含待查询 IP 地址；</li>
-<li>网络内所有收到 ARP 请求的主机查询自己的 IP 地址，如果发现自己符合条件，就回复一个 ARP 应答数据帧，其中包含自己的 MAC 地址；</li>
-<li>收到 ARP 应答后，主机将其 IP - MAC 对应信息存入自己的 ARP 缓存，然后再据此封装 IP 数据报，再发送数据帧。</li>
-</ul>
-<h2 id="RARP协议"><a href="#RARP协议" class="headerlink" title="RARP协议"></a>RARP协议</h2><p>RARP 与 ARP 是相反的关系，用于将 MAC 地址转换为 IP 地址。对应于 ARP，RARP 请求以广播方式传送，而 RARP 应答一般是单播传送的。</p>
-<p>某些设备，比如无盘机在启动时可能不知道自己的 IP 地址，它们可以将自己的 MAC 地址使用 RARP 请求广播出去，RARP 服务器就会响应并回复无盘机的 IP 地址。</p>
-<h2 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h2><p>通信过程中的发生各种问题时，ICMP 将问题反馈，通过这些信息，管理者可以对所发生的问题作出诊断，然后采取适当的措施去解决它。比如测试网络是否通畅时经常用到ping 程序，就是基于ICMP协议的工具。</p>
-<h2 id="IGMP协议"><a href="#IGMP协议" class="headerlink" title="IGMP协议"></a>IGMP协议</h2><p>IGMP 是用于管理多播组成员的一种协议，它的作用在于，让其他所有需要知道自己处于哪个多播组的主机和路由器知道自己的状态。只要某一个多播组还有一台主机，多播路由器就会把数据传输出去，这样，接受方就会通过网卡过滤功能来得到自己想要的数据。 为了知道多播组的信息，多播路由器需要定时的发送 IGMP 查询，各个多播组里面的主机要根据查询来回复自己的状态。路由器来决定有几个多播组，自己要对某一个多播组发送什么样的数据。</p>
-<p>参考资料：<a href="http://blog.csdn.net/sunansheng/article/details/52056024" target="_blank" rel="noopener">http://blog.csdn.net/sunansheng/article/details/52056024</a></p>
-
-          
+          上一篇博客介绍了网络接口层，这篇博客介绍位于网络接口层之上的网络层。重点是网络层里面的IP协议、ARP协议，RARP协议和ICMP协议等
+IP地址在介绍IP协议之前，先简单介绍一下IP地址
+IP地址是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/13/TCP:IP协议之网络层/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1421,24 +1152,16 @@
       
         
           
-            <p>上一篇博客中介绍了ISO七层模型和TCP/IP参考模型。从这篇博客开始，将从下向上依次介绍网络接口层、网络层、传输层、应用层中的主要协议。</p>
-<h2 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h2><p>网络接口层有时也可以称为链路层，它位于TCP/IP参考模型的最底层。上篇博客提到，网络接口层里面传输的数据称为帧，它是从上面开始一层层封装而来的。网络接口层的主要作用有：</p>
-<ol>
-<li>在两个网络实体之间提供数据链路的建立、维持和释放的管理</li>
-<li>在发送端从网络层拿到IP数据报后封装为帧，在接收端将帧解析为IP数据报发送给网络层</li>
-<li>控制帧的传输，包括处理传输差错、调节发送速率与接收方相匹配</li>
-</ol>
-<h3 id="控制帧的传输"><a href="#控制帧的传输" class="headerlink" title="控制帧的传输"></a>控制帧的传输</h3><h4 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h4><p>数据链路层的一个重要功能就是差错控制，主要有以下几个方面：</p>
-<h4 id="1-反馈重发"><a href="#1-反馈重发" class="headerlink" title="1. 反馈重发"></a>1. 反馈重发</h4><p>接收方通过对差错编码(奇偶校验码或 CRC 码)的检查，可以判定一帧在传输过程中是否发生了差错。一旦发现差错，一般可以采用反馈重发的方法来纠正。这就要求接受方收完一帧后，向发送方反馈一个接收是否正确的信息，使发送方据此做出是否需要重新发送的决定。发送方仅当收到接收方已正确接收的反馈信号后才能认为该帧已经正确发送完毕，否则需要重发直至正确为止。</p>
-<h4 id="2-计时器"><a href="#2-计时器" class="headerlink" title="2. 计时器"></a>2. 计时器</h4><p>如果某一帧发送出现问题，一直不能发送成功，为了避免传输过程停滞不前，通常引入计时器 (Timer) 来限定接收方发回反馈消息的时间间隔。当发送方发送一帧的同时也启动计时器，若在限定时间间隔内未能收到接收方的反馈信息，即计时器超时(Timeout)，则可认为传出的帧以出错或丢失，就要重新发送。</p>
-<h4 id="3-序号"><a href="#3-序号" class="headerlink" title="3. 序号"></a>3. 序号</h4><p>由于同一帧数据可能被重复发送多次，就可能引起接收方多次收到同一帧并将其递交给网络层的情况。为了防止这种情况，可以采用对发送的帧编号的方法，即赋予每帧一个序号，从而使接收方能从该序号来区分是新发送来的帧还是重发的帧，以此来确定要不要将接收到的帧递交给网络层。</p>
-<h4 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h4><p>在数据收发双方，会有一个缓存区，用来暂存收发的数据。由于收发双方各自使用的设备工作速率和缓冲存储空间的差异，可能出现发送方的发送能力大于接收方接收能力的现象，此时若不对发送方的发送速率做适当的限制，前面来不及接收的帧将被后面不断发送来的帧“淹没”，从而造成帧的丢失而出错。流量控制实际上是对发送方数据流量的控制，使其发送速率不超过接收方的速率。所以需要一些规则使得发送方知道在什么情况下可以接着发送下一帧，而在什么情况下必须暂停发送，以等待收到某种反馈信息后再继续发送。这就是流量控制。</p>
-<p>差错控制和流量控制不仅在网络接口层中，在其他层中也有使用，它们保证了数据传输的可靠性和稳定性。</p>
-<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><p>以太网协议是运行在网络接口层上的一种协议，是广泛应用的一种局域网技术，用来构建局域网。经常听到说以太网，其实就可以认为是运行了以太网协议的局域网。以太网解决了子网内部的点对点通信</p>
-<p>与以太网对应的还有一个IEEE802.3提供的标准，与以太网协议有所不同，主要是帧的格式上不同，实现的功能基本相同。</p>
-<p>在以太网和IEEE802.3中，都会帧的长度有效值，其最大值分别为1500字节和1492字节，称为<strong>MTU</strong>(最大传输单元)。如果一个IP数据报的长度超过了MTU，那么要拆分成两个或多个帧进行传输。前面提到，从应用层到网络接口层，每一层都要对原始数据封装一些附加信息，所以在1500字节的MTU里面，有一部分都是各层的附加信息，剩下的才是真正需要发送的数据。</p>
-
-          
+          上一篇博客中介绍了ISO七层模型和TCP/IP参考模型。从这篇博客开始，将从下向上依次介绍网络接口层、网络层、传输层、应用层中的主要协议。
+网络接口层网络接口层有时也可以称为链路层，它位于TCP/IP
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/10/TCP:IP协议之网络链路层/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1606,39 +1329,15 @@
       
         
           
-            <p>本科的时候学习计算机网络，接触过各种协议，如TCP, UDP, ARP, RARP, HTTP等等。由于课程设置的需求，当时也没有完整、系统的学习。如今在前端开发中，经常会用到HTTP协议，在搜索“HTTP协议”这个关键字的时候，总会看到各种相关的协议，于是就系统的整理了一下。</p>
-<h2 id="ISO七层模型"><a href="#ISO七层模型" class="headerlink" title="ISO七层模型"></a>ISO七层模型</h2><p>学习过计算机网络的同学都知道，计算机网络有一个非常著名的ISO七层模型，从下往上分为：</p>
-<ol>
-<li>物理层：二进制新号</li>
-<li>数据链路层：接入介质，如光纤</li>
-<li>网络层：寻址和最短路径</li>
-<li>传输层：端到端连接</li>
-<li>会话层：互联主机通信</li>
-<li>表示层：数据表示</li>
-<li>应用层：处理网络应用</li>
-</ol>
-<p>在每一层，都有对应的协议。所谓协议，就是通信双方约定的一种规则，比如A发送数据给B，约定一个规则，只要数据中遇到010100这个序列，就代表发送结束。正式这种规则，才能保证通信稳定有效的进行。</p>
-<p>HTTP是属于应用层的协议，也就是最顶层。如下图的示例，当H1向H2发送一个HTTP请求时，表面上来看好像是这个请求直接横向的从H1发送到了H2，但其实是H1要发送的数据，从上到下一层层经过处理和封装，最后经过物理通信经过传输介质发送到H2，然后再H2中再从下往上一层层解析数据，最终将H1发送的数据送到H2顶层。也就是说，对于调用者来说，是走了一条直线，如图中蓝线所示，不用关心下面的过程，而实际上是走了一条折线，如图中红线所示</p>
-<p><img src="/images/protocol/communication.jpg" alt="通信模型"></p>
-<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>ISO七层模型虽然是官方指定的标准，但是实现起来比较复杂，而且也有一些冗余的部分，实际上用的往往是另一种参考模型，称为TCP/IP参考模型。与ISO七层模型相比，TCP/IP参考模型只有四层，它们的对应关系如下图：</p>
-<p><img src="/images/protocol/tcpip_model.png" alt="TCP/IP参考模型"></p>
-<p>这四层里面，每一层都包含一些协议，TCP/IP协议就是这些协议的总称。需要注意的是，TCP/IP不是只某一个协议，而是一个协议族的总称。从下往上，包含的协议有：</p>
-<ol>
-<li>网络接口层：以太网协议</li>
-<li>网络层：IP协议，ARP协议，RARP协议，ICMP协议等</li>
-<li>传输层：TCP协议和UDP协议</li>
-<li>应用层：常见的有HTTP, FTP,DNS和TELNET协议</li>
-</ol>
-<p>与ISO七层模型一致的是，数据发送时，在发送方数据也会从上往下通过每一层，每一层都会给数据加上一些附加信息，这个过程称为<strong>封装</strong>。比如运行在TCP协议之上的HTTP协议发送了一个数据包，那么：</p>
-<ol>
-<li>从应用层的HTTP到传输层的TCP时，TCP协议会在这个数据包上附加一些信息，这个数据包在传输层中称为一个<strong>TCP段</strong></li>
-<li>从传输层的TCP到网络层的IP时，IP协议会在这个数据包上附加一些信息，这个数据包在网络层中称为一个<strong>IP数据包</strong></li>
-<li>从网络接口层层的IP到链路层的以太网协议时，又会在这个数据包头部附加一些信息，此时数据包称为<strong>帧</strong></li>
-</ol>
-<p>在接收方收到这个帧后，又会从网络接口层逐层往上，检查比去掉对应层次的附加信息，最后还原数据包，这个过程与封装的过程正好相反，称为<strong>分用</strong></p>
-<p>为什么要分层呢？这是因为计算机网络是一个极其复杂的系统，每一层都会完成具体的功能，正是通过这种分层的协作，才能保证计算机网络稳定、高效的传输。</p>
-
-          
+          本科的时候学习计算机网络，接触过各种协议，如TCP, UDP, ARP, RARP, HTTP等等。由于课程设置的需求，当时也没有完整、系统的学习。如今在前端开发中，经常会用到HTTP协议，在搜索“H
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/08/TCP:IP协议/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1806,22 +1505,16 @@
       
         
           
-            <p>上一篇博客讨论了JavaScript中的封装，这篇博客讨论JavaScript中的继承。所有的讨论基于下面的例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sayHello = function() &#123;</span><br><span class="line">    console.log(<span class="string">'say hello'</span>);</span><br><span class="line">  &#125;	</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.country = <span class="string">'China'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">Employee</span><span class="params">(_id)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.id = id</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们要让Employee来继承Person，下面分别介绍JavaScript中继承的实现方法。</p>
-<h2 id="构造函数绑定继承"><a href="#构造函数绑定继承" class="headerlink" title="构造函数绑定继承"></a>构造函数绑定继承</h2><p>这种方法直接使用call或者apply方法，在子对象构造函数中调用父对象的构造函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sayHello = function() &#123;</span><br><span class="line">	console.log(<span class="string">'say hello'</span>);</span><br><span class="line">  &#125;	</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.country = <span class="string">'China'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">Employee</span><span class="params">(_id)</span> </span>&#123;</span><br><span class="line">  Person.call(<span class="keyword">this</span>, agruments);</span><br><span class="line">  <span class="keyword">this</span>.id = _id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var Bob = <span class="keyword">new</span> Employee(<span class="number">12</span>);</span><br><span class="line">Bob.sayHello(); <span class="comment">// 'say hello'</span></span><br><span class="line">console.log(Bob.country); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></p>
-<p>在Employee构造函数中通过call方法调用了Person的构造函数，这样Employee产生的对象就继承了Person中的sayHello方法。但是，这种方法一个缺点是不能继承父对象原型中的属性和方法，比如对于Person.prototype中的country属性，Bob对象就不能继承。此外，arguments参数传递时也必须注意参数的顺序，尤其是在Person对象中也需要传入参数时。</p>
-<h2 id="利用对象实例的prototype继承"><a href="#利用对象实例的prototype继承" class="headerlink" title="利用对象实例的prototype继承"></a>利用对象实例的prototype继承</h2><p>将子对象的构造函数的prototype指向父对象的实例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sayHello = function() &#123;</span><br><span class="line">	console.log(<span class="string">'say hello'</span>);</span><br><span class="line">  &#125;	</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.country = <span class="string">'China'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">Employee</span><span class="params">(_id)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.id	= _id;</span><br><span class="line">&#125;</span><br><span class="line">Employee.prototype = <span class="keyword">new</span> Person();</span><br><span class="line">Employee.prototype.constructor = Employee;<span class="comment">// constructor修正</span></span><br><span class="line"></span><br><span class="line">var Bob = <span class="keyword">new</span> Employee(<span class="number">21</span>);</span><br><span class="line">Bob.sayHello(); <span class="comment">// 'say hello'</span></span><br><span class="line">console.log(Bob.country); <span class="comment">//'China'</span></span><br></pre></td></tr></table></figure>
-<p>这里直接将Employee类的prototype指向了Person的一个实例，所以Employee构造函数产生的对象实例中，会包括Person对象所有方法，包括原型中的方法。这里需要注意的是对于constructor属性的修正。构造函数和其原型之间是通过prototype和construcotr两个属性确定关系的：构造函数的prototye属性指向原型，原型的constructor属性指向构造函数。由于将Employee的prototype属性赋成了一个Person的实例，所以其原型被完全覆盖，此时如果不做修正，那么<code>Employee.prototype.constructor</code>其实是指向了Person构造函数，所以必须手动的将<code>Employee.prototype.constructor</code>修正为Employee。如果不做修正，虽然可以继承，但是对应关系始终是错的（如果是直接将prototype赋值一个对象，那么不需要做修正，会自动赋constructor）。</p>
-<h2 id="直接利用prototype的prototype继承"><a href="#直接利用prototype的prototype继承" class="headerlink" title="直接利用prototype的prototype继承"></a>直接利用prototype的prototype继承</h2><p>上面的方法是将实例赋值给prototype，这种方法是跳过实例化，直接将prototype赋值给prototype：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.sayHello = function() &#123;</span><br><span class="line">	console.log(<span class="string">'say hello'</span>);</span><br><span class="line">  &#125;	</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.country = <span class="string">'China'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">Employee</span><span class="params">(_id)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.id	= _id;</span><br><span class="line">&#125;</span><br><span class="line">Employee.prototype = Person.prototype;<span class="comment">// 仅有此处代码不同</span></span><br><span class="line">Employee.prototype.constructor = Employee;<span class="comment">// constructor修正</span></span><br><span class="line"></span><br><span class="line">var Bob = <span class="keyword">new</span> Employee(<span class="number">21</span>);</span><br><span class="line">Bob.sayHello(); <span class="comment">// 'say hello'</span></span><br><span class="line">console.log(Bob.country); <span class="comment">//'China'</span></span><br></pre></td></tr></table></figure>
-<p>这两种方法非常类似，只有一句代码不同，但是两者之间还是有很大差别的，差别的分析又要回到JavaScript中对象的引用原理上来。在第一个方法中，重新实例化了一个Person对象，<code>Employee.prototype</code>指向的是一个Person实例，而<code>Person.prototype</code>仍然指向其原型，所以<code>Person.prototype</code>和<code>Employee.prototype</code>其实是指向了两个不同的地方，这样带来的问题是效率要低一点，因为实例化了对象并且分配了内存。而在这种方法中，直接将原型赋给了原型，其实就没有重新分配内存，<code>Employee.prototype</code>和<code>Person.prototype</code>指向同一个对象，所以形成了一种紧耦合的关系，即修改Employee的原型时，Person的原型也会跟着改变。</p>
-<p>顺便提一下，prototype是针对函数的，<strong>所有的函数都有一个prototype属性</strong>。实例的对象引用了构造函数的prototype原型中的属性和方法，但是对象实例一般并不会直接修改构造函数的prototype中的属性和方法，除非是引用类型的属性和方法。如若这里将Bob实例的country属性改成了’America’，并不会影响到构造函数原型中的country属性，因为这样会自动给Bob实例赋一个country属性覆盖掉原型中的country属性，而不会修改prototype。但是如果country属性是一个引用类型，那么所有其他引用该属性的对象都会跟着改变。</p>
-<p>所有对象都有一个constructor属性，并且指向创建当前对象的构造函数，并且对于每个函数的prototype，这个prototype的constructor属性指向这个函数。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>继承是JavaScript中的重要内容，要弄清楚对象之间的继承关系。这里提出了三种继承的方法，实际的继承方法还有更多，在理解继承时，弄清楚原型链非常重要！</p>
-
-          
+          上一篇博客讨论了JavaScript中的封装，这篇博客讨论JavaScript中的继承。所有的讨论基于下面的例子：
+12345678910function Person() &#123;  this.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/18/JavaScript中的面向对象之继承/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1989,32 +1682,15 @@
       
         
           
-            <p>上一篇博客中，对面向对象的三大特征以及其他重要概念做了介绍，接下来将一般化的面向对象概念引入到JavaScript语言中进行探索，介绍JavaScript语言中的一些与面向对象相关的方法。首先，必须明确<strong>JavaScript并不是一门面向对象的语言</strong>，但是在JavaScript中确实有很多对象的运用，并且有很多类似于面向对象的方法。我写了三篇博客分别讨论JavaScript中的封装，继承和多态，这里首先讨论封装。</p>
-<p>在JavaScript中，相对于对象而言，封装时并没有做到数据隐藏，因为在JavaScript中对象的所有属性和方法都可以被用户访问，所以在JavaScript中经常可以看到直接修改属性值，而不是通过暴露的接口来修改属性值，如直接通过<code>person.name = &#39;Bob&#39;</code>而不是<code>person.setName(&#39;Bob&#39;)</code>。而相对于构造函数而言，只有暴露在this上的属性和方法才是外部可以直接访问的，构造函数内部直接定义的变量是不能被外部访问的。接下来分别讨论在JavaScript中构造对象的方法。</p>
-<h2 id="直接构造对象"><a href="#直接构造对象" class="headerlink" title="直接构造对象"></a>直接构造对象</h2><p>要封装一个对象，最简单的方法是直接用{}构建一个对象，当然也可以用new Object，但是使用{}更为简单。如创建一个Person对象：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var Person = &#123;</span><br><span class="line">  name: <span class="string">'Bob'</span>,</span><br><span class="line">  age: <span class="number">21</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>直接构造对象的方法简单直观，适用于简单构建对象，不需要考虑继承和复用的情况，对象的所有属性和方法都可以被外部访问。</p>
-<h2 id="工厂函数模式"><a href="#工厂函数模式" class="headerlink" title="工厂函数模式"></a>工厂函数模式</h2><p>工厂函数模式是通过一个工厂函数来创建对象。对象是key-value的集合，工厂函数里面已经指定了返回对象的key，用户使用工厂函数时只需按照约定的顺序传入对应的value值，然后工厂函数就会返回相应的对象。如下面的Person工厂函数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">(_name, _age)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: _name,</span><br><span class="line">	age: _age</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var Bob = Person(<span class="string">'Bob'</span>, <span class="number">21</span>);</span><br></pre></td></tr></table></figure>
-<p>这里工厂函数已经预定义了name和age属性，用户直接调用这个工厂函数，按照顺序传入姓名和年龄的值，那么返回的就是包含了这两个属性值的对象。</p>
-<p>这种工厂函数模式通过<strong>函数式调用</strong>的方式产生对象，在需要产生多个同类对象时用起来非常方便，但是缺点是产生的多个对象之间没有明显的关联性，而且在一般的面向对象中，也是通过new关键字这种<strong>构造函数式调用</strong>的方式产生对象。</p>
-<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>当然，在JavaScript中也有一般面向对象中的构造函数模式来封装对象。Java中的构造函数是类中定义的，与类名相同且不返回任何返回值的函数。在JavaScript中没有类的概念，但是在JavaScript中函数也是一个对象，利用这一点，构造函数就是直接定义的一个函数，如下面的Person构造函数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">(_name, _age)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = _name;</span><br><span class="line">  <span class="keyword">this</span>.age = _age;</span><br><span class="line">  <span class="keyword">this</span>.sayHello = function()&#123;</span><br><span class="line">	console.log(<span class="string">'say hello'</span>)	</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var Bob = <span class="keyword">new</span> Person(<span class="string">'Bob'</span>, <span class="number">21</span>);</span><br><span class="line">var Alice = <span class="keyword">new</span> Person(<span class="string">'Alice'</span>, <span class="number">21</span>);</span><br></pre></td></tr></table></figure>
-<p>由于函数也是一个对象，所以有this属性，直接给this的属性赋值。构造对象时，按照顺序输入属性的value值（这一点与共产函数模式是相同的），然后再加上new关键字。</p>
-<p>上面提到工厂函数模式不能体现同一个类型的多个对象之间的关联性，那么构造函数就很好的解决了这个问题。使用构造函数产生的对象都有一个constructor属性，指向构造函数，所以通过这个属性就能体现出关联性，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Bob.constructor == Alice.constructor) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>顺便提一下，还可以通过instanceof来体现对象和构造函数的联系，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bob <span class="keyword">instanceof</span> Person;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h2 id="构造函数模式的改进"><a href="#构造函数模式的改进" class="headerlink" title="构造函数模式的改进"></a>构造函数模式的改进</h2><p>构造函数模式的存在一个问题：利用构造函数模式产生的对象，每个对象都是完全新建了一个副本，这会造成内存的浪费。比如上例中的Bob和Alice对象，两者都有一个sayHello方法，这两个方法是完全相同的，但是在内存中却创建了两次，可以通过下面的代码来验证：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Bob.sayHello == Alice.sayHello) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<p>sayHello是一个函数，也是一个对象，在JavaScript中，对象都是引用。这里返回了false，说明有两个对象副本，即分别在内存中创建了两个对象，这是一种内存浪费，可以通过prototype属性来改进：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Person</span><span class="params">(_name, _age)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = _name;</span><br><span class="line">  <span class="keyword">this</span>.age = _age;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayHello = function()&#123;</span><br><span class="line">  console.log(<span class="string">'say hello'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var Bob = <span class="keyword">new</span> Person(<span class="string">'Bob'</span>, <span class="number">21</span>);</span><br><span class="line">var Alice = <span class="keyword">new</span> Person(<span class="string">'Alice'</span>, <span class="number">21</span>);</span><br></pre></td></tr></table></figure>
-<p>此时如果运行：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Bob.sayHello = Alice.sayHello) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>这里将sayHello方法放在了prototype属性中，这个构造函数的产生所有对象都直接从这里引用，所以返回true。这也说明在内存中只创建了一个副本，节省了内存空间，尤其是在需要大量产生同类对象时。在jQuery的源码中，jQuery对象的很多方法都是放在了prototype属性中，这样构造jQuery对象时就可以大量节省内存空间。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这里主要提出了三种构造对象的方法：直接构造，工厂函数，构造函数；以及一种构造函数模式的改进方法：利用prototype属性。下一篇博客讨论JavaScript中的继承。</p>
-
-          
+          上一篇博客中，对面向对象的三大特征以及其他重要概念做了介绍，接下来将一般化的面向对象概念引入到JavaScript语言中进行探索，介绍JavaScript语言中的一些与面向对象相关的方法。首先，必须明
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/13/JavaScript中的面向对象之封装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2182,68 +1858,15 @@
       
         
           
-            <p>学习前端开发以来，在JavaScript相关的书籍中总会看到对象、类、继承等关键词。JavaScript确实提供了很多对象，但是<strong>并不是一门真正的面向对象语言</strong>。但是，面向对象是一个程序员所必须了解的，而且更进一步，应当在JavaScript中运用面向对象的思想和方法。最近看了一本关于面向对象的编程书，对面向对象的概念有了更深的理解。这篇博客除了记录书中的重点内容之外，还会将面向对象的思想方法与JavaScript进行对比。</p>
-<h2 id="书本信息"><a href="#书本信息" class="headerlink" title="书本信息"></a>书本信息</h2><ul>
-<li>书名： 写给大家看的面向对象编程书（第三版）</li>
-<li>作者： [美] Matt Weisfeld</li>
-<li>出版社： 人民邮电出版社</li>
-<li>ISBN： 978-7-115-19776-4</li>
-</ul>
-<h2 id="关于面向对象"><a href="#关于面向对象" class="headerlink" title="关于面向对象"></a>关于面向对象</h2><h3 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h3><p>从最基础的概念讲起，什么是对象？对于所有的程序员来说，对于对象这个概念应当都不陌生。生活中的任何东西都可以看成是一个对象。比如，一个人可以看成是一个对象。那么对象包括什么？我的理解是对象就是一个<strong>包含多个key-value键值对的集合</strong>。这个集合中，根据value值的性质，又可以分成两个部分：属性和方法。所谓属性，就是value值是一个基本类型或者其他对象，是一个<strong>静态</strong>的部分。所谓方法，其value值是一个函数，也就是一个<strong>动态</strong>的部分。</p>
-<h3 id="面向对象与面向过程"><a href="#面向对象与面向过程" class="headerlink" title="面向对象与面向过程"></a>面向对象与面向过程</h3><p>面向过程设计，也叫结构化设计，其核心是<strong>过程</strong>，即按照过程划分。先分析出解决问题所需要的步骤，然后用函数将这些步骤一个个实现，最后按照顺序依次调用即可。在这里，属性和方法是分开的，即函数和变量没有封装。</p>
-<p>面向对象设计，其核心是<strong>功能</strong>，即按照功能划分。将解决问题所需要的功能，划分成各个对象，一个对象就类似于一个系统，这个系统提供一些同类的功能，在对象里面同时封装了属性和方法，解决问题时直接调用对应的一个或者多个对象即可。</p>
-<h2 id="关于对象的重要概念"><a href="#关于对象的重要概念" class="headerlink" title="关于对象的重要概念"></a>关于对象的重要概念</h2><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类是创建对象的模板。类本身也可以当成一个对象来看待，其中包括一些属性和方法，用类创建对象时，对象就会含有类所定义的所有方法和属性。比如下面是一个类的定义：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里定义了一个名为Person的类，类里面含有一个属性name和一个方法getName，如果要用这个类创建一个对象，那么可以用new关键字，执行代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Person p new <span class="title">Person</span><span class="params">()</span></span>;</span><br><span class="line">p.getName();</span><br></pre></td></tr></table></figure>
-<p>这里先通过new关键字创建了一个Person类型的p对象，那么这个p对象就自然有了name属性和getName方法，然后调用了这个对象的getName方法。</p>
-<h3 id="面向对象的三大基本特征"><a href="#面向对象的三大基本特征" class="headerlink" title="面向对象的三大基本特征"></a>面向对象的三大基本特征</h3><h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><p>在一个对象中，有很多属性和方法，但是这个对象并不会将所有的属性和方法都全部暴露给外部，对象只公开了用户与之交互所需要的接口，而与对象使用无关的细节则对其他对象隐藏。也就是说，封装会将很多属性和方法放在一个对象里面，但是只公开一些方法供外部调用，所有属性和其他的方法是隐藏的，用户并不可见，与此相对应的概念就是<strong>数据隐藏</strong>。</p>
-<p>上面提到，数据隐藏时要将所有的属性都设置为private（表示私有），只有一些方法才是对外公开的。那么当属性全部隐藏后，如何才能访问或者修改属性呢？都应该通过方法来实现。比如上面的例子中，name属性是隐藏的，要访问这个属性，只能通过getName这个公开的方法类实现。</p>
-<p>与封装相关的两个概念是接口和实现：</p>
-<ol>
-<li>所谓接口，是对象暴露给用户的方法，即公开的方法。对于用户来说，只要知道这个接口的返回类型、方法名和参数列表。用户就直接访问对象的接口，实现相应的功能。比如上例中的getName方法就是一个接口。</li>
-<li>所谓实现，是与接口相对应的。一个接口所完成的功能，可能需要很多复杂的操作组合而成。这些复杂的操作可能需要很多其他的方法和属性的协作，这些细节的操作也都在对象中，只是没有公开出来，这些细节就称为实现。</li>
-</ol>
-<p>在程序开发中，实现是可能改变的，比如后来程序员发现了一个更简洁的实现方法，使调用的函数个数更少，那么就会去修改这些实现的函数。但是只要保证接口不变，即返回值、方法名和参数列表不变，那么实现的改变对于用户来说是没有影响的，用户关心的仅仅是接口而已。</p>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>所谓继承，就是一个类B可以继承另一个的类A的属性和方法，类A成为<strong>超类</strong>或者<strong>父类</strong>，类B成为<strong>子类</strong>。注意，继承虽然是类与类之间的概念，但是用类创建对象时，对象也含有了类的所有属性和方法。在Java中，可以用extend关键字实现类的继承。如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> workId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这里新建的Worker类就继承了Person类，含有Person类的所有属性和方法。</p>
-<p>父类和子类的继承关系可以是多层的，即子类也可以是其他子类的父类，就如同一棵节点树一样，是一个层次结构。在这种层次结构中，越往上的类应该是越抽象的，越往下越具体，只有按照这种设计原则，才能真正将类的继承关系用好，比如Worker类继承自Person，而Worker又可以向下被maleWorker和femaleWorker类继承。上面的类越抽象，就可以被更多的类继承，但同时也会是继承关系更复杂，在实际使用中要根据实际需要来设计继承的层级关系。</p>
-<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p>在父类中定义了方法，在子类中也定义了同名的方法，那么子类的同名方法就会覆盖同名的方法。在实际使用中，往往父类只是给出了这个方法的接口，在Java中也就是abstract：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">double</span> area;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在子类Circle中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">  <span class="keyword">double</span> radius;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">	radius = r;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   	area = <span class="number">3.14</span> * (radius * radius);</span><br><span class="line">    <span class="keyword">return</span> (area);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在子类Rectangle中：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">  <span class="keyword">double</span> length;</span><br><span class="line">  <span class="keyword">double</span> width;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> l, <span class="keyword">double</span> w)</span> </span>&#123;</span><br><span class="line">	length = l;</span><br><span class="line">	width = w;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	area = length * width;</span><br><span class="line">	<span class="keyword">return</span> (area);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在父类Shape中，只给出了getArea方法的抽象定义，而在子类Circle和Rectangle中都各自实现了这个方法，并且实现的方式是不同的，这就是多态。简单的说，就是继承自同一个父类的多个子类，有同名的接口但却有不同的实现和功能。</p>
-<h3 id="面向对象的其他概念"><a href="#面向对象的其他概念" class="headerlink" title="面向对象的其他概念"></a>面向对象的其他概念</h3><p>以上介绍的三个概念：封装，继承和多态，是面向对象的三大特征。结合上面的Shape类的例子，再介绍几个其他概念。</p>
-<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>如果一个方法与所在的类同名，并且没有提供任何类型的返回参数，那么这个函数成为构造函数，比如在Rectangle类中的Rectangle函数。构造函数是初始化类创建一个对象的入口函数，它的主要功能包括三个方面：</p>
-<ol>
-<li>规定了用这个类构造一个对象时应当传入的参数列表。比如在Rectangle类中指明了double类型的l参数和w参数。要用这个类创建一个对象，就要传入这两个参数，如 <code>Rectangle rec new Rectangle(2.5, 1.3)</code>。</li>
-<li>将对象设置为稳定、安全的初始状态。如在Rectangle类中，构造函数Rectangle将传入的l参数和w参数赋给length和width变量，这样就可以确保这两个变量是有实际值的，其他方法访问时就不会报错。</li>
-<li>初始化时分配内存，即给新创建的对象分配内存。</li>
-</ol>
-<p>注意到在第一个Person类中，并没有给出构造函数，但是也可以正常的构造对象。这是因为如果在编写的类中没有明确给出构造函数，那么系统会提供一个默认的构造函数。如果这个类是继承的，那么默认的构造函数就是父类的构造函数。如果定义的类没有任何继承，那么在Java中会调用Object类的构造函数。</p>
-<h4 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h4><p>介绍重载之前要先介绍函数签名的概念：函数签名由方法名和参数列表两部分组成。所谓重载，是指同一个方法名对应的多个实现。即在一个对象内部，可能有多个名为getArea的方法，只是他们的函数签名不同，在这里其实也就是参数列表不同了，如<code>double getArea()</code>和<code>double getArea(doubel radius)</code>。同样的，重载也适用于构造函数，即可以存在多个构造函数。重载的一个好处就是允许程序员多次使用同一个方法名。</p>
-<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><p>所谓抽象类，就是不能直接被初始化的类，比如上例中的Shape类。因为Shape类中有一个<strong>抽象方法getArea</strong>，这个方法并没有实现，所以直接用new去初始化是不能正确执行的，必须要有子类实现了这个方法，才能通过new这个子类创建对象。只要包含了一个或者多个没有提供任何具体实现的方法，即抽象方法，那么这个类就是抽象类。</p>
-<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><p>这里介绍的接口与对象中的接口不同，它是抽象类一级的概念。如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Nameable</span> </span>&#123;</span><br><span class="line">  <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String aName)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接口是保证契约的有效方法。所谓契约，可以理解成接口的规范，其实就是一组抽象方法的集合，与抽象类有类似的地方。要实现一个接口，用到implements关键字：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Nameable</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">getName</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> (name)&#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(aName)</span> </span>&#123; <span class="keyword">this</span>.name = aName &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>与抽象类相比，接口的区别是：抽象类不仅可以提供抽象方法（即接口），还可以提供方法的实现，简单的理解是函数的参数列表后面带有中括号，并且通过extends关键字扩展子类再实例化对象；而接口仅仅提供抽象方法，不提供方法的实现，通过implements关键字实现。</p>
-<h4 id="与对象相关的作用域"><a href="#与对象相关的作用域" class="headerlink" title="与对象相关的作用域"></a>与对象相关的作用域</h4><p>与对象相关的作用域主要有三种：</p>
-<ol>
-<li>局部作用域：在对象中方法内部定义的变量，只有对象中的该方法内部可以访问。对象中的方法就是一个函数，这个函数就限定了一个作用域范围，这就是局部作用域，在这里定义的变量就是局部变量，是所有作用域中最小的一个。</li>
-<li>对象作用域：在对象中定义的变量，与方法的定义在同一个层级上，这里定义的变量是整个对象都可以访问的，对象的属性就可以理解成对象作用域中的变量，是对象限定的作用域范围。</li>
-<li>类作用域：在类中定义并且声名了static的变量，所有的对象都只会引用但不会重新创建这个变量的副本，这个变量在该类的所有对象中都是可以访问，这就是类所限定的作用域。如果类中没有声名static，那么所有的对象都会重新创建这个变量的副本，就是对象作用域了。</li>
-</ol>
-<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><p>某个对象由其他对象组成，而且这些对象作为对象的属性包含在内。就是属性的类型除了基本类型如String外，还有可能是一个对象类型。如汽车这个对象就有发动机、方向盘等对象组合而成。</p>
-<p>组合又可以细分成两种类型：聚集和关联，这两个概念容易混淆。聚集是由其他对象组成的复杂对象，当一个对象希望另一个对象来为它提供某个服务时则是关联。我的理解是，聚集就是最直观意义上的组合，是这个对象的成分中包含了被聚集的对象，比如计算机的机箱这个对象，会包括硬盘、显卡等对象，因为计算机的机箱对象是由这几个对象组合而成的，称为聚集。所谓关联，就是对象A中包含了对象B，当对象B并不是对象A的逻辑组成部分，只是对象B出现在对象A的属性中且为对象A服务。比如，机箱对象中，也会包含键盘对象，但键盘对象明显不是机箱对象的一部分（如果是的话那就是聚集了），只是键盘对象也在机箱对象中作为一个属性出现，因为机箱对象需要键盘对象的服务，这种关系称之为关联。</p>
-<h4 id="is-a与has-a的关系"><a href="#is-a与has-a的关系" class="headerlink" title="is-a与has-a的关系"></a>is-a与has-a的关系</h4><p>is-a关系是用来描述继承的，在类的继承中，子类跟父类是一个严格的is-a关系。如，狗这个子类继承了哺乳动物这个父类，那么狗is a哺乳动物，is-a翻译成中文就是“是一个”的意思。</p>
-<p>has-a关系是用来描述组合的。比如，汽车这个对象里面包含了发动机这个对象，那么，汽车就has a发动机，has-a翻译成中文就是“有一个”的意思。</p>
-<p>is-a和has-a被用来形象的描述继承和组合，这两种方法是面向对象程序设计中实现<strong>重用</strong>的重要机制，当然两者之间的差别也是很容易区分的。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这篇博客总结了面向对象的所有概念，是看书后的总结，下一篇博客会将这些面向对象的概念映射到JavaScript中。</p>
-
-          
+          学习前端开发以来，在JavaScript相关的书籍中总会看到对象、类、继承等关键词。JavaScript确实提供了很多对象，但是并不是一门真正的面向对象语言。但是，面向对象是一个程序员所必须了解的，而
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/11/面向对象三大基本特征及其他概念/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2411,27 +2034,15 @@
       
         
           
-            <h2 id="HTML-HTML5-XHTML和XML"><a href="#HTML-HTML5-XHTML和XML" class="headerlink" title="HTML, HTML5, XHTML和XML"></a>HTML, HTML5, XHTML和XML</h2><p>前端开发中HTML是一个基础概念，HTML5现在也基本成熟，但是也往往会听到XHTML、XML这些相关的概念。虽然现在HTML5近乎主流，弄懂这些相关概念也是很有用处的。</p>
-<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>Hyper Text Markup Language，超文本标记语言。搞前端开发的都知道，简单来说就是一个个标签，每个标签都有特定的意义。比如p标签表示段落，h1标签表示标题。HTML经历了多个版本，在HTML5出来之前，一般是HTML4.</p>
-<h3 id="XHTML"><a href="#XHTML" class="headerlink" title="XHTML"></a>XHTML</h3><p>Extensible Hyper Text Markup Language，可扩展超文本标签语言。由HTML升级而来，基本作用与HTML相似，但是语法要求上更加严格。举例来说，有以下几点区别：</p>
-<ol>
-<li>HTML不区分大小写，如<code>&lt;P&gt;</code>和<code>&lt;p&gt;</code>都可以表示p标签，而XHTML区分大小写，要求所有标签和属性都使用小写字母</li>
-<li>在HTML中，即使只写了<code>&lt;p&gt;</code>忘记了写<code>&lt;/p&gt;</code>也是可以的，而XHTML要求所有的元素都有开始标签和结束标签</li>
-<li>所有属性值都必须加上双引号</li>
-</ol>
-<p>简单来说，HTML更加自由，而XHTML严格很多。</p>
-<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>Extensible Markup Language，可扩展标记语言。在HTML和XHTML中，只能使用预定好的标签，而在XML中可以自定义标签，并且是一种跨平台的语言。通常将XML和JSON联系起来，他们可以跨平台传输。</p>
-<h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><p>HTML的新一代标准，在HTML4的基础上引入了更多的标签，比如可以通过<code>&lt;video&gt;</code>标签在网页中插入一个视频，而不再需要FLASH。HTML5目前已经得到非常好的支持。</p>
-<h2 id="DOCTYPE标签"><a href="#DOCTYPE标签" class="headerlink" title="DOCTYPE标签"></a>DOCTYPE标签</h2><p>综上所述，就HTML来说，已经至少有HTML4， XHTML和HTML5这三种标准，当然还有更细的划分。那么浏览器接收到一个HTML文件时，如何确定该使用哪一种标准来处理呢？这就需要用到<code>&lt;!DOCTYPE&gt;</code>标签。</p>
-<p><code>&lt;!DOCTYPE&gt;</code>位于HTML文档的头部，在<code>&lt;html&gt;</code>标签之前，这也说明<strong>它并不属于HTML标签</strong>。<code>&lt;!DOCTYPE&gt;</code>标签的不同值，决定了当前html文档采用的标准。比如下面的几个例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--HTML 4.01严格型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "https//www.w3.org/TR/html4/strict.dtc"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--XHTML1.0严格型--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-strict.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--html5--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span> //html5</span><br></pre></td></tr></table></figure>
-<p>需要说明的是，HTML4和XHTML的<code>&lt;!DOCTYPE&gt;</code>都引用了DTD，而HTML5不需要。这是因为HTML4.01基于 SGML，DTD规定了标记语言的规则，而 HTML 5 不基于 SGML。</p>
-<h2 id="浏览器的标准模式与怪异模式"><a href="#浏览器的标准模式与怪异模式" class="headerlink" title="浏览器的标准模式与怪异模式"></a>浏览器的标准模式与怪异模式</h2><p>上面说的都是HTML标准，很多HTML并不一定遵循标准。这是因为在HTML和CSS标准化之前，各个浏览器对于HTML和CSS的解析有着不同的实现，也就是说每个厂商都有自己的一套标准，相信学前端的同学都听说过“浏览器大战”。所以存在两种类型的HTML：符合标准的HTML和老旧的HTML。作为浏览器，是需要同时支持者两类HTML的。所以，现代的浏览器都有标注模式和怪异模式。</p>
-<p>如果使用了正确的<code>&lt;!DOCTYPE&gt;</code>，比如上面例子中的三个<code>&lt;!DOCTYPE&gt;</code>，浏览器就会启动标准模式。在标准模式下，浏览器就会按照指定的文档类型标准处理HTML文档，正确的进行解析和渲染。</p>
-<p>老旧的HTML通常是没有<code>&lt;!DOCTYPE&gt;</code>声明的。所以，对于没有文档类型声明或者文档类型声明不正确的文档，浏览器就会认为它是一个旧的HTML文档，就会使用怪异模式解析和渲染该文档。在怪异模式下，浏览器则按照旧的非标准的实现方式对文档进行解析和渲染。</p>
-<p>这样，浏览器就实现了对HTML的全面支持。</p>
-
-          
+          HTML, HTML5, XHTML和XML前端开发中HTML是一个基础概念，HTML5现在也基本成熟，但是也往往会听到XHTML、XML这些相关的概念。虽然现在HTML5近乎主流，弄懂这些相关概念也
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/28/DOCTYPE与HTML, XHTML, HTML5和XML/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2688,7 +2299,7 @@
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
 
 
 

@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '6.4.1',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -285,9 +285,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -307,6 +304,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -445,7 +445,7 @@
           
           URI，URL和URN通常大家对URL会比较熟悉，但是往往也会听到另外两个与之相关的概念：URI和URN。三者的区别如下：
 
-URI(Uniform Resource Identifier)：统一资源
+URI(Uniform Resource Identifier)：统一资源标识符，服务器上的每个资源都有一个唯一的名字，客户端可以通过名字来指出感兴趣的资源。URI可以唯一的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -462,6 +462,8 @@ URI(Uniform Resource Identifier)：统一资源
 
     
     
+    
+
     
 
     
@@ -621,7 +623,7 @@ URI(Uniform Resource Identifier)：统一资源
       
         
           
-          《代码整洁之道》主要介绍如何写出整洁、高效、易读、易维护的代码，并不局限于某种特定的语言。书中以Java为例。书中开篇有一句话我觉得很重要：later equals never。在写代码的时候，往往想
+          《代码整洁之道》主要介绍如何写出整洁、高效、易读、易维护的代码，并不局限于某种特定的语言。书中以Java为例。书中开篇有一句话我觉得很重要：later equals never。在写代码的时候，往往想着先把功能做出来就行，以后再来优化代码，但往往这个later就变成了never。所以，在写代码的时候
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -638,6 +640,8 @@ URI(Uniform Resource Identifier)：统一资源
 
     
     
+    
+
     
 
     
@@ -797,7 +801,8 @@ URI(Uniform Resource Identifier)：统一资源
       
         
           
-          Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windo
+          Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windows系统，所以都是针对windows系统下的Sublimte Text 3版本而言的。
+编辑选中如果
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -814,6 +819,8 @@ URI(Uniform Resource Identifier)：统一资源
 
     
     
+    
+
     
 
     
@@ -975,7 +982,8 @@ URI(Uniform Resource Identifier)：统一资源
           
           盒模型是前端的一个基本概念，理解盒模型对于前端布局来说至关重要。
 什么是盒模型简单来说，HTML中的任何一个DOM都可以看成是一个方块，这个方块就是所以的盒模型。如对于一个p标签：
-1&lt;p&gt
+1&lt;p&gt;Hello World!&lt;/p&gt;
+将这个标签插入到HTML中，会显示一行文字Hello
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -992,6 +1000,8 @@ URI(Uniform Resource Identifier)：统一资源
 
     
     
+    
+
     
 
     
@@ -1218,7 +1228,8 @@ URI(Uniform Resource Identifier)：统一资源
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1231,6 +1242,15 @@ URI(Uniform Resource Identifier)：统一资源
 
 
 
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
@@ -1240,7 +1260,7 @@ URI(Uniform Resource Identifier)：统一资源
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
 
 
 
@@ -1332,6 +1352,13 @@ URI(Uniform Resource Identifier)：统一资源
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
 
   
 

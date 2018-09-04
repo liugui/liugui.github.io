@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '6.4.1',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -285,9 +285,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -307,6 +304,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -431,7 +431,7 @@
       
         
           
-          应用场景我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多
+          应用场景我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多个不同的网站上。比如，公司的代码需要托管到coding上，自己的开源代码托管到GitHub上，私有代
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -448,6 +448,8 @@
 
     
     
+    
+
     
 
     
@@ -607,7 +609,9 @@
       
         
           
-          往往会对同一个HTML标签用到多种样式定义，此时如何确定样式的优先级就很重要，因为这影响到浏览器最终会应用何种样式到这个标签上。用Chrome随意打开一个页面，调出Developer Tools，都可
+          往往会对同一个HTML标签用到多种样式定义，此时如何确定样式的优先级就很重要，因为这影响到浏览器最终会应用何种样式到这个标签上。用Chrome随意打开一个页面，调出Developer Tools，都可以看到由于CSS选择器优先级导致的样式覆盖，如下图：
+
+在Styles区域，我们可以看到应用在这个d
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -624,6 +628,8 @@
 
     
     
+    
+
     
 
     
@@ -783,7 +789,7 @@
       
         
           
-          数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字
+          数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字符串，但是操作数组时情况却不同。所以，总结数组的方法时，我特别标出了那些操作会改变原数组。以下所以操
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -800,6 +806,8 @@
 
     
     
+    
+
     
 
     
@@ -959,7 +967,8 @@
       
         
           
-          在JavaScript中，字符串是一种非常重要的数据类型，JavaScript也提供了很多操作字符串的方法，这里做一个总结。需要注意的是：JavaScript中的字符串本身都是不变的，各种操作都是返回
+          在JavaScript中，字符串是一种非常重要的数据类型，JavaScript也提供了很多操作字符串的方法，这里做一个总结。需要注意的是：JavaScript中的字符串本身都是不变的，各种操作都是返回一个新的字符串，明确这一点非常重要！
+通常也会把字符串当成一个对象一样处理，所以也有构造函数、实例的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -976,6 +985,8 @@
 
     
     
+    
+
     
 
     
@@ -1135,7 +1146,7 @@
       
         
           
-          在JavaScript中，经常用到typeof, instanceof和isPrototypeOf方法来判断类型或者对象之间的关系。typeof和instanceof都是操作符，并不是函数。也就是说，
+          在JavaScript中，经常用到typeof, instanceof和isPrototypeOf方法来判断类型或者对象之间的关系。typeof和instanceof都是操作符，并不是函数。也就是说，在调用的时候，并不是像函数调用那样加上括号，而是直接当成一个操作符，如typeof a来判断变量a的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1152,6 +1163,8 @@
 
     
     
+    
+
     
 
     
@@ -1312,7 +1325,7 @@
         
           
           JavaScript中的变量分为基本类型和引用类型，基本类型有5种，分别是null, undefined, 字符串，数字，布尔型。这里分析JavaScript中基本类型之间的转换。
-1. null与u
+1. null与undefinedundefined类型的值只有一个undefined，null类型的值只有一个nul
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1329,6 +1342,8 @@
 
     
     
+    
+
     
 
     
@@ -1488,7 +1503,7 @@
       
         
           
-          我们的项目中用到了OpenSeadragon库，OpenSeadragon是一个强大的库，主要功能是实现在Web端迅速的浏览大图，并且可以流畅的进行缩放、滑动等，用户体验非常好！关于OpenSeadr
+          我们的项目中用到了OpenSeadragon库，OpenSeadragon是一个强大的库，主要功能是实现在Web端迅速的浏览大图，并且可以流畅的进行缩放、滑动等，用户体验非常好！关于OpenSeadragon，网上能找到的资料非常少，中文资料就更少之又少了。我花了很长时间去认真研究了OpenSead
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1505,6 +1520,8 @@
 
     
     
+    
+
     
 
     
@@ -1665,7 +1682,7 @@
         
           
           前两天重新给电脑装了个win10，之前存放在C盘的里面的hexo全部没有了，折腾了半天，终于恢复了hexo写博客的功能，现在记录下来，给需要的朋友备用。
-对于hexo来说，两个配置文件是最重要的，一个
+对于hexo来说，两个配置文件是最重要的，一个是hexo本身的配置文件，位于”你的hexo主目录/“下的”_config.yml”，另一个是主题的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1682,6 +1699,8 @@
 
     
     
+    
+
     
 
     
@@ -1841,7 +1860,8 @@
       
         
           
-          前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析W
+          前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析WebGL程序的基本结构，以及编写WebGL应用程序的基本流程。
+WebGL程序的基本结构WebGL程
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1858,6 +1878,8 @@
 
     
     
+    
+
     
 
     
@@ -2017,7 +2039,8 @@
       
         
           
-          WebGL中的术语在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分
+          WebGL中的术语在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分列出来。
+GPU不需要研究GPU的硬件结构和工作原理，我们只需要知道GPU是流水线结构，也就是一级一
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2034,6 +2057,8 @@
 
     
     
+    
+
     
 
     
@@ -2260,7 +2285,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -2273,6 +2299,15 @@
 
 
 
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
@@ -2282,7 +2317,7 @@
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
 
 
 
@@ -2374,6 +2409,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
 
   
 

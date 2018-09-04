@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '6.4.1',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -285,9 +285,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -307,6 +304,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -443,7 +443,7 @@
       
         
           
-          最近看到实验室其他同学在学习OpenGL，看起来非常高大上。本着个人兴趣以及项目需求，也想学习一下WebGL。学习一段时间后，顿悟WebGL之强大！虽然在目前来说，WebGL的使用还不是特别广泛，但可
+          最近看到实验室其他同学在学习OpenGL，看起来非常高大上。本着个人兴趣以及项目需求，也想学习一下WebGL。学习一段时间后，顿悟WebGL之强大！虽然在目前来说，WebGL的使用还不是特别广泛，但可以预见在将来必定有很大用途。于是想把自己的学习心得记录下来，希望有兴趣的朋友一起讨论。在学习WebG
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -460,6 +460,8 @@
 
     
     
+    
+
     
 
     
@@ -621,7 +623,7 @@
           
           前面博客介绍了应用层协议之下的各种协议，现在介绍应用层的HTTP协议，因为这个协议是前端开发中用到的最多的协议。
 DNS在介绍HTTP协议之前，先简单介绍一下DNS协议。
-DNS(Domain Nam
+DNS(Domain Name Service)提供域名服务，将域名映射到IP地址。如果没有DNS，那需要记住每个网站的IP地址
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -638,6 +640,8 @@ DNS(Domain Nam
 
     
     
+    
+
     
 
     
@@ -798,7 +802,8 @@ DNS(Domain Nam
         
           
           上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。
-点到点与端到端计算机网络中经常提到点到点和端到端，但对于这两个概念
+点到点与端到端计算机网络中经常提到点到点和端到端，但对于这两个概念很多博客上并不会单独解释，根据我查阅的资料和自己的理解，总结如下：
+点到点是物理拓扑结构，是网络层的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -815,6 +820,8 @@ DNS(Domain Nam
 
     
     
+    
+
     
 
     
@@ -976,7 +983,7 @@ DNS(Domain Nam
           
           上一篇博客介绍了网络接口层，这篇博客介绍位于网络接口层之上的网络层。重点是网络层里面的IP协议、ARP协议，RARP协议和ICMP协议等
 IP地址在介绍IP协议之前，先简单介绍一下IP地址
-IP地址是
+IP地址是一个32位的二进制数，一般分个成4个数字用点连接，如115.156.163.222，将每个数字转换成
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -993,6 +1000,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -1153,7 +1162,7 @@ IP地址是
         
           
           上一篇博客中介绍了ISO七层模型和TCP/IP参考模型。从这篇博客开始，将从下向上依次介绍网络接口层、网络层、传输层、应用层中的主要协议。
-网络接口层网络接口层有时也可以称为链路层，它位于TCP/IP
+网络接口层网络接口层有时也可以称为链路层，它位于TCP/IP参考模型的最底层。上篇博客提到，网络接口层里面传输的数据称为帧，它是从上面开始一层层封装而来的。网络
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1170,6 +1179,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -1329,7 +1340,8 @@ IP地址是
       
         
           
-          本科的时候学习计算机网络，接触过各种协议，如TCP, UDP, ARP, RARP, HTTP等等。由于课程设置的需求，当时也没有完整、系统的学习。如今在前端开发中，经常会用到HTTP协议，在搜索“H
+          本科的时候学习计算机网络，接触过各种协议，如TCP, UDP, ARP, RARP, HTTP等等。由于课程设置的需求，当时也没有完整、系统的学习。如今在前端开发中，经常会用到HTTP协议，在搜索“HTTP协议”这个关键字的时候，总会看到各种相关的协议，于是就系统的整理了一下。
+ISO七层模型学习过
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1346,6 +1358,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -1506,7 +1520,7 @@ IP地址是
         
           
           上一篇博客讨论了JavaScript中的封装，这篇博客讨论JavaScript中的继承。所有的讨论基于下面的例子：
-12345678910function Person() &#123;  this.
+12345678910function Person() &#123;  this.sayHello = function() &#123;    console.log('say h
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1523,6 +1537,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -1682,7 +1698,7 @@ IP地址是
       
         
           
-          上一篇博客中，对面向对象的三大特征以及其他重要概念做了介绍，接下来将一般化的面向对象概念引入到JavaScript语言中进行探索，介绍JavaScript语言中的一些与面向对象相关的方法。首先，必须明
+          上一篇博客中，对面向对象的三大特征以及其他重要概念做了介绍，接下来将一般化的面向对象概念引入到JavaScript语言中进行探索，介绍JavaScript语言中的一些与面向对象相关的方法。首先，必须明确JavaScript并不是一门面向对象的语言，但是在JavaScript中确实有很多对象的运用，并
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1699,6 +1715,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -1858,7 +1876,7 @@ IP地址是
       
         
           
-          学习前端开发以来，在JavaScript相关的书籍中总会看到对象、类、继承等关键词。JavaScript确实提供了很多对象，但是并不是一门真正的面向对象语言。但是，面向对象是一个程序员所必须了解的，而
+          学习前端开发以来，在JavaScript相关的书籍中总会看到对象、类、继承等关键词。JavaScript确实提供了很多对象，但是并不是一门真正的面向对象语言。但是，面向对象是一个程序员所必须了解的，而且更进一步，应当在JavaScript中运用面向对象的思想和方法。最近看了一本关于面向对象的编程书，
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1875,6 +1893,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -2034,7 +2054,8 @@ IP地址是
       
         
           
-          HTML, HTML5, XHTML和XML前端开发中HTML是一个基础概念，HTML5现在也基本成熟，但是也往往会听到XHTML、XML这些相关的概念。虽然现在HTML5近乎主流，弄懂这些相关概念也
+          HTML, HTML5, XHTML和XML前端开发中HTML是一个基础概念，HTML5现在也基本成熟，但是也往往会听到XHTML、XML这些相关的概念。虽然现在HTML5近乎主流，弄懂这些相关概念也是很有用处的。
+HTMLHyper Text Markup Language，超文本标记语言。搞前端
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2051,6 +2072,8 @@ IP地址是
 
     
     
+    
+
     
 
     
@@ -2277,7 +2300,8 @@ IP地址是
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -2290,6 +2314,15 @@ IP地址是
 
 
 
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
@@ -2299,7 +2332,7 @@ IP地址是
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
 
 
 
@@ -2391,6 +2424,13 @@ IP地址是
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
 
   
 

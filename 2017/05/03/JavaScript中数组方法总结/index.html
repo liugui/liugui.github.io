@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数组, JavaScript, javascript数组方法总结, concat, join, pop, push, reverse, shift, unshift, slice, splice, sort, every, some, filter, forEach, map, reduce, reduceRight, indexOf, lastIndexOf" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/websites/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字符串，但是操作数组时情况却不同。所以，总结数组的方法时，我特别标出了那些操作会改变原数组。以下所以操作基于数据： 12var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]; var b = [&apos;d&apos;, &apos;e">
+<meta name="keywords" content="数组, JavaScript, javascript数组方法总结, concat, join, pop, push, reverse, shift, unshift, slice, splice, sort, every, some, filter, forEach, map, reduce, reduceRight, indexOf, lastIndexOf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中数组方法总结">
+<meta property="og:url" content="http://liugui.org/2017/05/03/JavaScript中数组方法总结/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字符串，但是操作数组时情况却不同。所以，总结数组的方法时，我特别标出了那些操作会改变原数组。以下所以操作基于数据： 12var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]; var b = [&apos;d&apos;, &apos;e">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-02T07:28:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript中数组方法总结">
+<meta name="twitter:description" content="数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字符串，但是操作数组时情况却不同。所以，总结数组的方法时，我特别标出了那些操作会改变原数组。以下所以操作基于数据： 12var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]; var b = [&apos;d&apos;, &apos;e">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liugui.org/2017/05/03/JavaScript中数组方法总结/"/>
+
+
+
+
+
+  <title>JavaScript中数组方法总结 | 刘贵的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            作品
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2017/05/03/JavaScript中数组方法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript中数组方法总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-03T21:20:26+08:00">
+                2017-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字符串，但是操作数组时情况却不同。所以，总结数组的方法时，我特别标出了那些操作会改变原数组。以下所以操作基于数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]; </span><br><span class="line"><span class="keyword">var</span> b = [<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>concat：a.concat(b)：连接数组a和数组b，生成一个新的数组，并且返回新的数组，不改变原数组的值。concat接收的参数可以是数组，也可以是一个或者多个元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.concat(b)<span class="comment">//['a','b', 'c', 'd', 'e', 'f']</span></span><br><span class="line">a.concat(<span class="string">'c'</span>, <span class="string">'c'</span>)<span class="comment">// ['a', 'b', 'c', 'c', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>join：将数组中的所有元素连接成一个字符串返回，接收一个可选的参数，表示这些元素之间的分隔符，如果为空则默认用逗号连接，不会改变原数组的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.join()<span class="comment">// 'a,b,c'</span></span><br><span class="line">a.jon(<span class="string">''</span>) <span class="comment">// 'abc'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pop：删除数组的最后一个元素并返回，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.pop();<span class="comment">//c</span></span><br><span class="line">a.length<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push：向数组的末尾插入一个或多个元素，并且返回新的数组长度，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.push(<span class="string">'d'</span>)<span class="comment">//返回4，a = ['a', 'b', 'c', 'd', 'e']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reverse：颠倒数组中的元素顺序，<strong>会改变原数组</strong>，而不会返回新的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.reverse()<span class="comment">// a = ['c', 'b', 'a']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>shift：删除并返回数组的第一个元素，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.shift()<span class="comment">// 'a'</span></span><br><span class="line">a.length()<span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unshift：向数组的开头插入一个或多个元素，并且返回数组的长度，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.unshift(<span class="string">'c'</span>, <span class="string">'d'</span>)<span class="comment">// ['c', 'd', 'a', 'b', 'c']</span></span><br><span class="line">a.length = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>slice(a, b):返回数组a出开始到b出结束（不包括）的元素组成的新数组，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.slice(<span class="number">1</span>, <span class="number">2</span>)<span class="comment">// ['b']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>splice：删除并添加元素，第一个参数表示开始添加或删除的位置，第二个参数表示删除的个数，这两个参数都是必须的，从第三个参数开始表示插入的元素，返回被删除的元素，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.splice(<span class="number">1</span>,<span class="number">1</span>,<span class="string">'a'</span>);<span class="comment">//返回'b'，数组a变成['a', 'a', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sort：对数组进行排序，<strong>会改变原数组</strong>。如果不接受参数，则按照字母表进行排序（注意，此时对于数字也是按照字母表排序，而不是按照大小排序）。可以接受一个函数，函数的两个参数是数组中的两个值，将a和b进行比较，如果a小于b，希望将a小的放在前面，则返回一个负值，否则返回一个正值。一般来说，return a - b是从小到大， b - a是从大到小</p>
+</li>
+<li><p>every：对数组的每个元素进行检查，不会改变原数组。every中传入一个回调函数，参数是value和index，如果对于每一个value，回调函数都返回true，那么every返回true，只要有一个函数返回false，那么返回false。主要看回调函数的返回值，如果没有返回值，那就是返回false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.every(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>)</span>&#123;<span class="keyword">return</span> value === <span class="string">'a'</span>&#125;);<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>some：对数组的每个元素进行检查，直到找到一个回调函数返回为true的元素，如果找到了，some立即返回true，否则some返回false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.some(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>)</span>&#123;<span class="keyword">return</span> value === <span class="string">'a'</span>&#125;);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter：传入一个过滤函数，对数组的每个元素进行检查，如果使得过滤函数的返回值为true，那么将这些元素作为一个新的数组返回，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>)</span>&#123;<span class="keyword">return</span> value &gt;= <span class="string">'b'</span>&#125;)<span class="comment">//['b', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>forEach：传入一个回调函数，对数组中的每个元素都调用这个回调函数进行处理，回调函数传入三个值，value, index, 和当前的array，同时可以接受第二个参数指定this对象，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;<span class="built_in">console</span>.log(value)&#125;)<span class="comment">//'a','b', 'c'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map：传入一个回调函数，对数组中的每个元素都调用这个回调函数进行处理，并且将回调函数的返回值返回组成一个新的数组返回，回调函数传入三个值，value，index和当前的array，同时可以接受第二个参数指定this对象，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.map(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;<span class="keyword">return</span> value + <span class="string">'b'</span>&#125;)<span class="comment">//['ab', 'bb', 'cb']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reduce：对数组中的每个元素执行回调函数，并且回调函数的第一个参数是上一个元素执行回调函数的返回值，除回调函数外，第二个参数是是acc的初始值，不会改变原数组，主要用来对数组值累加处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">acc,value, index, array</span>)</span>&#123; <span class="keyword">return</span> acc + value&#125;,<span class="number">0</span>)<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reduceRight：与reduce相同，但是是从右往左执行，也不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">a.reduceRight(<span class="function"><span class="keyword">function</span>(<span class="params">acc, value, index, array</span>)</span>&#123; <span class="keyword">return</span> acc + value&#125;,<span class="number">0</span>)<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>indexOf：在数组中查找某个元素，并且返回这个元素的index，如果不存在则返回-1.接受两个参数，第一个参数是查找的元素，必选，第二个参数是开始查找的位置，可选</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.indexOf(<span class="string">'a'</span>)<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lastIndexOf：与indexOf相似，但是从后往前查找，返回最后一个元素的index</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.lastIndexOf(<span class="string">'a'</span>)<span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>toString：将数组变成字符串返回，其效果与join()不接受参数时相同</p>
+</li>
+<li><p>valueOf：返回对象的原始值</p>
+</li>
+<li><p>toLocalString：将数组转换为本地字符串</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/JavaScript中字符串方法总结/" rel="next" title="JavaScript中字符串方法总结">
+                <i class="fa fa-chevron-left"></i> JavaScript中字符串方法总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/07/CSS选择器优先级/" rel="prev" title="CSS选择器优先级">
+                CSS选择器优先级 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/websites/avatar.jpg"
+               alt="刘贵" />
+          <p class="site-author-name" itemprop="name">刘贵</p>
+           
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liugui" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2839022630" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139905"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

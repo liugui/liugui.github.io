@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="URL, URN, URI, URL URI区别, URI URL URN 区别, URL格式, 绝对URL, 相对URL, URL编码, URL解码" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/websites/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="URI，URL和URN通常大家对URL会比较熟悉，但是往往也会听到另外两个与之相关的概念：URI和URN。三者的区别如下：  URI(Uniform Resource Identifier)：统一资源标识符，服务器上的每个资源都有一个唯一的名字，客户端可以通过名字来指出感兴趣的资源。URI可以唯一的指出并且定位这个资源 URL(uniform resource locator)：统一资源定位符，描">
+<meta name="keywords" content="URL, URN, URI, URL URI区别, URI URL URN 区别, URL格式, 绝对URL, 相对URL, URL编码, URL解码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URL详解">
+<meta property="og:url" content="http://liugui.org/2015/11/05/URL详解/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="URI，URL和URN通常大家对URL会比较熟悉，但是往往也会听到另外两个与之相关的概念：URI和URN。三者的区别如下：  URI(Uniform Resource Identifier)：统一资源标识符，服务器上的每个资源都有一个唯一的名字，客户端可以通过名字来指出感兴趣的资源。URI可以唯一的指出并且定位这个资源 URL(uniform resource locator)：统一资源定位符，描">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-02T07:48:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="URL详解">
+<meta name="twitter:description" content="URI，URL和URN通常大家对URL会比较熟悉，但是往往也会听到另外两个与之相关的概念：URI和URN。三者的区别如下：  URI(Uniform Resource Identifier)：统一资源标识符，服务器上的每个资源都有一个唯一的名字，客户端可以通过名字来指出感兴趣的资源。URI可以唯一的指出并且定位这个资源 URL(uniform resource locator)：统一资源定位符，描">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liugui.org/2015/11/05/URL详解/"/>
+
+
+
+
+
+  <title>URL详解 | 刘贵的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            作品
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2015/11/05/URL详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">URL详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-05T20:28:56+08:00">
+                2015-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="URI，URL和URN"><a href="#URI，URL和URN" class="headerlink" title="URI，URL和URN"></a>URI，URL和URN</h2><p>通常大家对URL会比较熟悉，但是往往也会听到另外两个与之相关的概念：URI和URN。三者的区别如下：</p>
+<ol>
+<li>URI(Uniform Resource Identifier)：统一资源标识符，服务器上的每个资源都有一个唯一的名字，客户端可以通过名字来指出感兴趣的资源。URI可以<strong>唯一</strong>的指出并且<strong>定位</strong>这个资源</li>
+<li>URL(uniform resource locator)：统一资源定位符，描述服务器上某个特定资源的位置信息</li>
+<li>URN(Uniform Resource Names)：统一资源名称，针对某个特定资源的唯一名称，这个名称是独立的，<strong>与资源的存放位置无关。</strong>URN目前并没有被广泛采用，其中一个原因是缺少一个支持的结构来解决资源位置问题。</li>
+</ol>
+<p>通俗地说，URL和URN是URI的子集，URI属于URL更高层次的抽象，一种字符串文本标准。如今，基本上每个URI都是一个URL。</p>
+<h2 id="URL的格式"><a href="#URL的格式" class="headerlink" title="URL的格式"></a>URL的格式</h2><p>URL的一般格式，包括九个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Scheme部分：标识访问的协议，如常见的http和https。大小写不敏感，所以HTTP和http是相同的</li>
+<li>user和password：默认的user是anonymous，默认的密码根据浏览器决定。user和password用来处理获取某些资源时，需要先使用用户名和密码登录的情况。</li>
+<li>host：主机名，如<code>www.baidu.com</code></li>
+<li>port：端口名</li>
+<li>path：文件的存放路径</li>
+<li>params：params部分是键值对，中间用分号分隔，params在某些协议下用来指定输入的参数</li>
+<li>query： 位于<code>?</code>之后的查询参数，如<code>?username=liugui&amp;age=24</code>，参数之间用<code>&amp;</code>分隔</li>
+<li>frag： <code>#</code>号分隔，表示指定资源某一个片段的名字，如HTML文档的一部分。在浏览器中输入这个URL，<strong>获取的是整个资源，但是浏览器显示时定位到frag指定的这个部分。</strong>其实frag参数严格意义上来说并没有发送到服务器处理，服务器处理的是整个资源，而浏览器处理决定显示frag指定的部分，就是HTML中的锚</li>
+</ol>
+<p>常见的URL基本不会包含所有的九个部分，一般都是包含Scheme,host和path三个部分。</p>
+<h2 id="绝对URL和相对URL"><a href="#绝对URL和相对URL" class="headerlink" title="绝对URL和相对URL"></a>绝对URL和相对URL</h2><p>绝对URL还有完整的信息，而相对URL只有部分信息，必须相对于一个<strong>基址URL</strong>才能获取完整的信息。</p>
+<h3 id="相对URL的好处："><a href="#相对URL的好处：" class="headerlink" title="相对URL的好处："></a>相对URL的好处：</h3><ol>
+<li>写起来相对于绝对URL要简洁，只包含部分信息</li>
+<li>采用相对URL时，如果整个工程的目录改变，里面的链接仍然可以正常工作。</li>
+</ol>
+<h3 id="基址URL的确定："><a href="#基址URL的确定：" class="headerlink" title="基址URL的确定："></a>基址URL的确定：</h3><ol>
+<li>明确指定了基址URL，比如HTML文档中的<code>&lt;base&gt;</code>标签指定基址URL</li>
+<li>在某些资源中出现了超链接，但是未指定基址URL，那么这个超链接所在资源的URL就是基址URL。比如<code>http://example.com/home.html</code>中的超链接的基址是<code>http://example.com/home.html</code>; 注意包含后面的home.html</li>
+<li>无基址URL，此时通常是绝对URL。</li>
+</ol>
+<h2 id="浏览器的URL自动补全"><a href="#浏览器的URL自动补全" class="headerlink" title="浏览器的URL自动补全"></a>浏览器的URL自动补全</h2><p>在浏览器中输入URL时，为了方便浏览器提供自动补全功能，主要有以下两个方面：</p>
+<ol>
+<li>对URL的完整性补全，如用户输入baidu.com，那么会自动补全http://和wwww</li>
+<li>根据访问历史对URL的补全，在地址栏中输入URL的一部分时，会匹配最近访问历史URL。</li>
+</ol>
+<h2 id="URL的编码和解码"><a href="#URL的编码和解码" class="headerlink" title="URL的编码和解码"></a>URL的编码和解码</h2><p>不同的协议在编码时所用的机制可能不同，所以为了保证URL（指的是组成URL本身的字符串）能在不同的协议中传输，URL所用到的字符必须是一些通用的，安全的字符，这样就不会导致在不同系统中传递时URL的信息丢失。但是，这样就缩小了URL字符的范围。于是，为了扩展URL的字符范围以及URL中包含二进制数据，就有了URL的编码和解码机制，即将这些安全字符表以外的字符编码成安全字符来表示。</p>
+<p>编码：%号后面接两位十六进制数字来表示一个字符</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/30/代码整洁之道读书笔记/" rel="next" title="代码整洁之道读书笔记">
+                <i class="fa fa-chevron-left"></i> 代码整洁之道读书笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/28/DOCTYPE与HTML, XHTML, HTML5和XML/" rel="prev" title="DOCTYPE与HTML, XHTML, HTML5和XML">
+                DOCTYPE与HTML, XHTML, HTML5和XML <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/websites/avatar.jpg"
+               alt="刘贵" />
+          <p class="site-author-name" itemprop="name">刘贵</p>
+           
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liugui" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2839022630" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#URI，URL和URN"><span class="nav-number">1.</span> <span class="nav-text">URI，URL和URN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL的格式"><span class="nav-number">2.</span> <span class="nav-text">URL的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绝对URL和相对URL"><span class="nav-number">3.</span> <span class="nav-text">绝对URL和相对URL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相对URL的好处："><span class="nav-number">3.1.</span> <span class="nav-text">相对URL的好处：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基址URL的确定："><span class="nav-number">3.2.</span> <span class="nav-text">基址URL的确定：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的URL自动补全"><span class="nav-number">4.</span> <span class="nav-text">浏览器的URL自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL的编码和解码"><span class="nav-number">5.</span> <span class="nav-text">URL的编码和解码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139905"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

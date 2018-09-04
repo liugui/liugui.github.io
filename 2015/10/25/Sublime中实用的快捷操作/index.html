@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="sublime text 3, sublime text, sublime 快捷键" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/websites/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windows系统，所以都是针对windows系统下的Sublimte Text 3版本而言的。 编辑选中如果需要回退选中操作，可以用ctrl + u, u即undo的缩写。sublime中有两个撤销快捷键，c">
+<meta name="keywords" content="sublime text 3, sublime text, sublime 快捷键">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime中使用的快捷操作">
+<meta property="og:url" content="http://liugui.org/2015/10/25/Sublime中实用的快捷操作/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windows系统，所以都是针对windows系统下的Sublimte Text 3版本而言的。 编辑选中如果需要回退选中操作，可以用ctrl + u, u即undo的缩写。sublime中有两个撤销快捷键，c">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://liugui.org/images/sublime/column-selection.png">
+<meta property="og:updated_time" content="2017-08-02T07:34:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime中使用的快捷操作">
+<meta name="twitter:description" content="Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windows系统，所以都是针对windows系统下的Sublimte Text 3版本而言的。 编辑选中如果需要回退选中操作，可以用ctrl + u, u即undo的缩写。sublime中有两个撤销快捷键，c">
+<meta name="twitter:image" content="http://liugui.org/images/sublime/column-selection.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liugui.org/2015/10/25/Sublime中实用的快捷操作/"/>
+
+
+
+
+
+  <title>Sublime中使用的快捷操作 | 刘贵的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            作品
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2015/10/25/Sublime中实用的快捷操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Sublime中使用的快捷操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-25T14:30:35+08:00">
+                2015-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端工具/" itemprop="url" rel="index">
+                    <span itemprop="name">前端工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windows系统，所以都是针对windows系统下的Sublimte Text 3版本而言的。</p>
+<h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><h3 id="选中"><a href="#选中" class="headerlink" title="选中"></a>选中</h3><p>如果需要回退选中操作，可以用<code>ctrl + u</code>, u即undo的缩写。<br>sublime中有两个撤销快捷键，<code>ctrl + u</code> 和<code>ctrl + z</code>，区别在于，ctrl + z只会记录对代码的改动，而ctrl + u还会记录光标的选择。</p>
+<h4 id="针对多列的选中"><a href="#针对多列的选中" class="headerlink" title="针对多列的选中"></a>针对多列的选中</h4><p>鼠标操作：按住<code>shift + 鼠标右键</code>选定，如果需要多区域选定，则选定第二个区域时，按住<code>ctrl + shift + 鼠标右键</code><br>键盘操作：<code>ctrl + alt + up</code> 或者<code>ctrl + alt + down</code></p>
+<p><img src="/images/sublime/column-selection.png" alt="多列选中效果"></p>
+<h4 id="针对单词的选中"><a href="#针对单词的选中" class="headerlink" title="针对单词的选中"></a>针对单词的选中</h4><p>鼠标操作： 双击选中当前这一个单词</p>
+<p>键盘操作： </p>
+<ul>
+<li><code>ctrl + D</code>选中当前单词，再次按下<code>ctrl + D</code>选择下一个单词，</li>
+<li><code>ctrl + K</code>表示跳过这个单词，</li>
+<li><code>alt + f3</code>选中所有，注：选中与高亮不同</li>
+</ul>
+<h4 id="针对多行的选中"><a href="#针对多行的选中" class="headerlink" title="针对多行的选中"></a>针对多行的选中</h4><p>鼠标操作： 直接选中多行，如果分隔的，按住ctrl + 鼠标左键拖动</p>
+<p>键盘操作：<code>ctrl + shift + left</code>向左和<code>ctrl + shift + right</code>向右选中一行中的某个单词，一行选满后回跳到下一行</p>
+<h3 id="其他的键盘编辑操作"><a href="#其他的键盘编辑操作" class="headerlink" title="其他的键盘编辑操作"></a>其他的键盘编辑操作</h3><ul>
+<li><code>ctrl + up</code>和<code>ctrl + down</code>上下滚动</li>
+<li><code>ctrl + shift + up</code>和<code>ctrl + shift + down</code>对选中的内容<strong>所在行</strong>上下移动</li>
+<li>选中一行： <code>Ctrl + L</code></li>
+<li>交换两个字母的顺序： <code>Ctrl + T</code></li>
+</ul>
+<h2 id="搜索和替换"><a href="#搜索和替换" class="headerlink" title="搜索和替换"></a>搜索和替换</h2><p>单文件中搜索： <code>ctrl + F</code></p>
+<p>多文件中搜索: <code>ctrl + shift + F</code>（windows可能会与输入法冲突）</p>
+<p>替换：<code>ctrl + H</code></p>
+<h2 id="文件导航和文件管理"><a href="#文件导航和文件管理" class="headerlink" title="文件导航和文件管理"></a>文件导航和文件管理</h2><h3 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h3><p><code>ctrl + p</code>：在左侧栏的文件目录中搜索某个文件</p>
+<p>高级用法：</p>
+<ol>
+<li>同名的文件可能会有多个，如搜索image.js可能会显示多个文件，需要移动光标去选择自己需要的文件。一种简便的方法是，如果你记得文件的路径，可以在搜索时在文件名之前加上文件的路径，如ct/image.js便会很好的过滤搜索结果。文件路径一般不需要太长，一是太长了输入很慢，反而降低了效率，二是长了也根本记不住，一般往上写一级就可以了。</li>
+<li>搜索文件同时定位文件中具体的位置：输入文件名后，看光标选中的是自己需要的文件后，就可以在输入框加入其它搜索条件对文件中的代码做进一步搜索。如：使用<code>@</code>后输入标识符可以搜索指定的函数或者类名，使用<code>#</code>加标识符可以搜索代码中包含搜索内容的单词并且高亮显示，使用<code>:</code>加数字可以定位到具体的行，回车后与搜索相符合的区域就会显示在屏幕上。</li>
+<li>第二项中提到的功能，不仅仅是在搜索文件时，搜索文件打开之后也可以使用。如使用<code>ctrl + R</code>对应输入<code>@</code>的功能，使用<code>ctrl + ;</code>对应输入<code>#</code>的功能，使用<code>ctrl + G</code>对应输入<code>:</code>的功能。这种搜索方式与ctrl + F的不同之处在于搜索更加有针对性，而ctrl + F是搜索文件中的所有内容。</li>
+</ol>
+<h2 id="多视图"><a href="#多视图" class="headerlink" title="多视图"></a>多视图</h2><p>要在一个窗口中打开多个tab，可以使用<code>alt + shift + 1~9</code>，注意小键盘区的数字按键不起作用，必须是位于键盘第二行的数字键才起作用</p>
+<h2 id="项目文件和工作空间"><a href="#项目文件和工作空间" class="headerlink" title="项目文件和工作空间"></a>项目文件和工作空间</h2><h3 id="项目文件"><a href="#项目文件" class="headerlink" title="项目文件"></a>项目文件</h3><p>对于每一个项目，可以建立一个<code>.sublime-project为</code>后缀的json文件，文件中可以保存针对这个项目的特定配置，如设定缩进规格,布局等，这个主要为了方便不同系统下的统一。</p>
+<h3 id="工作空间"><a href="#工作空间" class="headerlink" title="工作空间"></a>工作空间</h3><p>比如在同一个网站项目中，我需要负责两个页面的开发，页面一需要打开对应的9个文件，页面二需要打开对应的另外10个文件。如果每次都要手动打开，是非常麻烦的，所以可以用到workspace。在开发页面一时打开9个文件的状态就可以用一个workspace保存，下次需要开发页面一时直接载入这个workspace，就会自动打开这些页面，无序手动一个个打开。</p>
+<p>创建：Project → New Workspace for Project</p>
+<p>保存：Project → Save Workspace As….</p>
+<p>切换：<code>ctrl + alt + p</code>或者Project-&gt;Quick Switch Project</p>
+<h2 id="快捷键设定"><a href="#快捷键设定" class="headerlink" title="快捷键设定"></a>快捷键设定</h2><p>Sublime本身提供了很多快捷键，当然用户也可以自己定义快捷键。快捷键定义的文件也是一个JSON文件，以.sublime-keymap结尾，用户可以在用户文件夹下新建Default.sublime-keymap文件覆盖默认的快捷键设置。</p>
+<h2 id="扩展Sublime-Text"><a href="#扩展Sublime-Text" class="headerlink" title="扩展Sublime Text"></a>扩展Sublime Text</h2><h3 id="宏命令"><a href="#宏命令" class="headerlink" title="宏命令"></a>宏命令</h3><p>宏命令是一个命令集合，它会自动执行一系列的命令，让操作更简单。可以打开tools-&gt;Macros查看系统提供的基本宏命令。宏命令的定义在一个以.sublime-macro结尾的JOSN文件中。</p>
+<h4 id="如何记录宏命令"><a href="#如何记录宏命令" class="headerlink" title="如何记录宏命令"></a>如何记录宏命令</h4><p>如果你需要反复的进行多个相同的操作，那么使用宏命令可以大大简便。按下<code>ctrl + q</code>开始记录，此时可以看到软件左下角有提示，然后一步一步执行操作，完成后点击<code>ctrl + q</code>保存。那么，刚刚执行的所有操作都保存在宏命令缓存区中，如果之前有其他宏命令，会被覆盖，所以这只是一种不持久化的宏命令。如果要使用，直接按<code>ctrl + shift + q</code>就可以自动执行刚刚的宏命令。</p>
+<p>如果要自定义可以保存的宏命令，需要在package中创建一个<code>.sublime-macro</code>结尾的JOSN文件，在里面写入多个命令，要执行时直接在tools-&gt;Macros里面点击即可。进一步，也可以定义快捷键执行宏文件，从而执行宏命令。</p>
+<h3 id="补全"><a href="#补全" class="headerlink" title="补全"></a>补全</h3><p>Sublime自带标识符补全的功能，补全主要是对于<strong>已经写过的内容</strong>，在后面写到时会自动弹出已经写过的内容选项列表，非常方便。自动补全有两种方法，按回车键或者Tab键。区别在于：按回车键表示当前的补全已经结束，而按Tab键之后还可以继续按多次，继续显示补全列表中下面的项。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sublime-前端工具/" rel="tag"># Sublime 前端工具</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/20/CSS盒模型里面的几个宽高问题/" rel="next" title="CSS盒模型里面的几个宽度问题">
+                <i class="fa fa-chevron-left"></i> CSS盒模型里面的几个宽度问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/30/代码整洁之道读书笔记/" rel="prev" title="代码整洁之道读书笔记">
+                代码整洁之道读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/websites/avatar.jpg"
+               alt="刘贵" />
+          <p class="site-author-name" itemprop="name">刘贵</p>
+           
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liugui" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2839022630" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑"><span class="nav-number">1.</span> <span class="nav-text">编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选中"><span class="nav-number">1.1.</span> <span class="nav-text">选中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#针对多列的选中"><span class="nav-number">1.1.1.</span> <span class="nav-text">针对多列的选中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对单词的选中"><span class="nav-number">1.1.2.</span> <span class="nav-text">针对单词的选中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对多行的选中"><span class="nav-number">1.1.3.</span> <span class="nav-text">针对多行的选中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他的键盘编辑操作"><span class="nav-number">1.2.</span> <span class="nav-text">其他的键盘编辑操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索和替换"><span class="nav-number">2.</span> <span class="nav-text">搜索和替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件导航和文件管理"><span class="nav-number">3.</span> <span class="nav-text">文件导航和文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索文件"><span class="nav-number">3.1.</span> <span class="nav-text">搜索文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多视图"><span class="nav-number">4.</span> <span class="nav-text">多视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目文件和工作空间"><span class="nav-number">5.</span> <span class="nav-text">项目文件和工作空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目文件"><span class="nav-number">5.1.</span> <span class="nav-text">项目文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作空间"><span class="nav-number">5.2.</span> <span class="nav-text">工作空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键设定"><span class="nav-number">6.</span> <span class="nav-text">快捷键设定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展Sublime-Text"><span class="nav-number">7.</span> <span class="nav-text">扩展Sublime Text</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#宏命令"><span class="nav-number">7.1.</span> <span class="nav-text">宏命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何记录宏命令"><span class="nav-number">7.1.1.</span> <span class="nav-text">如何记录宏命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补全"><span class="nav-number">7.2.</span> <span class="nav-text">补全</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139905"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

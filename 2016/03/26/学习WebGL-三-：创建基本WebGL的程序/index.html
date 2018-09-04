@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WebGL程序, shader, GLSL, 顶点着色器, 片段着色器" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/websites/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析WebGL程序的基本结构，以及编写WebGL应用程序的基本流程。 WebGL程序的基本结构WebGL程序的基本结构如下所示。为了看出整体结构，我省去了每个函数的具体代码实现，这些代码实现将在后面逐步介绍">
+<meta name="keywords" content="WebGL程序, shader, GLSL, 顶点着色器, 片段着色器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习WebGL(三)：创建基本的WebGL程序">
+<meta property="og:url" content="http://liugui.org/2016/03/26/学习WebGL-三-：创建基本WebGL的程序/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析WebGL程序的基本结构，以及编写WebGL应用程序的基本流程。 WebGL程序的基本结构WebGL程序的基本结构如下所示。为了看出整体结构，我省去了每个函数的具体代码实现，这些代码实现将在后面逐步介绍">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-02T07:50:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习WebGL(三)：创建基本的WebGL程序">
+<meta name="twitter:description" content="前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析WebGL程序的基本结构，以及编写WebGL应用程序的基本流程。 WebGL程序的基本结构WebGL程序的基本结构如下所示。为了看出整体结构，我省去了每个函数的具体代码实现，这些代码实现将在后面逐步介绍">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liugui.org/2016/03/26/学习WebGL-三-：创建基本WebGL的程序/"/>
+
+
+
+
+
+  <title>学习WebGL(三)：创建基本的WebGL程序 | 刘贵的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            作品
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/03/26/学习WebGL-三-：创建基本WebGL的程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">学习WebGL(三)：创建基本的WebGL程序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-26T20:07:48+08:00">
+                2016-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析WebGL程序的基本结构，以及编写WebGL应用程序的基本流程。</p>
+<h2 id="WebGL程序的基本结构"><a href="#WebGL程序的基本结构" class="headerlink" title="WebGL程序的基本结构"></a>WebGL程序的基本结构</h2><p>WebGL程序的基本结构如下所示。为了看出整体结构，我省去了每个函数的具体代码实现，这些代码实现将在后面逐步介绍。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;First WebGL Application&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;meta charset="utf-8"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script id="shader-vs" type="x-shader/</span>x-vertex<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        // 顶点着色器的源码</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;script id="</span>shader-fs<span class="string">" type="</span>x-shader/x-fragment<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        //片段着色器的源码</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;script type="</span>text/javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    // 定义一些全局变量</span></span><br><span class="line"><span class="string">    var gl, canvas, shaderProgram, vertexBuffer;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    function createGLContext(canvas) &#123;</span></span><br><span class="line"><span class="string">      // 创建WebGL环境</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function loadShaderFromDOM(id) &#123;</span></span><br><span class="line"><span class="string">        // 创建Shader，引入源码，并且编译链接</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function setupShaders() &#123;</span></span><br><span class="line"><span class="string">        // 创建Program，链接Shader</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function setupBuffers() &#123;</span></span><br><span class="line"><span class="string">        //设置WebGL缓存对象 </span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function draw() &#123;</span></span><br><span class="line"><span class="string">       // 绘画的主函数</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    // startup函数，负责整个流程</span></span><br><span class="line"><span class="string">    function startup() &#123;</span></span><br><span class="line"><span class="string">        canvas = document.getElementById("</span>myGLCanvas<span class="string">");</span></span><br><span class="line"><span class="string">        gl = WebGLDebugUtils.makeDebugContext(createGLContext(canvas));</span></span><br><span class="line"><span class="string">        setupShaders();</span></span><br><span class="line"><span class="string">        setupBuffers();</span></span><br><span class="line"><span class="string">        gl.clearColor(0.0, 0.0, 0.0, 1.0);// 定义初始化画布的颜色，即背景色</span></span><br><span class="line"><span class="string">        draw();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;body onload="</span>startup();<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;canvas id="</span>myGLCanvas<span class="string">" width="</span><span class="number">500</span><span class="string">" height="</span><span class="number">500</span><span class="string">"&gt;&lt;/canvas&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<p>startup()函数是程序的主函数，当页面加载完成后触发，通过它来调用各个函数，控制整体的绘画流程。下面逐步介绍。</p>
+<h3 id="创建WebGL环境"><a href="#创建WebGL环境" class="headerlink" title="创建WebGL环境"></a>创建WebGL环境</h3><p>要使用WebGL提供的API，首先要创建WebGL环境，获取WebGLRenderingContext对象。所以，在HTML代码部分，需要有一个<code>&lt;canvas&gt;</code>标签。用document.getElementById找到这个DOM对象后，调用getContext方法获取WebGLRenderingContext对象，然后将该对象保存在全局变量gl中，之后就可以通过gl来调用WebGL的API，以及访问WebGL的内置变量了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createGLContext</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> names = [<span class="string">"webgl"</span>, <span class="string">"experimental-webgl"</span>]，</span><br><span class="line">        context = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; names.length; i++) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            context = canvas.getContext(names[i]);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> (context) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (context) &#123; <span class="comment">// 设置WebGL会话窗口的大小与Canvas画布的大小一致 </span></span><br><span class="line">        context.viewportWidth = canvas.width;</span><br><span class="line">        context.viewportHeight = canvas.height;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">"Failed to create WebGL context!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> context;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在WebGL标准定稿前，使用getContext()函数输入的参数是”experimental-webgl”，在WebGL标准正式定稿之后，变成了”webgl”，为了考虑新旧浏览器的兼容性，最好将这两个参数都写出来。这里使用一个try-catch语句，只要有一个输入参数获取WebGLRenderingContext对象成功了，就使用break语句跳出。获取环境对象后，访问环境对象的viewportWidth和viewportHeight属性，这两个属性分别表示WebGL最终绘画的视口（viewport）的宽度和高度。视口就是最终在画布上绘画的区域。如果设置的宽高比与canvas的宽高比不同，则显示的时候看起来会扭曲，如果设置的大小超过了画布的大小，那么会有一部分在画布之外而无法显示。我们将视口宽高设成与canvas画布的宽高一致。最后，将这个WebGLRenderingContext对象返回给调用函数。</p>
+<h3 id="编写Shader源码"><a href="#编写Shader源码" class="headerlink" title="编写Shader源码"></a>编写Shader源码</h3><p>为了方便，将Shader的源码写在单独的<code>&lt;script&gt;&lt;/script&gt;</code>标签里面。也有另一种方法，是将shader源码以字符串形式直接写在JavaScript代码中。使用第一种方法的好处是，可以将Shader代码和JavaScript代码分开，而且避免了使用字符串编写时要用到的很多’+’号连接，提升易读性，这一点在Shader源码变得复杂时尤为明显。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=<span class="string">"shader-vs"</span> type=<span class="string">"x-shader/x-vertex"</span>&gt;<span class="comment">// 顶点着色器(vertex shader)的源码</span></span><br><span class="line">    attribute vec3 aVertexPosition; </span><br><span class="line">    <span class="keyword">void</span> main() &#123; </span><br><span class="line">        gl_Position = vec4(aVertexPosition, <span class="number">1.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script id="shader-fs" type="x-shader/</span>x-fragment<span class="string">"&gt;// 片段着色器(fragment shader)的源码</span></span><br><span class="line"><span class="string">    precision mediump float; </span></span><br><span class="line"><span class="string">    void main() &#123; </span></span><br><span class="line"><span class="string">        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); </span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;script&gt;</code>标签里面本来是用来存放JavaScript代码的，一般type值为”text/javascript”，这也是type的默认值，它告诉浏览器这里面存储的是JavaScript代码，浏览器便会执行。当type设置成了其他值时，浏览器就不会执行<code>&lt;script&gt;</code>标签里面的代码。所以，我们就可以将用GLSL ES编写的Shader的源码放在<code>&lt;script&gt;</code>标签中。WebGL中的两种着色器都有自己的结构特点、输入和输出值，分别比较如下：</p>
+<h4 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h4><p>顶点着色器的输入包括：</p>
+<ol>
+<li>vertex shader的实际源代码： 用GLSL ES设计的。因为是可编程的，所以可以输入代码</li>
+<li>attribute变量： 用户自定义的变量，包含<strong>特定于每个顶点</strong>的数据</li>
+<li>uniform变量： 用户自定义的变量，用来表示<strong>所有顶点</strong>都相同的数据，在一次绘制调用期间保持不变</li>
+</ol>
+<p>顶点着色器的输出包括：</p>
+<ol>
+<li>内置特殊变量： 以gl_开头，如gl_Position,gl_FrontFacing</li>
+<li>varying变量： 从vertex shader发送到fragment shader</li>
+</ol>
+<p>在本例的vertex shader源码中，输入只有一个attribute变量aVertextPostion，表示输入的顶点数据，vec3表示它的数据是一个三维向量，即一个顶点的三个坐标。类似的，vec4表示四维向量，mat4表示四维矩阵，mat3表示三维矩阵。这些是GLSL ES语言中规定的数据类型。前面介绍WebGL数据时提到，向量和矩阵是WebGL中经常用到的数据类型。</p>
+<p>vec3是变量的<strong>数据类型</strong>，而attribute和uniform是变量<strong>存储限定符</strong>。attribute类型的变量是普通的变量，在Shader中可以修改attribute变量的值，Shader执行时，它的值针对每个顶点可以是不同的。而uniform变量在Shader中是不可以修改的，只能读取，在一次绘制调用期间它对每个顶点的值都是相同的。</p>
+<p>varying表示定义一个可变变量，即这个变量的值是可以改变的，主要用来做颜色的<strong>自动插值计算</strong>。比如，要绘制一条线，定义线的左端顶点为红色，右端顶点为绿色，只要将这两个顶点颜色值传递给vertex shader，然后vertex shader通过一个varying变量将颜色值传递给fragment shader，那么fragment shader就可以自动的计算这条线段上其他点的颜色，使其平稳的从红色变成绿色。</p>
+<p>在变量的命名中有以下约定:</p>
+<ol>
+<li>attribute变量命名以”a”开头，如<code>attribute vec3 aVertexPosition</code></li>
+<li>uniform变量命名以”u”开头，如<code>uniform mat4 uMVMatrix</code></li>
+<li>varying变量命名以”v”开头，如<code>varying vec4 vColor</code></li>
+<li>WebGL内置变量都是以”gl_”开头的，如<code>gl_Position</code></li>
+</ol>
+<p>本例中的顶点着色器，接收用户输入的顶点数据到aVertexPostion变量，然后将三维的顶点坐标变成四维的<strong>齐次坐标</strong>，保存到gl_Position变量中，这个变量表示顶点的位置。</p>
+<h4 id="片段着色器"><a href="#片段着色器" class="headerlink" title="片段着色器"></a>片段着色器</h4><p>片段着色器的输入包括：</p>
+<ol>
+<li>shader源代码</li>
+<li>内置特殊变量</li>
+<li>用户自定义的varying变量</li>
+<li>uniform变量</li>
+<li>采样器(sampler): 特殊的uniform变量，用于<strong>纹理</strong>映射</li>
+</ol>
+<p>片段着色器的输出包括：</p>
+<ol>
+<li>内置特殊变量： gl_FragColor，表示片段的颜色。</li>
+</ol>
+<p>片段着色器最主要的作用就是根据vertex shader的处理结果，计算各个片段的颜色，输出到内置变量gl_FragColor。WebGL中的颜色用一个vec4类型表示，即一个四维向量，每个分量分别对应R,G,B,A,但是需要注意的是，每个分量的值都在[0,1]之间，它们对应[0,255]这种整数值的颜色表示，最后一位是透明度。</p>
+<p>在这个例子中，第一句<code>precision mediump float;</code>用来定义一个<strong>精度限定符</strong>，通过这个精度限定符，着色器编译器就可以知道着色器的变量或者数据类型的最小精度。在WebGL中，所有片段着色器中都必须定义浮点类型数据的精度，这里采用的<code>mediump</code>表示中等精度。</p>
+<h3 id="创建Shader"><a href="#创建Shader" class="headerlink" title="创建Shader"></a>创建Shader</h3><p>现在已经将shader的源代码写好并且放在了<code>&lt;script&gt;</code>标签中，接下来就要利用这些源代码创建Shader程序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadShaderFromDOM</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> shaderScript = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!shaderScript) &#123;<span class="comment">// 如果没有找到DOM则返回null</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> shaderSource = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> currentChild = shaderScript.firstChild;        <span class="keyword">while</span> (currentChild) &#123;</span><br><span class="line">        <span class="keyword">if</span> (currentChild.nodeType == <span class="number">3</span>) &#123; <span class="comment">// 3代表文本节点</span></span><br><span class="line">            shaderSource += currentChild.textContent;</span><br><span class="line">        &#125;</span><br><span class="line">        currentChild = currentChild.nextSibling;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> shader;</span><br><span class="line">    <span class="keyword">if</span> (shaderScript.type == <span class="string">"x-shader/x-fragment"</span>) &#123;</span><br><span class="line">        shader = gl.createShader(gl.FRAGMENT_SHADER);<span class="comment">// 创建新的vertex shader</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shaderScript.type == <span class="string">"x-shader/x-vertex"</span>) &#123;</span><br><span class="line">        shader = gl.createShader(gl.VERTEX_SHADER);<span class="comment">// 创建新的fragment shader</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    gl.shaderSource(shader, shaderSource);<span class="comment">// 将Shader源码放到Shader对象</span></span><br><span class="line">    gl.compileShader(shader);<span class="comment">// 编译Shader</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) &#123;</span><br><span class="line">        alert(gl.getShaderInfoLog(shader));</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> shader;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数的作用是：从DOM中读取源码创建Shader对象。一次执行创建一个Shader，一共可以创建两种类型的Shader。</p>
+<p>首先通过id找到这个DOM对象，这个DOM对象就是容纳Shader源码的<code>&lt;script&gt;</code>节点。用一个while循环来遍历这个对象的子节点（在本例中其实就只有一个子节点），如果子节点的nodeType属性为3，那么表示这个子节点的类型为文本节点。读取该子节点的文本内容，以字符串的形式保存在shaderSource变量中。之前提到的直接在JavaScript代码中以字符串形式编写Shader源码的方法，两种方法最后得到的结果都是相同的。</p>
+<p>现在得到了Shader源码的字符串形式，但字符串还不是一个Shader对象，于是创建一个空的Shader对象。根据在<code>&lt;script&gt;</code>标签中定义的type类型，判断要创建何种类型的Shader对象。创建Shader对象用到WebGL提供的<code>gl.createShader()</code>，这个函数接收一个参数：gl.VERTEX_SHADER表示创建顶点着色器，gl.FRAGMENT_SHADER表示创建片段着色器，创建的Shader对象作为返回值保存在shader变量中。</p>
+<p>有了新建的空Shader对象和Shader源码，就可以调用gl.shaderSource()函数，将源码引入到新建的空Shader对象中。到此为止，Shader对象创建完成。然后调用gl.compileShader()函数对Shader进行<strong>编译</strong>。因为Shader是用GLSL ES编写的，而不是JavaScript这种不需要编译的脚本语言。</p>
+<p>最后的if语句是为了检查编译是否成功，gl.getShaderParameter访问gl.COMPILE_STATUS的值，如果是true则表示编译成功，否则编译失败。</p>
+<h3 id="将Shader链接成程序"><a href="#将Shader链接成程序" class="headerlink" title="将Shader链接成程序"></a>将Shader链接成程序</h3><p>上面已经创建了Shader并且编译，但是Shader还需要经过链接以后才能执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setupShaders</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vertexShader = loadShaderFromDOM(<span class="string">"shader-vs"</span>);</span><br><span class="line">    fragmentShader = loadShaderFromDOM(<span class="string">"shader-fs"</span>);</span><br><span class="line"></span><br><span class="line">    shaderProgram = gl.createProgram();<span class="comment">// 创建一个新的空程序</span></span><br><span class="line">    gl.attachShader(shaderProgram, vertexShader);</span><br><span class="line">    gl.attachShader(shaderProgram, fragmentShader);<span class="comment">// 将两个Shader放到程序中</span></span><br><span class="line">    gl.linkProgram(shaderProgram);<span class="comment">// 将程序中的所有Shader链接</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) &#123;</span><br><span class="line">        alert(<span class="string">"Failed to setup shaders"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    gl.useProgram(shaderProgram);<span class="comment">// 指示WebGL使用这个程序</span></span><br><span class="line"></span><br><span class="line">    shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, <span class="string">"aVertexPosition"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先，两次调用上一小节介绍的loadShaderFromDOM()函数，分别得到编译好的vertex shader和fragment shader。然后调用gl.createProgram()创建一个新程序，通过gl.attachShader()函数把编译好的两个Shader放到这个新程序里面，接着调用gl.linkProgram将程序中的两个Shader<strong>链接</strong>。与检查编译状态类似，gl.getProgramParameter()函数访问gl.LINK_STATUS来检查链接是否完成。到此为止，Shader的编译和链接都已经完成了，通过gl.useProgram()指定WebGL引擎要使用这个程序绘图。最后的gl.getAttribLocation()方法用来获取通用属性索引，将在下一篇博客中详细介绍。</p>
+<h3 id="创建Buffer"><a href="#创建Buffer" class="headerlink" title="创建Buffer"></a>创建Buffer</h3><p>WebGL创建的Buffer是内存上的一块区域，它由WebGL来管理。 用户的数据都要先发送到Buffer里面，然后WebGL从Buffer中读取。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setupBuffers</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vertexBuffer = gl.createBuffer();</span><br><span class="line">    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);</span><br><span class="line">    <span class="keyword">var</span> triangleVertices = [</span><br><span class="line">        <span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">0.0</span>, </span><br><span class="line">       <span class="number">-0.5</span>, <span class="number">-0.5</span>, <span class="number">0.0</span>,</span><br><span class="line">        <span class="number">0.5</span>, <span class="number">-0.5</span>, <span class="number">0.0</span></span><br><span class="line">    ];</span><br><span class="line">    gl.bufferData(gl.ARRAY_BUFFER, <span class="keyword">new</span> <span class="built_in">Float32Array</span>(triangleVertices), gl.STATIC_DRAW);</span><br><span class="line">    vertexBuffer.itemSize = <span class="number">3</span>;</span><br><span class="line">    vertexBuffer.numberOfItems = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>gl.createBuffer()用来创建一个buffer。WebGL可以创建很多个buffer，每个buffer用来专门存放一类数据。gl.bindBuffer将新建的Buffer与Shader的中的一个<strong>目标</strong>绑定，即告诉Shader要从这个Buffer中获取什么数据。然后定义顶点数据，本例要绘制一个三角形，所以只用传入三个三维的顶点数据。gl.bufferData()将定义的数据上传到缓存中，由于缓存已经绑定了目标，所以第一个参数直接写成目标。后面的itemSize和numberOfItems属性分别表每个顶点包含的坐标数据个数（三维坐标），以及顶点的个数（三角形有三个顶点），加到buffer对象上以便后面调用。关于WebGL的buffer数据管理策略后面的博客中会有更详细的介绍。</p>
+<h3 id="绘画的主函数"><a href="#绘画的主函数" class="headerlink" title="绘画的主函数"></a>绘画的主函数</h3><p>到目前为止，已经准备好了绘画用到的WebGL程序和数据，终于可以开始绘画了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gl.viewport(<span class="number">0</span>, <span class="number">0</span>, gl.viewportWidth, gl.viewportHeight);<span class="comment">// 设置窗口大小</span></span><br><span class="line">    gl.clear(gl.COLOR_BUFFER_BIT);<span class="comment">// 重置窗口颜色</span></span><br><span class="line">    <span class="comment">// 下面这两个函数指定数据的导入格式</span></span><br><span class="line">    gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, vertexBuffer.itemSize, gl.FLOAT, <span class="literal">false</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);</span><br><span class="line">    gl.drawArrays(gl.TRIANGLES, <span class="number">0</span>, vertexBuffer.numberOfItems);<span class="comment">// 开始绘画</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>hexo<br>gl.viewport定义绘画视口的大小和位置。绘画视口是一个矩形区域，前两个参数定义了视口矩形的左下角顶点，其坐标相对于canvas画布的左下角顶点而言，后两个参数定义了矩形的宽高，以像素为单位。gl.clear()把颜色缓存清除为在下面的startup()函数中用gl.clearColor()函数定义的颜色。这相当于描绘背景色，因为后面只绘画我们定义的三角形以，也只给三角形填充颜色。gl.vertexAttribPointer()用来指定Buffer中数据的引用方法，gl.enableVertexAttribArray()用来激活通用属性索引，最后一个函数是绘画命令。</p>
+<h2 id="WebGL程序的一般步骤"><a href="#WebGL程序的一般步骤" class="headerlink" title="WebGL程序的一般步骤"></a>WebGL程序的一般步骤</h2><p>最后，我们总结WebGL程序的一般步骤：</p>
+<ol>
+<li>在HTML代码中加入一个<code>&lt;canvas&gt;</code>标签，在JavaScript代码中引用这个<code>&lt;canvas&gt;</code>标签，创建一个WebGLRenderingContext对象，这个对象包含了所有的WebGL API,一般命名为gl，即<code>gl.function()</code>的方法；</li>
+<li>用GLSL ES编写vertex shader和fragment shader的源代码；</li>
+<li>用WebGL的API，创建shader对象，然后引入vertex shader和fragment shader的源代码并且编译；</li>
+<li>用WebGL的API，创建一个程序，程序中引入编译好的shader object，然后链接这个程序，再指示WebGL如何使用这个程序对象进行绘制；</li>
+<li>设置WebGL缓存对象，并把几何对象的顶点数据载入到顶点缓存；</li>
+<li>指示WebGL，哪个缓存对应于着色器的属性，最后绘制几何对象。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客很长，介绍了WebGL程序的一般结构。可以发现，有很多代码是为了错误处理或者提高兼容性，所以使整个程序长了很多。这里介绍的有些函数在其他更高级的WebGL程序中都是通用的，如createGLContext, loadShaderFromDOM等，更复杂的功能也是在这个程序的代码上增加一些函数，或者对这里的函数做修改实现的。总之，这个简单程序的结构，是开发WebGL应用程序的基础。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WebGL/" rel="tag"># WebGL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/24/学习WebGL-二-WebGL的基本原理/" rel="next" title="学习WebGL(二): WebGL基础知识">
+                <i class="fa fa-chevron-left"></i> 学习WebGL(二): WebGL基础知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/30/重装系统后hexo写博客功能的恢复/" rel="prev" title="重装系统后hexo写博客功能的恢复">
+                重装系统后hexo写博客功能的恢复 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/websites/avatar.jpg"
+               alt="刘贵" />
+          <p class="site-author-name" itemprop="name">刘贵</p>
+           
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liugui" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2839022630" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebGL程序的基本结构"><span class="nav-number">1.</span> <span class="nav-text">WebGL程序的基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建WebGL环境"><span class="nav-number">1.1.</span> <span class="nav-text">创建WebGL环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写Shader源码"><span class="nav-number">1.2.</span> <span class="nav-text">编写Shader源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顶点着色器"><span class="nav-number">1.2.1.</span> <span class="nav-text">顶点着色器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#片段着色器"><span class="nav-number">1.2.2.</span> <span class="nav-text">片段着色器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Shader"><span class="nav-number">1.3.</span> <span class="nav-text">创建Shader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将Shader链接成程序"><span class="nav-number">1.4.</span> <span class="nav-text">将Shader链接成程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Buffer"><span class="nav-number">1.5.</span> <span class="nav-text">创建Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘画的主函数"><span class="nav-number">1.6.</span> <span class="nav-text">绘画的主函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebGL程序的一般步骤"><span class="nav-number">2.</span> <span class="nav-text">WebGL程序的一般步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139905"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

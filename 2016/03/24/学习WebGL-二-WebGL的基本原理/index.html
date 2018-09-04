@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webgl, 术语, 帧缓存, 着色器, GLSL ES, 图元装配, WebGL图形流水线, 光栅化, 逐片段操作" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/websites/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="WebGL中的术语在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分列出来。 GPU不需要研究GPU的硬件结构和工作原理，我们只需要知道GPU是流水线结构，也就是一级一级的级联结构，数据在GPU中经过一级一级的处理，每一级都会完成相应的操作。 帧缓存帧是一个单位，比如">
+<meta name="keywords" content="webgl, 术语, 帧缓存, 着色器, GLSL ES, 图元装配, WebGL图形流水线, 光栅化, 逐片段操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习WebGL(二): WebGL基础知识">
+<meta property="og:url" content="http://liugui.org/2016/03/24/学习WebGL-二-WebGL的基本原理/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="WebGL中的术语在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分列出来。 GPU不需要研究GPU的硬件结构和工作原理，我们只需要知道GPU是流水线结构，也就是一级一级的级联结构，数据在GPU中经过一级一级的处理，每一级都会完成相应的操作。 帧缓存帧是一个单位，比如">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://liugui.org/images/JavaScript/webgl-pipeline.png">
+<meta property="og:updated_time" content="2017-08-02T07:51:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习WebGL(二): WebGL基础知识">
+<meta name="twitter:description" content="WebGL中的术语在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分列出来。 GPU不需要研究GPU的硬件结构和工作原理，我们只需要知道GPU是流水线结构，也就是一级一级的级联结构，数据在GPU中经过一级一级的处理，每一级都会完成相应的操作。 帧缓存帧是一个单位，比如">
+<meta name="twitter:image" content="http://liugui.org/images/JavaScript/webgl-pipeline.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liugui.org/2016/03/24/学习WebGL-二-WebGL的基本原理/"/>
+
+
+
+
+
+  <title>学习WebGL(二): WebGL基础知识 | 刘贵的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            作品
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/03/24/学习WebGL-二-WebGL的基本原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">学习WebGL(二): WebGL基础知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-24T20:31:25+08:00">
+                2016-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="WebGL中的术语"><a href="#WebGL中的术语" class="headerlink" title="WebGL中的术语"></a>WebGL中的术语</h2><p>在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分列出来。</p>
+<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>不需要研究GPU的硬件结构和工作原理，我们只需要知道GPU是<strong>流水线结构</strong>，也就是一级一级的级联结构，数据在GPU中经过一级一级的处理，每一级都会完成相应的操作。</p>
+<h3 id="帧缓存"><a href="#帧缓存" class="headerlink" title="帧缓存"></a>帧缓存</h3><p>帧是一个单位，比如电影就是由很多帧画面连续变换组成。WebGL在浏览器上的一次完整的绘画就产生一帧图像，如果要产生动画效果那就是在一秒钟内快速的进行多次绘画。打开这个<a href="http://webglsamples.org/aquarium/aquarium.html" target="_blank" rel="noopener">例子</a>，可以看到左上角有一个fps数据，这个fps就是帧率，即一秒钟WebGL绘画的次数，fps越高，动画效果越流畅，表明电脑的GPU性能越好。帧缓存就是一个存储器，它保存了最终显示在屏幕上的一帧图像的<strong>全部信息</strong>。我们绘制图形的第一部是传入数据，数据经过GPU流水线的处理之后，最终到达帧缓存，然后只要访问帧缓存中的数据就可以将图像完整的绘制出来。帧缓存通常至少由以下三个子缓存组成：</p>
+<ol>
+<li>颜色缓存(color buffer): 一帧图像是由很多个像素点组成的，图像的信息也就是每个像素点的信息，颜色缓存中保存了每个像素点的颜色信息。</li>
+<li>Z-缓存（Z-buffer）： 绘图是在平面上绘图，但绘图的对象是立体的，就像拍照一样，总会有些物体被遮挡住，Z-缓存就是提供这些信息的，根绝这些信息，WebGL不用绘制那些被遮挡的点，它存储的信息就相当于CSS中的z-index属性。</li>
+<li>模板缓存（stencil buffer）:  可以用来控制在颜色缓存的某个位置写入操作，一个实际应用的示例是用它来处理阴影。</li>
+</ol>
+<h3 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h3><p>着色器（Shader）是用户编写的，经过编译和链接后在GPU上运行的程序，它是WebGL最核心的部分。WebGL有两个着色器，分别是顶点着色器(vertex shader)和片段着色器（fragment shader），着色器是用GLSL ES语言编写的，每个着色器的具体功能会在后面介绍。</p>
+<h3 id="GLSL-ES"><a href="#GLSL-ES" class="headerlink" title="GLSL ES"></a>GLSL ES</h3><p>OpenGL用来编写着色器的语言是GLSL（OpenGL Shading Language），OpenGL ES用来编写着色器的语言是GLSL ES，由于WebGL是基于OpenGL ES 2.0的，所以WebGL也是使用GLSL ES，这是一种类C风格的编程语言。如果需要深入学习这门语言，可以参考<a href="https://www.khronos.org/files/opengles_shading_language.pdf" target="_blank" rel="noopener">这里的官方文档</a>。在博客中没有对这门语言做专门的介绍，但是在用到的地方都会有详细说明。</p>
+<h2 id="WebGL中的数据"><a href="#WebGL中的数据" class="headerlink" title="WebGL中的数据"></a>WebGL中的数据</h2><p>WebGL中的数据需要用到一些矩阵论的知识，主要是矩阵和向量。</p>
+<h3 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h3><p>在三维空间中，向量是没有位置的，只有长度和方向。正因如此，(1,2,1)既可以表示三维空间中的一个点，也可以表示三维空间中的一个向量。所以如果只给定(1,2,1)这个数据，很难判断是点还是向量。使用齐次坐标可以解决这个问题。齐次坐标是用四维坐标数据来表示三维空间中的点和向量。三维空间中的点(x1,y1,z1)，用齐次坐标就可以表示成(x2,y2,z2,w)，其中x1 = x2/w, y1 = y2/w, z1 = z2/w。由于w的取值不唯一，所以同一点的齐次坐标有多种形式，如(1,2,1)的齐次坐标既可以是(2,4,2)，又可以是(3,6,3)。如果w=0，那么这个齐次坐标表示的就是矢量，否则这个齐次坐标表示的就是一个点，这样就有了明确的区分。</p>
+<p>在JavaScript中，坐标使用数组表示，如点(1,2,1)和点(0,1,0)表示成[1,2,1,0,1,0]。对于表示坐标每三个数组元素，我们不妨统一看成是一个向量。使用齐次坐标的另一个更重要的好处是将三维向量变成了四维向量，由于在WebGL中用到的矩阵基本都是四维的，所以将矩阵和向量计算时就非常方便，因为矩阵和向量的运算对于维数是有严格要求的。</p>
+<h3 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h3><p>WebGL中的坐标变换包括三种类型：平移，缩放和旋转，这三种变换都可以用与矩阵的相乘来表示，相乘的矩阵称为变换矩阵，一般都是一个4*4的方阵。为了方便在JavaScript进行矩阵运算，会用到一些JavaScript库。我在学习WebGL时用的是<a href="http://glmatrix.net/" target="_blank" rel="noopener">glMatrix</a>，它是专门为了WebGL设计的基于JavaScript的矩阵运算库，比一些通用的矩阵运算库用起来要方便很多。</p>
+<h3 id="输入到WebGL的数据"><a href="#输入到WebGL的数据" class="headerlink" title="输入到WebGL的数据"></a>输入到WebGL的数据</h3><p>用户输入到WebGL的主要是顶点数据。比如，现在要用WebGL绘制一个立方体，那么用户需要输入这个立方体八个顶点的坐标，用户定义坐标时可以用三维的，在WebGL中会自动扩展成四维的其次坐标。WebGL会根据用户输入的顶点数据，自动连接成一个立方体。</p>
+<h2 id="WebGL图形流水线"><a href="#WebGL图形流水线" class="headerlink" title="WebGL图形流水线"></a>WebGL图形流水线</h2><p>由于GPU是流水线结构的，所以WebGL在处理绘图时也是流水线结构，从输入数据开始，经过流水线每个阶段的处理，到最后生成图像信息绘制在屏幕上。一个WebGL程序的组成包括：</p>
+<ol>
+<li>HTML，CSS和JavaScript： 与HTML相关的主要是<code>&lt;canvas&gt;</code>标签和<code>&lt;script&gt;</code>标签，CSS定义样式，JavaScript负责着色器以外部分的编程</li>
+<li>着色器代码： 用GLSL ES编写的vertex shader和fragment shader</li>
+<li>3D或2D对象的数据： 即用户输入的数据</li>
+</ol>
+<p>WebGL流水线的总体结构图如下所示：</p>
+<p><img src="/images/JavaScript/webgl-pipeline.png" alt="WebGL图形流水线的总体结构"></p>
+<p>接下来逐步分析WebGL图形流水线的各个阶段。</p>
+<h3 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h3><p>用户输入到WebGL的，是顶点数据，顶点着色器就是对这些顶点数据进行处理的。比如，对用户输入的顶点数据进行变换，将用户输入的三维坐标自动扩展成四维的齐次坐标，顶点着色器还可以改变各个顶点的位置，进而影响最后绘制出来的几何对象的大小和位置。</p>
+<h3 id="图元装配-primitive-assembly"><a href="#图元装配-primitive-assembly" class="headerlink" title="图元装配(primitive assembly)"></a>图元装配(primitive assembly)</h3><p>所谓图元(primitive)，是WebGL绘图的一些基本单元。WebGL中的图元有三种：点、线和三角形，其他的复杂图形都是由这三种基本图元组合而成的，如绘制一个矩阵，就可以通过绘制两个三角形组合而成。图元装配就是将经过顶点着色器处理后的顶点，装配成基本图元。装配的图元最后不一定都会显示出来，显示区域也是由用户自定义的，比如只显示一个立方体的右上角顶点。对于在显示区域外的图元则要被抛弃，一部分在显示区域内另一部分在显示区域外的图元则要被剪裁掉。</p>
+<h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><p>光栅化的作用就是将图元转换成片段(fragment)，一个片段最后对应的就是屏幕上的一个像素点。</p>
+<h3 id="片段着色器"><a href="#片段着色器" class="headerlink" title="片段着色器"></a>片段着色器</h3><p>片段着色器(fragment shader)就是处理光栅化之后处理片段的，它给片段加上颜色信息。</p>
+<h3 id="逐片段操作"><a href="#逐片段操作" class="headerlink" title="逐片段操作"></a>逐片段操作</h3><p>在fragment shader之后，对每一个片段都要进行一些操作，包括：</p>
+<ol>
+<li>裁剪测试：测试决定片段是否位于剪裁矩形中，剪裁矩形可以理解成因为用户自定义显示区域而决定的矩形，剪裁矩形外的片段被抛弃。</li>
+<li>多重采样片段操作：修改片段的alpha值和覆盖值，是抗锯齿的一个措施。所谓抗锯齿，是指让两点之间的连线看起来尽量光滑，而不是有很多锯齿。</li>
+<li>深度缓存测试： 根据Z-缓存的值丢弃输入的部分片段，即被覆盖的片段不会传到绘制缓存（可以将绘制缓存理解成上面提到的帧缓存）。</li>
+<li>融合：把传入片段的颜色与已经在颜色缓存中相应位置片段的颜色进行组合。创建透明对象时需要使用融合技术。</li>
+<li>抖动：抖动用来以某种方式排列颜色，得到比实际颜色数更多的颜色。当颜色缓存可用的颜色数有限时，抖动就非常有用。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客对WebGL中常用的术语以及WebGL中用到的数据做了介绍。WebGL中的这些术语与OpenGL是非常相似的，甚至是通用的。WebGL流水线相对复杂，但是理解其大致过程，对于编写WebGL程序也是很有帮助的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WebGL/" rel="tag"># WebGL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/22/学习WebGL-一-：什么是WebGL/" rel="next" title="学习WebGL(一)：什么是WebGL">
+                <i class="fa fa-chevron-left"></i> 学习WebGL(一)：什么是WebGL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/26/学习WebGL-三-：创建基本WebGL的程序/" rel="prev" title="学习WebGL(三)：创建基本的WebGL程序">
+                学习WebGL(三)：创建基本的WebGL程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/websites/avatar.jpg"
+               alt="刘贵" />
+          <p class="site-author-name" itemprop="name">刘贵</p>
+           
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liugui" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2839022630" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebGL中的术语"><span class="nav-number">1.</span> <span class="nav-text">WebGL中的术语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GPU"><span class="nav-number">1.1.</span> <span class="nav-text">GPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帧缓存"><span class="nav-number">1.2.</span> <span class="nav-text">帧缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#着色器"><span class="nav-number">1.3.</span> <span class="nav-text">着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GLSL-ES"><span class="nav-number">1.4.</span> <span class="nav-text">GLSL ES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebGL中的数据"><span class="nav-number">2.</span> <span class="nav-text">WebGL中的数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#齐次坐标"><span class="nav-number">2.1.</span> <span class="nav-text">齐次坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标变换"><span class="nav-number">2.2.</span> <span class="nav-text">坐标变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入到WebGL的数据"><span class="nav-number">2.3.</span> <span class="nav-text">输入到WebGL的数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebGL图形流水线"><span class="nav-number">3.</span> <span class="nav-text">WebGL图形流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶点着色器"><span class="nav-number">3.1.</span> <span class="nav-text">顶点着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图元装配-primitive-assembly"><span class="nav-number">3.2.</span> <span class="nav-text">图元装配(primitive assembly)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光栅化"><span class="nav-number">3.3.</span> <span class="nav-text">光栅化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#片段着色器"><span class="nav-number">3.4.</span> <span class="nav-text">片段着色器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逐片段操作"><span class="nav-number">3.5.</span> <span class="nav-text">逐片段操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2139905"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

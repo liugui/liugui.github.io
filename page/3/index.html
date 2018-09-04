@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="路漫漫其修远兮，吾将上下而求索">
+<meta name="keywords" content="HTML, CSS, css3，JavaScript，OpenSeadragon, backbone，Nodejs，jQuery，Web前端">
+<meta property="og:type" content="website">
+<meta property="og:title" content="刘贵的博客">
+<meta property="og:url" content="http://liugui.org/page/3/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="路漫漫其修远兮，吾将上下而求索">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="刘贵的博客">
+<meta name="twitter:description" content="路漫漫其修远兮，吾将上下而求索">
+
+
+
+
+
+
+  <link rel="canonical" href="http://liugui.org/page/3/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>刘贵的博客</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-works">
+    <a href="/works/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />works</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2015/11/05/URL详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/05/URL详解/" itemprop="url">
+                  URL详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-11-05 20:28:56" itemprop="dateCreated datePublished" datetime="2015-11-05T20:28:56+08:00">2015-11-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:48:43" itemprop="dateModified" datetime="2017-08-02T15:48:43+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="URI，URL和URN"><a href="#URI，URL和URN" class="headerlink" title="URI，URL和URN"></a>URI，URL和URN</h2><p>通常大家对URL会比较熟悉，但是往往也会听到另外两个与之相关的概念：URI和URN。三者的区别如下：</p>
+<ol>
+<li>URI(Uniform Resource Identifier)：统一资源标识符，服务器上的每个资源都有一个唯一的名字，客户端可以通过名字来指出感兴趣的资源。URI可以<strong>唯一</strong>的指出并且<strong>定位</strong>这个资源</li>
+<li>URL(uniform resource locator)：统一资源定位符，描述服务器上某个特定资源的位置信息</li>
+<li>URN(Uniform Resource Names)：统一资源名称，针对某个特定资源的唯一名称，这个名称是独立的，<strong>与资源的存放位置无关。</strong>URN目前并没有被广泛采用，其中一个原因是缺少一个支持的结构来解决资源位置问题。</li>
+</ol>
+<p>通俗地说，URL和URN是URI的子集，URI属于URL更高层次的抽象，一种字符串文本标准。如今，基本上每个URI都是一个URL。</p>
+<h2 id="URL的格式"><a href="#URL的格式" class="headerlink" title="URL的格式"></a>URL的格式</h2><p>URL的一般格式，包括九个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Scheme部分：标识访问的协议，如常见的http和https。大小写不敏感，所以HTTP和http是相同的</li>
+<li>user和password：默认的user是anonymous，默认的密码根据浏览器决定。user和password用来处理获取某些资源时，需要先使用用户名和密码登录的情况。</li>
+<li>host：主机名，如<code>www.baidu.com</code></li>
+<li>port：端口名</li>
+<li>path：文件的存放路径</li>
+<li>params：params部分是键值对，中间用分号分隔，params在某些协议下用来指定输入的参数</li>
+<li>query： 位于<code>?</code>之后的查询参数，如<code>?username=liugui&amp;age=24</code>，参数之间用<code>&amp;</code>分隔</li>
+<li>frag： <code>#</code>号分隔，表示指定资源某一个片段的名字，如HTML文档的一部分。在浏览器中输入这个URL，<strong>获取的是整个资源，但是浏览器显示时定位到frag指定的这个部分。</strong>其实frag参数严格意义上来说并没有发送到服务器处理，服务器处理的是整个资源，而浏览器处理决定显示frag指定的部分，就是HTML中的锚</li>
+</ol>
+<p>常见的URL基本不会包含所有的九个部分，一般都是包含Scheme,host和path三个部分。</p>
+<h2 id="绝对URL和相对URL"><a href="#绝对URL和相对URL" class="headerlink" title="绝对URL和相对URL"></a>绝对URL和相对URL</h2><p>绝对URL还有完整的信息，而相对URL只有部分信息，必须相对于一个<strong>基址URL</strong>才能获取完整的信息。</p>
+<h3 id="相对URL的好处："><a href="#相对URL的好处：" class="headerlink" title="相对URL的好处："></a>相对URL的好处：</h3><ol>
+<li>写起来相对于绝对URL要简洁，只包含部分信息</li>
+<li>采用相对URL时，如果整个工程的目录改变，里面的链接仍然可以正常工作。</li>
+</ol>
+<h3 id="基址URL的确定："><a href="#基址URL的确定：" class="headerlink" title="基址URL的确定："></a>基址URL的确定：</h3><ol>
+<li>明确指定了基址URL，比如HTML文档中的<code>&lt;base&gt;</code>标签指定基址URL</li>
+<li>在某些资源中出现了超链接，但是未指定基址URL，那么这个超链接所在资源的URL就是基址URL。比如<code>http://example.com/home.html</code>中的超链接的基址是<code>http://example.com/home.html</code>; 注意包含后面的home.html</li>
+<li>无基址URL，此时通常是绝对URL。</li>
+</ol>
+<h2 id="浏览器的URL自动补全"><a href="#浏览器的URL自动补全" class="headerlink" title="浏览器的URL自动补全"></a>浏览器的URL自动补全</h2><p>在浏览器中输入URL时，为了方便浏览器提供自动补全功能，主要有以下两个方面：</p>
+<ol>
+<li>对URL的完整性补全，如用户输入baidu.com，那么会自动补全http://和wwww</li>
+<li>根据访问历史对URL的补全，在地址栏中输入URL的一部分时，会匹配最近访问历史URL。</li>
+</ol>
+<h2 id="URL的编码和解码"><a href="#URL的编码和解码" class="headerlink" title="URL的编码和解码"></a>URL的编码和解码</h2><p>不同的协议在编码时所用的机制可能不同，所以为了保证URL（指的是组成URL本身的字符串）能在不同的协议中传输，URL所用到的字符必须是一些通用的，安全的字符，这样就不会导致在不同系统中传递时URL的信息丢失。但是，这样就缩小了URL字符的范围。于是，为了扩展URL的字符范围以及URL中包含二进制数据，就有了URL的编码和解码机制，即将这些安全字符表以外的字符编码成安全字符来表示。</p>
+<p>编码：%号后面接两位十六进制数字来表示一个字符</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2015/10/30/代码整洁之道读书笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/30/代码整洁之道读书笔记/" itemprop="url">
+                  代码整洁之道读书笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-30 18:31:45" itemprop="dateCreated datePublished" datetime="2015-10-30T18:31:45+08:00">2015-10-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:49:06" itemprop="dateModified" datetime="2017-08-02T15:49:06+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>《代码整洁之道》主要介绍如何写出整洁、高效、易读、易维护的代码，并不局限于某种特定的语言。书中以Java为例。书中开篇有一句话我觉得很重要：later equals never。在写代码的时候，往往想着先把功能做出来就行，以后再来优化代码，但往往这个later就变成了never。所以，在写代码的时候就应该要追求代码质量。</p>
+<h2 id="标识符命名：有意义，相似性低，避免前缀"><a href="#标识符命名：有意义，相似性低，避免前缀" class="headerlink" title="标识符命名：有意义，相似性低，避免前缀"></a>标识符命名：有意义，相似性低，避免前缀</h2><ul>
+<li>好的命名应该不需要注释，命名本身应该指向明确，坐到名副其实</li>
+<li>宁长也要精确，但是长的命名不要太相似，并且要做有意义的区分如productInfo和productData</li>
+<li>易于搜索，易于判断，比如MAX_CLASSES_PER_STUDENT要比数字7易于搜索，意义更明确</li>
+<li><strong>类名</strong>和<strong>对象名</strong>应该是<strong>名词</strong>或者<strong>名词短语</strong>，不应该是动词</li>
+<li><strong>方法名</strong>应当是<strong>动词</strong>和<strong>动词短语</strong></li>
+<li>给每个抽象概念选择一个词，并且<strong>一以贯之</strong>，并且要保持<strong>一词一意</strong>，如fetch,save</li>
+<li><strong>变量名的长度</strong>应该跟<strong>作用域的大小</strong>成正比</li>
+<li>解决方案领域和所涉问题领域：所涉问题领域</li>
+<li>避免加前缀：自动补全列表很长</li>
+</ul>
+<h2 id="函数：短，参数少，每个函数只做一件事"><a href="#函数：短，参数少，每个函数只做一件事" class="headerlink" title="函数：短，参数少，每个函数只做一件事"></a>函数：短，参数少，每个函数只做一件事</h2><ul>
+<li>函数的长度：每个函数的长度不要超过20行，每个函数的功能必须明确，都<strong>只做一件事</strong>，要根据抽象的层次划分。要确保函<em> </em> 数只做一件事，函数中的语句都要<strong>在同一抽象层级</strong>上</li>
+<li>if等条件语句：包含的代码块应该只有<strong>一行</strong>，这一行是一个函数调用，调用的函数名应该有明显的指向性，指明这个函数完成的操作或者实现的功能</li>
+<li><strong>向下规则：</strong>每个函数后面都跟着位于下一个抽象层级上的函数</li>
+<li>函数的参数：零参数函数最佳，参数越少越好，最多<strong>不要超过三个</strong></li>
+<li>函数命名时必须指定函数的明确功能或者使用条件，否则可能引起误用</li>
+<li>函数的两大功能：要么去做一件事，或者回答一件事，但是二者<strong>不可兼得</strong>，在编写函数时，要将<em>指令</em>和<em>询问</em>分开</li>
+<li>用try-catch代替返回错误码：用try-catch语句进行错误处理，而不是通过返回错误码，因为返回错误码时会将询问和指令混在一起。同时，try-catch语句要分离成单独的函数，才更有明确意义，同时也可以将正常流程与错误处理的两个过程分离</li>
+<li>避免重复：重复的成分越多，代码就越差</li>
+<li>具体实现时，可以先将功能实现，然后按照规则去修改函数</li>
+</ul>
+<h2 id="注释：真正的好代码不需要太多注释，但不能不写注释"><a href="#注释：真正的好代码不需要太多注释，但不能不写注释" class="headerlink" title="注释：真正的好代码不需要太多注释，但不能不写注释"></a>注释：真正的好代码不需要太多注释，但不能不写注释</h2><ul>
+<li>真正好的代码不需要注释，注释只是用来弥补无法用代码表达意图的失败</li>
+<li>警示注释：可能引起风险的函数，或者使用条件有限制的函数</li>
+<li>TODO注释：以TODO开头，表示将来应该怎么样</li>
+<li>HACK注释：如前端浏览器兼容性问题</li>
+<li>不要保留注释的代码，注释掉的代码在源代码控制系统中可以找到，同样，作者的署名信息也可以在代码控制系统中找到</li>
+</ul>
+<h2 id="格式：横向80-120，缩进体现层级，纵向相关的代码靠近"><a href="#格式：横向80-120，缩进体现层级，纵向相关的代码靠近" class="headerlink" title="格式：横向80~120，缩进体现层级，纵向相关的代码靠近"></a>格式：横向80~120，缩进体现层级，纵向相关的代码靠近</h2><ul>
+<li>空白行隔开不同概念的代码，而相关的代码可以靠近一些</li>
+<li>横向的字符不要找过80，最高不要超过120</li>
+<li>函数名和括号之间不要加空格，参数列表之间要加空格</li>
+<li>乘除等优先级高的符号不要加空格，加减等优先级低的加空格</li>
+<li>缩进：按照层级缩进</li>
+</ul>
+<h2 id="对象：隐藏数据，暴露方法"><a href="#对象：隐藏数据，暴露方法" class="headerlink" title="对象：隐藏数据，暴露方法"></a>对象：隐藏数据，暴露方法</h2><ul>
+<li>Demeter定律：模块不应该了解它所操作对象的内部情形</li>
+</ul>
+<h2 id="错误处理：错误处理应不影响代码逻辑，避免返回或者传递null值"><a href="#错误处理：错误处理应不影响代码逻辑，避免返回或者传递null值" class="headerlink" title="错误处理：错误处理应不影响代码逻辑，避免返回或者传递null值"></a>错误处理：错误处理应不影响代码逻辑，避免返回或者传递null值</h2><ul>
+<li>使用异常try-catch，可避免搞乱代码逻辑</li>
+<li>避免传递或者返回null值</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2015/10/25/Sublime中实用的快捷操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/25/Sublime中实用的快捷操作/" itemprop="url">
+                  Sublime中使用的快捷操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-25 14:30:35" itemprop="dateCreated datePublished" datetime="2015-10-25T14:30:35+08:00">2015-10-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:34:09" itemprop="dateModified" datetime="2017-08-02T15:34:09+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端工具/" itemprop="url" rel="index"><span itemprop="name">前端工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Sublime Text是一款非常流行的代码编辑器，是前端工程师必备的工具之一。针对于Sublime Text3，我分别阅读了官方文档和非官方文档，总结了一些实用的快捷操作。由于现在使用的是Windows系统，所以都是针对windows系统下的Sublimte Text 3版本而言的。</p>
+<h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><h3 id="选中"><a href="#选中" class="headerlink" title="选中"></a>选中</h3><p>如果需要回退选中操作，可以用<code>ctrl + u</code>, u即undo的缩写。<br>sublime中有两个撤销快捷键，<code>ctrl + u</code> 和<code>ctrl + z</code>，区别在于，ctrl + z只会记录对代码的改动，而ctrl + u还会记录光标的选择。</p>
+<h4 id="针对多列的选中"><a href="#针对多列的选中" class="headerlink" title="针对多列的选中"></a>针对多列的选中</h4><p>鼠标操作：按住<code>shift + 鼠标右键</code>选定，如果需要多区域选定，则选定第二个区域时，按住<code>ctrl + shift + 鼠标右键</code><br>键盘操作：<code>ctrl + alt + up</code> 或者<code>ctrl + alt + down</code></p>
+<p><img src="/images/sublime/column-selection.png" alt="多列选中效果"></p>
+<h4 id="针对单词的选中"><a href="#针对单词的选中" class="headerlink" title="针对单词的选中"></a>针对单词的选中</h4><p>鼠标操作： 双击选中当前这一个单词</p>
+<p>键盘操作： </p>
+<ul>
+<li><code>ctrl + D</code>选中当前单词，再次按下<code>ctrl + D</code>选择下一个单词，</li>
+<li><code>ctrl + K</code>表示跳过这个单词，</li>
+<li><code>alt + f3</code>选中所有，注：选中与高亮不同</li>
+</ul>
+<h4 id="针对多行的选中"><a href="#针对多行的选中" class="headerlink" title="针对多行的选中"></a>针对多行的选中</h4><p>鼠标操作： 直接选中多行，如果分隔的，按住ctrl + 鼠标左键拖动</p>
+<p>键盘操作：<code>ctrl + shift + left</code>向左和<code>ctrl + shift + right</code>向右选中一行中的某个单词，一行选满后回跳到下一行</p>
+<h3 id="其他的键盘编辑操作"><a href="#其他的键盘编辑操作" class="headerlink" title="其他的键盘编辑操作"></a>其他的键盘编辑操作</h3><ul>
+<li><code>ctrl + up</code>和<code>ctrl + down</code>上下滚动</li>
+<li><code>ctrl + shift + up</code>和<code>ctrl + shift + down</code>对选中的内容<strong>所在行</strong>上下移动</li>
+<li>选中一行： <code>Ctrl + L</code></li>
+<li>交换两个字母的顺序： <code>Ctrl + T</code></li>
+</ul>
+<h2 id="搜索和替换"><a href="#搜索和替换" class="headerlink" title="搜索和替换"></a>搜索和替换</h2><p>单文件中搜索： <code>ctrl + F</code></p>
+<p>多文件中搜索: <code>ctrl + shift + F</code>（windows可能会与输入法冲突）</p>
+<p>替换：<code>ctrl + H</code></p>
+<h2 id="文件导航和文件管理"><a href="#文件导航和文件管理" class="headerlink" title="文件导航和文件管理"></a>文件导航和文件管理</h2><h3 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h3><p><code>ctrl + p</code>：在左侧栏的文件目录中搜索某个文件</p>
+<p>高级用法：</p>
+<ol>
+<li>同名的文件可能会有多个，如搜索image.js可能会显示多个文件，需要移动光标去选择自己需要的文件。一种简便的方法是，如果你记得文件的路径，可以在搜索时在文件名之前加上文件的路径，如ct/image.js便会很好的过滤搜索结果。文件路径一般不需要太长，一是太长了输入很慢，反而降低了效率，二是长了也根本记不住，一般往上写一级就可以了。</li>
+<li>搜索文件同时定位文件中具体的位置：输入文件名后，看光标选中的是自己需要的文件后，就可以在输入框加入其它搜索条件对文件中的代码做进一步搜索。如：使用<code>@</code>后输入标识符可以搜索指定的函数或者类名，使用<code>#</code>加标识符可以搜索代码中包含搜索内容的单词并且高亮显示，使用<code>:</code>加数字可以定位到具体的行，回车后与搜索相符合的区域就会显示在屏幕上。</li>
+<li>第二项中提到的功能，不仅仅是在搜索文件时，搜索文件打开之后也可以使用。如使用<code>ctrl + R</code>对应输入<code>@</code>的功能，使用<code>ctrl + ;</code>对应输入<code>#</code>的功能，使用<code>ctrl + G</code>对应输入<code>:</code>的功能。这种搜索方式与ctrl + F的不同之处在于搜索更加有针对性，而ctrl + F是搜索文件中的所有内容。</li>
+</ol>
+<h2 id="多视图"><a href="#多视图" class="headerlink" title="多视图"></a>多视图</h2><p>要在一个窗口中打开多个tab，可以使用<code>alt + shift + 1~9</code>，注意小键盘区的数字按键不起作用，必须是位于键盘第二行的数字键才起作用</p>
+<h2 id="项目文件和工作空间"><a href="#项目文件和工作空间" class="headerlink" title="项目文件和工作空间"></a>项目文件和工作空间</h2><h3 id="项目文件"><a href="#项目文件" class="headerlink" title="项目文件"></a>项目文件</h3><p>对于每一个项目，可以建立一个<code>.sublime-project为</code>后缀的json文件，文件中可以保存针对这个项目的特定配置，如设定缩进规格,布局等，这个主要为了方便不同系统下的统一。</p>
+<h3 id="工作空间"><a href="#工作空间" class="headerlink" title="工作空间"></a>工作空间</h3><p>比如在同一个网站项目中，我需要负责两个页面的开发，页面一需要打开对应的9个文件，页面二需要打开对应的另外10个文件。如果每次都要手动打开，是非常麻烦的，所以可以用到workspace。在开发页面一时打开9个文件的状态就可以用一个workspace保存，下次需要开发页面一时直接载入这个workspace，就会自动打开这些页面，无序手动一个个打开。</p>
+<p>创建：Project → New Workspace for Project</p>
+<p>保存：Project → Save Workspace As….</p>
+<p>切换：<code>ctrl + alt + p</code>或者Project-&gt;Quick Switch Project</p>
+<h2 id="快捷键设定"><a href="#快捷键设定" class="headerlink" title="快捷键设定"></a>快捷键设定</h2><p>Sublime本身提供了很多快捷键，当然用户也可以自己定义快捷键。快捷键定义的文件也是一个JSON文件，以.sublime-keymap结尾，用户可以在用户文件夹下新建Default.sublime-keymap文件覆盖默认的快捷键设置。</p>
+<h2 id="扩展Sublime-Text"><a href="#扩展Sublime-Text" class="headerlink" title="扩展Sublime Text"></a>扩展Sublime Text</h2><h3 id="宏命令"><a href="#宏命令" class="headerlink" title="宏命令"></a>宏命令</h3><p>宏命令是一个命令集合，它会自动执行一系列的命令，让操作更简单。可以打开tools-&gt;Macros查看系统提供的基本宏命令。宏命令的定义在一个以.sublime-macro结尾的JOSN文件中。</p>
+<h4 id="如何记录宏命令"><a href="#如何记录宏命令" class="headerlink" title="如何记录宏命令"></a>如何记录宏命令</h4><p>如果你需要反复的进行多个相同的操作，那么使用宏命令可以大大简便。按下<code>ctrl + q</code>开始记录，此时可以看到软件左下角有提示，然后一步一步执行操作，完成后点击<code>ctrl + q</code>保存。那么，刚刚执行的所有操作都保存在宏命令缓存区中，如果之前有其他宏命令，会被覆盖，所以这只是一种不持久化的宏命令。如果要使用，直接按<code>ctrl + shift + q</code>就可以自动执行刚刚的宏命令。</p>
+<p>如果要自定义可以保存的宏命令，需要在package中创建一个<code>.sublime-macro</code>结尾的JOSN文件，在里面写入多个命令，要执行时直接在tools-&gt;Macros里面点击即可。进一步，也可以定义快捷键执行宏文件，从而执行宏命令。</p>
+<h3 id="补全"><a href="#补全" class="headerlink" title="补全"></a>补全</h3><p>Sublime自带标识符补全的功能，补全主要是对于<strong>已经写过的内容</strong>，在后面写到时会自动弹出已经写过的内容选项列表，非常方便。自动补全有两种方法，按回车键或者Tab键。区别在于：按回车键表示当前的补全已经结束，而按Tab键之后还可以继续按多次，继续显示补全列表中下面的项。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2015/10/20/CSS盒模型里面的几个宽高问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/20/CSS盒模型里面的几个宽高问题/" itemprop="url">
+                  CSS盒模型里面的几个宽度问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-10-20 14:30:35" itemprop="dateCreated datePublished" datetime="2015-10-20T14:30:35+08:00">2015-10-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:18:02" itemprop="dateModified" datetime="2017-08-02T15:18:02+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>盒模型是前端的一个基本概念，理解盒模型对于前端布局来说至关重要。</p>
+<h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="什么是盒模型"></a>什么是盒模型</h2><p>简单来说，HTML中的任何一个DOM都可以看成是一个方块，这个方块就是所以的<strong>盒模型</strong>。如对于一个p标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将这个标签插入到HTML中，会显示一行文字<code>Hello world!</code>。</p>
+<p><img src="/images/css/p_without_border.png" alt="带边框的p标签"></p>
+<p>现在来看显示的只有文字，很难与一个盒模型联系起来。我们加上border属性看看：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"border:1px solid black"</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/css/p_with_border.png" alt="带边框的p标签"></p>
+<p>加上边框后，看起来更加像一个“方盒子”了。其实，任何一个DOM都是这样一个方盒子，“hello world!”只是盒子里面装的东西，盒子本身还有边框、边距等属性，只是在默认情况下边框不显示而已。简单点理解，<strong>p标签本身相当于一个盒子，p标签里面的内容就是放在盒子里的东西，这个盒子将被放到网页的对应位置上，盒子的样式、位置等可以通过CSS设置</strong>。</p>
+<h2 id="盒模型包含的内容"><a href="#盒模型包含的内容" class="headerlink" title="盒模型包含的内容"></a>盒模型包含的内容</h2><p>从里向外，盒模型主要包括四层：</p>
+<ul>
+<li>盒模型里面的内容（content）：也就是实实在在要展现的内容，比如p标签里面的文字</li>
+<li>盒模型的内边距（padding）：是内容与边框内部之间的距离</li>
+<li>盒模型的边框（border）：盒子的边框，比如上面的例子中”hello world!”外面的黑色边框</li>
+<li>盒模型的外边距（margin）：盒模型的边框外部与其他盒模型边框外部之间的距离</li>
+</ul>
+<p>如果大家使用Chrome做过开发，在Chrome的控制台上，选中一个DOM时，就可以看到该DOM对应的盒模型信息，如下图所示：<br><img src="/images/css/css-model.png" alt="CSS盒模型"></p>
+<p>图中最中间的蓝色区域，就是盒子里面放的内容，从里往外，分别对应padding, border,和margin。</p>
+<h2 id="盒模型中的几个宽高问题"><a href="#盒模型中的几个宽高问题" class="headerlink" title="盒模型中的几个宽高问题"></a>盒模型中的几个宽高问题</h2><h3 id="设置宽高"><a href="#设置宽高" class="headerlink" title="设置宽高"></a>设置宽高</h3><p>CSS的width和height属性默认情况下设置的是内容区域（content）的宽高，不包括padding和border，也就是上图最中间蓝色区域的宽高。有时候希望定义的宽高不仅仅是针对内容区域，CSS3的box-sizing属性可以解决这个问题：</p>
+<ul>
+<li>该属性值为content-box时，表示定义的是内容的宽度和高度，不包括padding、margin和border，该值是默认值。</li>
+<li>该属性值为paading-box时，表示定义的是内容的宽度和高度加上padding的值，但是不包括margin和border。如果在这种情况下设置padding，那么会挤压内容的宽高。</li>
+<li>该属性值为border-box时，表示定义的是内容的宽度和高度加上padding的值和border的值，但是不包括margin的值。如果在这种情况下设置padding和border，都会挤压内容的宽度，而设置margin则不会有影响。</li>
+</ul>
+<h4 id="操作宽高的属性和方法"><a href="#操作宽高的属性和方法" class="headerlink" title="操作宽高的属性和方法"></a>操作宽高的属性和方法</h4><p>对于每个DOM，通常有以下几个关于宽高的属性，它们的意义分别是（以width为例，height同理）：</p>
+<ul>
+<li>offsetWidth属性：指的是盒模型的边框 + 内边距 + 内容的宽度</li>
+<li>clientWidth属性：指的是盒模型的内边距 + 内容的宽度</li>
+<li>scrollWidth属性：如果内容超出边框，需要有滚动条，那么scrollWidth获取的是整个文档的内容（而clientWidth获取的只是可见部分的宽度，相当于是这个盒模型中viewport的宽度）</li>
+</ul>
+<p>另外，在jQuery中有三个与获取宽高相关的函数：</p>
+<ul>
+<li>outerWidth(): 获取或者设置offsetWidth；</li>
+<li>innerWidth(): 获取或者设置clientWidth；</li>
+<li>width(): 获取或者设置内容的宽度，如果此时box-sizing为border-box，那么会自动增加border和padding的值到width的实际值上。比如，当前的border-left的宽度为20px，如果通过width函数设置宽度为80px，那么实际上在控制台上可以看到DOM中的style=”width:100px”。正好是设置的80px加上border的20px。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/websites/avatar.jpg"
+                alt="刘贵" />
+            
+              <p class="site-author-name" itemprop="name">刘贵</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liugui" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:lghustcic@126.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2839022630" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i>微博</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

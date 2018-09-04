@@ -1,0 +1,2936 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="路漫漫其修远兮，吾将上下而求索">
+<meta name="keywords" content="HTML, CSS, css3，JavaScript，OpenSeadragon, backbone，Nodejs，jQuery，Web前端">
+<meta property="og:type" content="website">
+<meta property="og:title" content="刘贵的博客">
+<meta property="og:url" content="http://liugui.org/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="路漫漫其修远兮，吾将上下而求索">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="刘贵的博客">
+<meta name="twitter:description" content="路漫漫其修远兮，吾将上下而求索">
+
+
+
+
+
+
+  <link rel="canonical" href="http://liugui.org/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>刘贵的博客</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">路漫漫其修远兮，吾将上下而求索</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-works">
+    <a href="/works/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />works</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2018/09/03/Mac下配置多个git账户/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/03/Mac下配置多个git账户/" itemprop="url">
+                  Mac下配置多个Git账户
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-03 17:26:05 / 修改时间：21:10:07" itemprop="dateCreated datePublished" datetime="2018-09-03T17:26:05+08:00">2018-09-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>我们经常将代码托管到github、gitlab这样的网站上。为了避免每次push代码时都要输入用户名和密码，通常会选择使用ssh协议，将公钥保存到托管网站上。在实际开发中，往往要将代码托管到多个不同的网站上。比如，公司的代码需要托管到coding上，自己的开源代码托管到GitHub上，私有代码托管到gitlab上等等，每个托管网站都对应一个git账户。默认情况下，一台电脑的Git只对应一个账户，只能往一个网站push代码，非常不便。这篇博客将介绍如何在一个Git终端中配置多个账户，同时管理多个托管网站的代码。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>首先，需要准备好对Git的全局用户进行配置。在初次安装Git时，往往会使用如下的命令配置全局用户名和邮箱：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "xxx" // 配置全局用户名，如Github上注册的用户名</span><br><span class="line">git config --global user.email "yyy@mail.com" // 配置全局邮箱，如Github上配置的邮箱</span><br></pre></td></tr></table></figure>
+<p>这个<code>--global</code>选项，是指这里配置的<code>user.name</code>和<code>user.email</code>是相对于全局进行配置的，即不同的Git仓库默认的用户名和邮箱都是这个值。由于需要管理多个账户，所以仅仅使用这个全局值是不够的，<strong>需要在每个仓库中单独配置</strong>。对此，有两种处理方法：</p>
+<p>如果之前已经使用该命令进行配置，则先使用如下命令清除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure>
+<p>如果不确定是否已经配置过，可以使用下面的命令查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
+<h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><h3 id="1-对每个账户生成一对密钥"><a href="#1-对每个账户生成一对密钥" class="headerlink" title="1. 对每个账户生成一对密钥"></a>1. 对每个账户生成一对密钥</h3><p>首先进入保存秘钥的目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh // 进入目录，该目录下保存生成的秘钥</span><br></pre></td></tr></table></figure>
+<p>然后，根据账户邮箱生成秘钥。例如我在GitHub上的邮箱是<a href="mailto:`liugui@hust.edu.cn" target="_blank" rel="noopener">`liugui@hust.edu.cn</a>`，则命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "liugui@hust.edu.cn"</span><br></pre></td></tr></table></figure>
+<p>输入完成后，会有如下提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/liugui/.ssh/id_rsa):</span><br></pre></td></tr></table></figure>
+<p>这里要求对秘钥进行命名，默认的文件名是<code>id_rsa</code>。为了方便区分，我这里命名为<code>id_rsa_github</code>。接下来的提示都直接进行回车，直到秘钥生成。通过<code>ls</code>命令，可以看到刚刚生成的密钥对<code>id_rsa_github</code>和<code>id_rsa_github.pub</code>。其中<code>id_rsa_github.pub</code>是公钥。</p>
+<p>同样，对于GitLab上的账户，我是用另一个邮箱注册的，按照同样的步骤生成<code>id_rsa_gitlab</code>的秘钥对。接下来的步骤，除额外说明外，两个账户的操作完全相同。</p>
+<h3 id="2-私钥添加到本地"><a href="#2-私钥添加到本地" class="headerlink" title="2. 私钥添加到本地"></a>2. 私钥添加到本地</h3><p>SSH协议的原理，就是在托管网站上使用公钥，在本地使用私钥，这样本地仓库就可以和远程仓库进行通信。在上一步已经生成了秘钥文件，接下来需要使用秘钥文件，首先是在本地使用秘钥文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_github // 将GitHub私钥添加到本地</span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab // 将GitLab私钥添加到本地</span><br></pre></td></tr></table></figure>
+<p>为了检验本地是否添加成功，可以使用<code>ssh-add -l</code>命令进行查看</p>
+<h3 id="3-对本地秘钥进行配置"><a href="#3-对本地秘钥进行配置" class="headerlink" title="3. 对本地秘钥进行配置"></a>3. 对本地秘钥进行配置</h3><p>由于添加了多个密钥文件，所以需要对这多个密钥进行管理。在<code>.ssh</code>目录下新建一个config文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch config</span><br></pre></td></tr></table></figure>
+<p>文件中的内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Host github // 网站的别名，随意取</span><br><span class="line">HostName github.com // 托管网站的域名</span><br><span class="line">User liugui // 托管网站上的用户名</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github // 使用的密钥文件</span><br><span class="line"></span><br><span class="line">// GitLab的配置相同</span><br><span class="line">Host gitlab</span><br><span class="line">HostName gitlab.com</span><br><span class="line">User liugui</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+<h3 id="4-公钥添加到托管网站"><a href="#4-公钥添加到托管网站" class="headerlink" title="4. 公钥添加到托管网站"></a>4. 公钥添加到托管网站</h3><p>以GitHub为例，先在本地复制公钥。进入<code>.ssh</code>目录，使用<code>vim id_rsa_github.pub</code>查看生成的GitHub公钥，全选进行复制。</p>
+<p>登录GitHub，点击右上角头像选择<code>settings</code>，在打开的页面中选择SSH and GPG keys，</p>
+<p><img src="/images/tools/github添加公钥.png" alt="github添加公钥"></p>
+<p>在打开的页面的Key输入框中粘贴刚刚复制的公钥，title的名字自己随便去，然后点击下方的<code>Add SSH key</code>按钮：<img src="/images/tools/粘贴公钥.png" alt="粘贴公钥"></p>
+<p>至此，托管网站的公钥添加完成。总结来说，就是针对每个托管网站分别生成一对密钥，然后分别添加到本地和托管网站。</p>
+<p>这时候，可以测试一下配置是否成功，测试命令使用别名。例如，对于GitHub，本来应该使用的测试命令是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>在config文件中，给GitHub网站配置的别名就是github，所以直接使用别名，就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github</span><br></pre></td></tr></table></figure>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>使用有两种情况，一种情况是从远端拉取代码到本地，一种是本地已有仓库需要与远程仓库关联。</p>
+<h3 id="1-如果是从远端拉取代码"><a href="#1-如果是从远端拉取代码" class="headerlink" title="1.如果是从远端拉取代码"></a>1.如果是从远端拉取代码</h3><p>选择SSH协议的复制命令，如对于GitLab上代码库test，其复制命令为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@gitlab.com:liugui/test.git</span><br></pre></td></tr></table></figure>
+<p>由于使用了别名gitlab，所以实际使用的复制命令应当为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@gitlab:liugui/test.git</span><br></pre></td></tr></table></figure>
+<p>这种方法较为简单，修改后的代码无需额外配置，可以直接push</p>
+<h3 id="2-如果是本地已有的仓库"><a href="#2-如果是本地已有的仓库" class="headerlink" title="2. 如果是本地已有的仓库"></a>2. 如果是本地已有的仓库</h3><p>这种情况适用于本地新建的仓库需要与远端进行关联，或者之前已经使用sourceTree等图形界面软件拷贝的仓库。进入本地仓库文件夹，需要单独配置该仓库的用户名和邮箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;liugui&quot;</span><br><span class="line">git config user.email &quot;liugui@hust.edu.cn&quot;</span><br></pre></td></tr></table></figure>
+<p>然后，进入本地仓库的git目录，打开config文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .git // 该目录是隐藏的，ls命令不可见，但是可以直接进入，如果是新建的文件夹需要先执行git init</span><br><span class="line">vim config</span><br></pre></td></tr></table></figure>
+<p>在config文件中，修改（config文件中已有remote “origin”信息）或者添加（config文件中不包含remote “origin”信息）分支信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">        url = git@gitlab:GuiLiu/test.git</span><br><span class="line">        fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
+<p>主要是URL部分，原生的信息一般是<a href="mailto:`git@gitlab.com" target="_blank" rel="noopener">`git@gitlab.com</a>:GuiLiu/test.git`，需要将gitlab.com使用别名gitlab代替。</p>
+<p>可以看到，仓库中的关键是要配置好用户名和邮箱，以及使用别名。使用别名的目的是为了通过别名，将本地仓库与密钥目录<code>.ssh</code>文件夹下的密钥进行管理，这样就完成了本地仓库使用的私钥与托管网站使用的公钥的配对，而用户名和邮箱是该仓库使用SSH协议时需要用到的信息</p>
+<h3 id="补充一下Coding"><a href="#补充一下Coding" class="headerlink" title="补充一下Coding"></a>补充一下Coding</h3><p>在关联coding上托管的代码时，遇到了一点麻烦，主要是因为别名的修改不正确，以及20端口禁用的问题导致的，所以单独记录下，<code>.ssh</code>目录下的config文件中的密钥信息应该为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host coding</span><br><span class="line">HostName git-ssh.coding.net // 这个域名使用coding官网获取的，不能写coding.net</span><br><span class="line">User liugui</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_coding</span><br><span class="line">Port 443 // 20端口可能被禁用，需要使用443端口</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2017/05/07/CSS选择器优先级/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/07/CSS选择器优先级/" itemprop="url">
+                  CSS选择器优先级
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-07 22:21:26" itemprop="dateCreated datePublished" datetime="2017-05-07T22:21:26+08:00">2017-05-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:19:43" itemprop="dateModified" datetime="2017-08-02T15:19:43+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>往往会对同一个HTML标签用到多种样式定义，此时如何确定样式的优先级就很重要，因为这影响到浏览器最终会应用何种样式到这个标签上。用Chrome随意打开一个页面，调出Developer Tools，都可以看到由于CSS选择器优先级导致的样式覆盖，如下图：</p>
+<p><img src="/images/css/css_selector.png" alt="CSS选择器优先级"></p>
+<p>在Styles区域，我们可以看到应用在这个div标签上的样式，但是有很多样式被一条横线划掉了，这就表示这个样式被覆盖了。当同一个属性在多个选择器下出现时，就会按照优先级的顺序覆盖。</p>
+<h2 id="CSS选择器种类的优先级"><a href="#CSS选择器种类的优先级" class="headerlink" title="CSS选择器种类的优先级"></a>CSS选择器种类的优先级</h2><p>区分CSS选择器优先级的第一个标准，就是去看这个选择器里面有哪几种选择器，然后根据每一种选择器的优先级作区分，如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  #hi &#123;</span></span><br><span class="line"><span class="undefined">    color: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  p &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"hi"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第一个选择器是ID选择器，第二个选择器是标签选择器，由于ID选择器的优先级更高，所以最终p标签的字体颜色是红色。在CSS中，各种选择器的优先级顺序如下：</p>
+<ol>
+<li>使用!important</li>
+<li>style标签中的样式</li>
+<li>具有一个或者多个ID选择器</li>
+<li>具有一个或者多个类、属性或伪选择器</li>
+<li>标签选择器和伪元素选择器</li>
+<li>通配选择器</li>
+<li>默认样式</li>
+</ol>
+<p>如果选择器里面只有一个选择器，如上面例子的情况，那么就直接按照优先级的顺序判断即可，如果选择器里面有多个选择器，比如下面的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  p #hi &#123;</span></span><br><span class="line"><span class="undefined">    color: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  .world p &#123;</span></span><br><span class="line"><span class="undefined">    color: blue;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"hi"</span> <span class="attr">class</span>=<span class="string">"world"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时，第一个选择器下有一个ID选择器和一个标签选择器，第二个选择器下有一个标签选择器和一个类选择器。这种情况下，就要按照下面的规律判断：</p>
+<ol>
+<li>先看优先级最高选择器</li>
+<li>如果优先级最高选择器相同，那么就看优先级最高选择器的个数</li>
+<li>如果个数也相同，那么看优先级次高选择器的种类和个数，以此类推。</li>
+</ol>
+<p>在此例中，第一个选择器里面优先级最高的是ID选择器，第二个选择器里面优先级最高的是类选择器，而ID选择器的优先级高于类选择器，所以最终样式是红色。</p>
+<p>需要注意的是，这与选择器的顺序无关，如上面的例子中，ID选择器位于第二位，类选择器位于第一位，但是并不影优先级。另外还有一种通过权重的方法来判断优先级，通常权重分配规则是：</p>
+<ol>
+<li>带有important的权重为1000；</li>
+<li>ID选择器的权重为100</li>
+<li>类选择器、属性选择器和伪选择器为10</li>
+<li>标签选择器、伪元素选择器为1</li>
+<li>通配符选择器权重为0</li>
+</ol>
+<p>按照这种规则，第一个选择器的权重为100 + 1 = 101，第二个选择器的权重为10 + 1 = 11，所以第一个选择器的优先级更高。</p>
+<h2 id="选择器优先级相同时的覆盖规则"><a href="#选择器优先级相同时的覆盖规则" class="headerlink" title="选择器优先级相同时的覆盖规则"></a>选择器优先级相同时的覆盖规则</h2><p>如果通过上面两种方法计算出来的选择器优先级规则相同，那么就要根据选择器出现的位置决定覆盖规则了，其优先级如下：</p>
+<ol>
+<li>HTML头部的style标签</li>
+<li>style标签中通过@import导入的样式表，如style标签中@import导入的样式表的优先级会高于link标签导入的样式表</li>
+<li>通过link元素附加的样式表</li>
+<li>通过link元素附加的样式表中@import所导入的样式表</li>
+<li>用户最终附加的样式表</li>
+</ol>
+<p>如果选择器分组和位置都相同，那么出现在后面的会覆盖前面的。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2017/05/03/JavaScript中数组方法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/03/JavaScript中数组方法总结/" itemprop="url">
+                  JavaScript中数组方法总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-03 21:20:26" itemprop="dateCreated datePublished" datetime="2017-05-03T21:20:26+08:00">2017-05-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:28:55" itemprop="dateModified" datetime="2017-08-02T15:28:55+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>数组是JavaScript中的一种重要引用类型，关于数组的操作方法很多，熟练掌握这些方法对于提升开发效率非常有用，这里做一个总结。需要注意的是，操作字符串时，字符串本身永远不会改变，都是返回一个新的字符串，但是操作数组时情况却不同。所以，总结数组的方法时，我特别标出了那些操作会改变原数组。以下所以操作基于数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]; </span><br><span class="line"><span class="keyword">var</span> b = [<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>concat：a.concat(b)：连接数组a和数组b，生成一个新的数组，并且返回新的数组，不改变原数组的值。concat接收的参数可以是数组，也可以是一个或者多个元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.concat(b)<span class="comment">//['a','b', 'c', 'd', 'e', 'f']</span></span><br><span class="line">a.concat(<span class="string">'c'</span>, <span class="string">'c'</span>)<span class="comment">// ['a', 'b', 'c', 'c', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>join：将数组中的所有元素连接成一个字符串返回，接收一个可选的参数，表示这些元素之间的分隔符，如果为空则默认用逗号连接，不会改变原数组的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.join()<span class="comment">// 'a,b,c'</span></span><br><span class="line">a.jon(<span class="string">''</span>) <span class="comment">// 'abc'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pop：删除数组的最后一个元素并返回，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.pop();<span class="comment">//c</span></span><br><span class="line">a.length<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push：向数组的末尾插入一个或多个元素，并且返回新的数组长度，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.push(<span class="string">'d'</span>)<span class="comment">//返回4，a = ['a', 'b', 'c', 'd', 'e']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reverse：颠倒数组中的元素顺序，<strong>会改变原数组</strong>，而不会返回新的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.reverse()<span class="comment">// a = ['c', 'b', 'a']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>shift：删除并返回数组的第一个元素，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.shift()<span class="comment">// 'a'</span></span><br><span class="line">a.length()<span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unshift：向数组的开头插入一个或多个元素，并且返回数组的长度，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.unshift(<span class="string">'c'</span>, <span class="string">'d'</span>)<span class="comment">// ['c', 'd', 'a', 'b', 'c']</span></span><br><span class="line">a.length = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>slice(a, b):返回数组a出开始到b出结束（不包括）的元素组成的新数组，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.slice(<span class="number">1</span>, <span class="number">2</span>)<span class="comment">// ['b']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>splice：删除并添加元素，第一个参数表示开始添加或删除的位置，第二个参数表示删除的个数，这两个参数都是必须的，从第三个参数开始表示插入的元素，返回被删除的元素，<strong>会改变原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.splice(<span class="number">1</span>,<span class="number">1</span>,<span class="string">'a'</span>);<span class="comment">//返回'b'，数组a变成['a', 'a', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sort：对数组进行排序，<strong>会改变原数组</strong>。如果不接受参数，则按照字母表进行排序（注意，此时对于数字也是按照字母表排序，而不是按照大小排序）。可以接受一个函数，函数的两个参数是数组中的两个值，将a和b进行比较，如果a小于b，希望将a小的放在前面，则返回一个负值，否则返回一个正值。一般来说，return a - b是从小到大， b - a是从大到小</p>
+</li>
+<li><p>every：对数组的每个元素进行检查，不会改变原数组。every中传入一个回调函数，参数是value和index，如果对于每一个value，回调函数都返回true，那么every返回true，只要有一个函数返回false，那么返回false。主要看回调函数的返回值，如果没有返回值，那就是返回false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.every(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>)</span>&#123;<span class="keyword">return</span> value === <span class="string">'a'</span>&#125;);<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>some：对数组的每个元素进行检查，直到找到一个回调函数返回为true的元素，如果找到了，some立即返回true，否则some返回false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.some(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>)</span>&#123;<span class="keyword">return</span> value === <span class="string">'a'</span>&#125;);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter：传入一个过滤函数，对数组的每个元素进行检查，如果使得过滤函数的返回值为true，那么将这些元素作为一个新的数组返回，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>)</span>&#123;<span class="keyword">return</span> value &gt;= <span class="string">'b'</span>&#125;)<span class="comment">//['b', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>forEach：传入一个回调函数，对数组中的每个元素都调用这个回调函数进行处理，回调函数传入三个值，value, index, 和当前的array，同时可以接受第二个参数指定this对象，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;<span class="built_in">console</span>.log(value)&#125;)<span class="comment">//'a','b', 'c'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map：传入一个回调函数，对数组中的每个元素都调用这个回调函数进行处理，并且将回调函数的返回值返回组成一个新的数组返回，回调函数传入三个值，value，index和当前的array，同时可以接受第二个参数指定this对象，不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.map(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;<span class="keyword">return</span> value + <span class="string">'b'</span>&#125;)<span class="comment">//['ab', 'bb', 'cb']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reduce：对数组中的每个元素执行回调函数，并且回调函数的第一个参数是上一个元素执行回调函数的返回值，除回调函数外，第二个参数是是acc的初始值，不会改变原数组，主要用来对数组值累加处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">acc,value, index, array</span>)</span>&#123; <span class="keyword">return</span> acc + value&#125;,<span class="number">0</span>)<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reduceRight：与reduce相同，但是是从右往左执行，也不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">a.reduceRight(<span class="function"><span class="keyword">function</span>(<span class="params">acc, value, index, array</span>)</span>&#123; <span class="keyword">return</span> acc + value&#125;,<span class="number">0</span>)<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>indexOf：在数组中查找某个元素，并且返回这个元素的index，如果不存在则返回-1.接受两个参数，第一个参数是查找的元素，必选，第二个参数是开始查找的位置，可选</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.indexOf(<span class="string">'a'</span>)<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lastIndexOf：与indexOf相似，但是从后往前查找，返回最后一个元素的index</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.lastIndexOf(<span class="string">'a'</span>)<span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>toString：将数组变成字符串返回，其效果与join()不接受参数时相同</p>
+</li>
+<li><p>valueOf：返回对象的原始值</p>
+</li>
+<li><p>toLocalString：将数组转换为本地字符串</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2017/04/06/JavaScript中字符串方法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/04/06/JavaScript中字符串方法总结/" itemprop="url">
+                  JavaScript中字符串方法总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-04-06 22:20:26" itemprop="dateCreated datePublished" datetime="2017-04-06T22:20:26+08:00">2017-04-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:24:59" itemprop="dateModified" datetime="2017-08-02T15:24:59+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在JavaScript中，字符串是一种非常重要的数据类型，JavaScript也提供了很多操作字符串的方法，这里做一个总结。需要注意的是：JavaScript中的字符串本身都是不变的，各种操作都是返回一个新的字符串，明确这一点非常重要！</p>
+<p>通常也会把字符串当成一个对象一样处理，所以也有构造函数、实例的概念。下面也是分别从对象的方法和实例的方法两个角度去总结的。但是，字符串本身确实是基本类型。</p>
+<h2 id="字符串对象的方法"><a href="#字符串对象的方法" class="headerlink" title="字符串对象的方法"></a>字符串对象的方法</h2><p>下面的两个对象方法都是操作Unicode码的，在这里先做一个简单的解释。在计算机中，任何数据在本质上都使用0和1存储的，所以就对应多种编码格式，比如ASCII码将8位二进制数与一个ASCII字符对应。而0和1表示的二进制数也可以用十六进制的形式来表示，所以可以认为一个十六进制数也就对应了一个字符。JavaScript中使用了一种称为Unicode的编码，这种编码囊括了世界上各种符号，包括中文符号。简单点理解，还是满足一个十六进制数与一个字符之间的对应关系，而下面这两个方法就是根据十六进制数找出对应的Unicode字符的过程。</p>
+<ol>
+<li><p>String.fromCharCode()：将输入的数字当成Unicode码，转换成相应的char</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">55</span>,<span class="number">56</span>,<span class="number">57</span>)<span class="comment">//"789"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>String.fromCharCode不能识别超过32位的Unicode，所以使用String.fromCodePoint，这是ES6中新增的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCodePoint(<span class="number">0x20BB7</span>)<span class="comment">//"𠮷"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>String.fromCharCode与charCodeAt方法对应，String.fromCodePoint方法与codePointAt方法对应。这两个方法一般用到较少。</p>
+<h2 id="字符串实例的属性"><a href="#字符串实例的属性" class="headerlink" title="字符串实例的属性"></a>字符串实例的属性</h2><p>字符串本身有一些属性，通过访问这些属性可以获得关于字符串本身的一些信息。</p>
+<ol>
+<li>length：获取字符串的长度</li>
+<li>constructor：获取字符串的构造函数</li>
+<li>prototype：获取原型属性</li>
+</ol>
+<p>其中最常用的就是length属性，经常通过访问length属性获取字符串的长度。</p>
+<h2 id="字符串实例的方法"><a href="#字符串实例的方法" class="headerlink" title="字符串实例的方法"></a>字符串实例的方法</h2><ol>
+<li><p>设置字符串显示的相关属性，在将字符串插入网页时用到，如使用document.write方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'hello world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a.anchor(<span class="string">'hah'</span>))<span class="comment">//&lt;a name="hah"&gt;hello world&lt;/a&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.big())<span class="comment">//&lt;b&gt;hello world&lt;/b&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.small())<span class="comment">//&lt;small&gt;hello world&lt;/small&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.bold())<span class="comment">//&lt;b&gt;hello world&lt;/b&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.italics())<span class="comment">//&lt;i&gt;hello world&lt;/i&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.super())<span class="comment">//&lt;sup&gt;hello world&lt;/sup&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.sub())<span class="comment">//&lt;sub&gt;hello world&lt;/sub&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.fontColor(<span class="string">'red'</span>))<span class="comment">//&lt;font color="red"&gt;hello world&lt;/font&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.fontSize(<span class="number">7</span>))<span class="comment">//&lt;font size="7"&gt;hello world&lt;/font&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.strike())<span class="comment">//&lt;strike&gt;hello world&lt;/strike&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关于char和code的几个方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'hello'</span>;</span><br><span class="line">a.charAt(<span class="number">0</span>) <span class="comment">// 'h'</span></span><br><span class="line">a.charCodeAt(<span class="number">0</span>) <span class="comment">// 104</span></span><br><span class="line">a.codePointAt(<span class="number">0</span>)<span class="comment">// ES6中新增的方法，可以返回长度超过2字节的code point</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>es5中indexOf方法：<code>string.indexOf(&#39;a&#39;)</code>，返回字符a在字符串string中的序号，如果没有则返回-1</p>
+</li>
+<li><p>es5中lastIndexOf方法：<code>string.lastIndexof(&#39;a&#39;)</code>，从后往前搜索，第二个参数指定开始搜索的位置，即从这个位置开始往前搜索</p>
+</li>
+<li><p>es5中charAt方法：<code>string.charAt(2)</code>，返回指定位置的字符</p>
+</li>
+<li><p>es5中trim方法：去除字符串两边的空格，对应的还有trimLeft, trimRight方法</p>
+</li>
+<li><p>es5中的concat方法：连接字符串<code>var a=&#39;hello&#39;;a.concat(&#39;world&#39;);</code></p>
+</li>
+<li><p>es5中的match方法：接收一个正则表达式，返回的是一个数组，包含匹配的内容。如果正则表达式中包含g，那么是多个匹配元素的数组，否则只有1个。与indexOf相比，这里返回的是value，而indexOf返回的是index</p>
+</li>
+<li><p>es5中的search方法：<code>string.search(regExp)</code>，返回第一个相匹配的index，此方法不考虑g</p>
+</li>
+<li><p>es5中的replace方法：<code>string.replace(regExp/substr, replacement)</code>，返回一个新的字符串，将regExp匹配的部分替换成replacement，RegExp中的g决定了是否是全局替换。同样，在替换时不会改变字符串本身，而是返回一个新的字符串</p>
+</li>
+<li><p>es5中的slice方法：<code>string.slice(a,b)</code>返回一个新的字符串，从a开始到b，不包含b</p>
+</li>
+<li><p>es5中的substr方法：string.substr(a,b)返回一个新的字符串，从a开始，长度为b</p>
+</li>
+<li><p>es5中的substring方法：与slice用法基本相同，区别是不接受负数</p>
+</li>
+<li><p>es5中的split方法：将字符串分割为字符数组</p>
+</li>
+<li><p>字符大小写变化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'string'</span>;</span><br><span class="line">a.toLocaleUpperCase()<span class="comment">// 针对某些特定语言</span></span><br><span class="line">a.toLocaleLowerCase()</span><br><span class="line">a.toUpperCase()</span><br><span class="line">a.toLowerCase()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>normalize:将字符的不同表示方法统一为同样的形式</p>
+</li>
+<li><p>localeCompare方法：将连个字符串进行比较，该比较基于本地区域设置的字符顺序。若小于则返回负数，大于则返回正数，相等返回0<code>var a = &quot;星期一&quot;; var b = &quot;星期二&quot;;a.localeCompare(b)//结果为-1</code></p>
+</li>
+<li><p>includes方法：<code>string.includes(&#39;a&#39;)</code>，布尔值，是否包含字符a</p>
+</li>
+<li><p>startsWith方法：<code>string.startWith(&#39;a&#39;)</code>，布尔值，是否以字符a开头。以上两个方法都接收第二个参数，表示开始搜索的位置</p>
+</li>
+<li><p>endsWith方法：<code>string.endsWith(&#39;a&#39;)</code>，布尔值，是否以字符a结尾。接收第二个参数，表示搜索的范围为前n个字符</p>
+</li>
+<li><p>repeat方法：<code>string.repeat(n)</code>，返回一个字符串，将源字符串重复n次</p>
+</li>
+<li><p>padStart方法：<code>string.padStart(n, &#39;abc&#39;)</code>，返回一个字符串，长度为n，开头的部分以’abc’循环的方式补齐，直到截断，如果没有第二个参数，则默认用空格补齐</p>
+</li>
+<li><p>padEnd方法：<code>string.padEnd(10, &#39;abc&#39;)</code>，返回一个字符串，长度为n，结尾的部分已’abc’循环的方式补齐，直到阶段，如果没有第二个参数，则默认用空格补齐。补齐时，不够则重复，超过则截断，所以也是一种拼接字符串的方法</p>
+</li>
+<li><p>raw方法：用于模板字符串，替换所有变量，而且对斜杠进行转义，方便下一步作为更原始的字符串形式来使用</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2017/03/15/JavaScript中的typeof,instanceof,isPrototypeOf用法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/15/JavaScript中的typeof,instanceof,isPrototypeOf用法总结/" itemprop="url">
+                  JavaScript中的typeof,instanceof,isPrototypeOf用法总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-15 11:24:26" itemprop="dateCreated datePublished" datetime="2017-03-15T11:24:26+08:00">2017-03-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:29:36" itemprop="dateModified" datetime="2017-08-02T15:29:36+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在JavaScript中，经常用到typeof, instanceof和isPrototypeOf方法来判断类型或者对象之间的关系。typeof和instanceof都是操作符，并不是函数。也就是说，在调用的时候，并不是像函数调用那样加上括号，而是直接当成一个操作符，如<code>typeof a</code>来判断变量a的类型，而不是通过<code>typeof(a)</code>的方式来调用。而isPrototypeOf就是一个方法，调用时需要加括号。我是从字母大小写来区分的：typeof和instanceof都是全小写的，所以是操作符；而isPrototypeOf是驼峰式的，所以是函数。</p>
+<p>首先强调一下类型：在JavaScript中，一共有5中基本类型：Null, Undefined, String, Boolean, Number。另一种是引用类型，主要是对象，对象往下又分为Array，Date， RegExp和Function等。</p>
+<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>typeof运算符用来判断类型，返回的结果都是字符串形式的小写字母。</p>
+<ol>
+<li>typeof undefined: “undefined”</li>
+<li>typeof null: “object”</li>
+<li>typeof true: “boolean”</li>
+<li>typeof “abc”: “string”</li>
+<li>typeof 123: “number”</li>
+<li>typeof [1,2,3]: “object”</li>
+<li>typeof Object: “object”</li>
+<li>typeof function: “function”</li>
+<li>typeof Date: “object”</li>
+<li>typeof /12/: “object”</li>
+</ol>
+<p>也就是说，对于基本类型，typeof可以基本很好的进行判断，需要注意的是对于null返回值是”object”，这是因为null可以理解为是一个空指针，而指针引用的是对象。其他的基本类型都返回对应的类型值。</p>
+<p>而对于object类型，只有对于函数返回”function”，其他的引用类型全部返回”object”。也就是说，对于对象类型的判断，typeof是很弱的，所以就需要用到instanceof和isPrototypeOf了</p>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>instanceOf方法用来检测一个对象是否是某个构造函数的实例。基本用法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 判断Array */</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>];<span class="comment">// 定义a是一个数组</span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Array</span>;<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 判断RegExp */</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="regexp">/123/g</span>;<span class="comment">// 定义a是一个RegExp</span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 判断Date */</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Date</span>();<span class="comment">// 定义a是一个Date</span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Date</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 判断function */</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;<span class="comment">// 定义a是一个Function</span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Function</span>;<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>与typeof不同的是，instanceof可以很方便的判断出一个对象是不是某种内置对象类型的实例。拿数组来说，声明一个数组其实相当于调用了Array的构造函数，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>这两种声明数组的方式是等价的，所以instanceof运算符就能判断出a是Array的实例。这是对于内置的引用类型，对于自定义的构造函数，同样满足这个规律：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">22</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br><span class="line">p <span class="keyword">instanceof</span> Person;<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>这里面声明了一个Person作为构造函数，并且调用Person函数创建一个p实例，然后再通过instanceof方法判断p与Person的关系。如果考虑继承，同样也是满足的，<strong>只要是在实例的原型链中出现的构造函数</strong>，都会返回true，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">22</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'teacher'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Teacher.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> Teacher();</span><br><span class="line"></span><br><span class="line">t <span class="keyword">instanceof</span> Teacher;<span class="comment">// true</span></span><br><span class="line">t <span class="keyword">instanceof</span> Person;<span class="comment">// true</span></span><br><span class="line">t <span class="keyword">instanceof</span> <span class="built_in">Object</span>;<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>这里创建了一个名为Teacher的构造函数，并且将其原型指向名为Person的构造函数创建的实例，也就是说Person位于Teacher的原型链上。调用instanceof时，t既是Teacher的实例，也是Person的实例，同时所有对象都来自Object，也就是Object的实例。</p>
+<h2 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf"></a>isPrototypeOf</h2><p>isPrototypeOf判断实例和原型对象之间的关系，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">22</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'teacher'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br><span class="line">Teacher.prototype = p;</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> Teacher();</span><br><span class="line"></span><br><span class="line">p.isPrototypeOf(t);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(p);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>在这里，p是构造函数Teacher的prototype，也就是实例t的prototype。<strong>只要是原型链上出现的prototype，都返回true</strong>。所以，Object的prototype也返回true。只要弄清楚原型链的继承关系，isPrototype和instanceof就很容易弄清楚了！</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2017/03/07/JavaScript中的类型转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/07/JavaScript中的类型转换/" itemprop="url">
+                  JavaScript中的类型转换
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-07 21:56:26" itemprop="dateCreated datePublished" datetime="2017-03-07T21:56:26+08:00">2017-03-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:31:04" itemprop="dateModified" datetime="2017-08-02T15:31:04+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JavaScript中的变量分为基本类型和引用类型，基本类型有5种，分别是null, undefined, 字符串，数字，布尔型。这里分析JavaScript中基本类型之间的转换。</p>
+<h3 id="1-null与undefined"><a href="#1-null与undefined" class="headerlink" title="1. null与undefined"></a>1. null与undefined</h3><p>undefined类型的值只有一个undefined，null类型的值只有一个null，注意都是不加引号的，如果加了引号就是字符串了。如果一个变量声明之后没有赋值，那么这个变量就是undefined。一般不会将一个变量的值赋值为undefined，但是可以显示的将一个变量的值赋值为null。需要注意的是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span><span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-转换成Boolean类型"><a href="#2-转换成Boolean类型" class="headerlink" title="2. 转换成Boolean类型"></a>2. 转换成Boolean类型</h3><p>Boolean类型只有两个值：true和false。JavaScript是区分大小写的，所以True并不是Boolean类型。</p>
+<h4 id="转换成Boolean的方法"><a href="#转换成Boolean的方法" class="headerlink" title="转换成Boolean的方法"></a>转换成Boolean的方法</h4><ol>
+<li>调用Boolean函数，如<code>Boolean(123)</code>会将数字123转换成true</li>
+<li>在判断语句中，如<code>var a  = 123; if(a){}</code>，在JavaScript中经常这样使用，虽然没有显式调用，但是其实已经隐式的调用了Boolean(a)，相当于<code>if(Boolean(a)){}</code></li>
+<li>巧妙的使用<code>!!</code>，如<code>var a = 123; var b = !!a</code></li>
+</ol>
+<h4 id="转换成Boolean的规则"><a href="#转换成Boolean的规则" class="headerlink" title="转换成Boolean的规则"></a>转换成Boolean的规则</h4><ol>
+<li>对于字符串：任何非空字符串转换为true，空字符串转换为false</li>
+<li>对于数字：任何非零数字转换为true，0和NaN转换为false</li>
+<li>对于对象：任何对象转换为true，即使是空对象也会转换为true</li>
+<li>对于null：null会被转换为false</li>
+<li>对于undefined：会被转换为false</li>
+</ol>
+<p>总结来说，转换为false的只有5种值：null, undefined, 空字符串，0和NaN</p>
+<h3 id="3-转换为Number类型"><a href="#3-转换为Number类型" class="headerlink" title="3. 转换为Number类型"></a>3. 转换为Number类型</h3><p>数字类型表示JavaScript中的所有数值类型，如123就是一个数字类型。</p>
+<h4 id="转换成Number的方法"><a href="#转换成Number的方法" class="headerlink" title="转换成Number的方法"></a>转换成Number的方法</h4><ol>
+<li><p>使用Number()函数转换成数字</p>
+</li>
+<li><p>使用parseInt()将<strong>字符串</strong>转换成整型数字</p>
+</li>
+<li><p>使用parseFloat()将<strong>字符串</strong>转换成浮点数</p>
+</li>
+<li><p>巧妙的是使用<code>+</code>转换成数字类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'22'</span>;</span><br><span class="line">+a;<span class="comment">// 22</span></span><br><span class="line">+<span class="literal">true</span><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="转换成Number的规则"><a href="#转换成Number的规则" class="headerlink" title="转换成Number的规则"></a>转换成Number的规则</h4><ol>
+<li><p>对于字符串：纯数字类型的字符串转换为数字，如<code>Number(&quot;123&quot;)</code>结果为123。如果字符串中包含非数字字符，则转换为NaN，如<code>Number(&quot;12LL&quot;)</code>结果为NaN，一种特殊情况是使用parseInt或者parseFloat对于16进制数转换时，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1A'</span>);<span class="comment">// 不带基数，默认为10，结果为NaN</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1A'</span>, <span class="number">16</span>);<span class="comment">// 基数为16，表示是十六进制数，结果为26</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于Boolean：true转换为1，false转换为0</p>
+</li>
+<li><p>对于对象：先调用对象的valueOf方法，如果是NaN，再调用toString方法</p>
+</li>
+<li><p>对于null：null被转换为0</p>
+</li>
+<li><p>对于undefined：undefined被转换为NaN</p>
+</li>
+</ol>
+<h3 id="4-转换为String"><a href="#4-转换为String" class="headerlink" title="4. 转换为String"></a>4. 转换为String</h3><p>字符串类型一般有双引号或者单引号，如<code>&quot;123&quot;</code>和<code>&#39;123&#39;</code>都是字符串。</p>
+<h4 id="转换为String的方法"><a href="#转换为String的方法" class="headerlink" title="转换为String的方法"></a>转换为String的方法</h4><ol>
+<li><p>toString()方法：除了null和undefined之外，都有这个方法，可以接受一个参数表示输出的基数。Object.toString()返回’[object Object]’,function.toString()返回函数的字符串，数组返回数组元素的字符串</p>
+</li>
+<li><p>用String()方法：如果里面的值有toString则调用toString，null返回’null’, undefined返回’undefined’</p>
+</li>
+<li><p>直接用加号连接一个空字符串转换字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'12'</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">34</span>;</span><br><span class="line"><span class="keyword">var</span> c = a + b;<span class="comment">//'1234'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="转换成String的规则"><a href="#转换成String的规则" class="headerlink" title="转换成String的规则"></a>转换成String的规则</h4><ol>
+<li>对于数字：直接转换为字符串</li>
+<li>对于Boolean：true转换为<code>&#39;true&#39;</code>，false转换为<code>&#39;false&#39;</code></li>
+<li>对于对象：调用对象的toString方法</li>
+<li>对于null：转换为<code>&#39;null&#39;</code></li>
+<li>对于undefined：转换为<code>&#39;undefined&#39;</code></li>
+</ol>
+<h3 id="5-toString与valueOf"><a href="#5-toString与valueOf" class="headerlink" title="5. toString与valueOf"></a>5. toString与valueOf</h3><p>除了null和undefined之外，每种数据类型都有这两个方法。toString()方法一般是转换成字符串形式，valueOf一般是返回源对象。一般来说，需要转成数字时，如比较大小，调用valueOf方法，需要转成字符串时，如console.log，调用toString()方法。</p>
+<ol>
+<li>对于数字：valueOf返回本身，toString转换为字符换</li>
+<li>对于Boolean：valueOf返回<code>true</code>， toString返回<code>&#39;true&#39;</code></li>
+<li>对于字符串：都返回字符串本身</li>
+<li>Object对象：toString返回’[object Object]’，valueOf返回源对象</li>
+<li>Array：toString返回split()相同的返回，valueOf返回原数组</li>
+<li>Date：toString返回包含时区的字符串，valueOf返回毫秒数</li>
+<li>RegExp：toString返回字面量，valueOf返回源对象</li>
+<li>Function：toString返回函数代码字符串，返回函数代码</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这里列出的是基本类型之间的转换规则，实际应用中，类型转换很可能隐式的发生，如执行<code>console.log(a)</code>函数时，会将a转换成字符串类型，再打印出来。只要记住这些转换规则，在需要转换的地方应用这些转换规则即可。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/08/26/OpenSeadragon源码解析之updateViewport函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/08/26/OpenSeadragon源码解析之updateViewport函数/" itemprop="url">
+                  OpenSeadragon绘图逻辑解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-08-26 15:59:05" itemprop="dateCreated datePublished" datetime="2016-08-26T15:59:05+08:00">2016-08-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:33:32" itemprop="dateModified" datetime="2017-08-02T15:33:32+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我们的项目中用到了OpenSeadragon库，OpenSeadragon是一个强大的库，主要功能是实现在Web端迅速的浏览大图，并且可以流畅的进行缩放、滑动等，用户体验非常好！关于OpenSeadragon，网上能找到的资料非常少，中文资料就更少之又少了。我花了很长时间去认真研究了OpenSeadragon的源码，尤其是OpenSeadragon的绘图部分，这篇博客就介绍了OpenSeadragon里面最核心的绘图逻辑，博客内容百分百原创，转载请注明出处！</p>
+<h2 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h2><ul>
+<li><p>当前显示图片大小：在每次执行updateViewport时，zoomSpring, centerSpringX和centerSpringY都会执行update,更新到当前动画帧时刻的状态值（也可以理解成当前动画帧完成时），也就是spring.current.value值，在此时图片的实际大小，以px为单位。当然如果是初始打开时，这个值可能不会改变。</p>
+</li>
+<li><p>目标图片大小：所有动画完成后（而不是当前帧完成后）的最终状态时图片的实际大小，以px为单位，其实就是spring.target.value状态时的图片大小。</p>
+</li>
+<li><p>两层遍历：第一次遍历：<strong>level级遍历</strong>，对于highestLevel和lowestLevel范围内的每一个level进行一次遍历。第二次遍历：<strong>tile级遍历</strong>，对于每个level中，<strong>需要用到的所有tile</strong>进行一次遍历</p>
+</li>
+</ul>
+<h2 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h2><h3 id="针对循环的全局变量"><a href="#针对循环的全局变量" class="headerlink" title="针对循环的全局变量"></a>针对循环的全局变量</h3><ul>
+<li><strong>lowestLevel: 数字值，渲染当前状态所需要的最低dzi等级</strong>。根据用户配置的minZoomImageRatio计算，minZoomImageRatio的意义是表示缩放到最小时，图片的大小与viewport大小的比值（也就是宽或者高的比值），默认值为0.9。计算方法：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lowestLevel     = <span class="built_in">Math</span>.max(</span><br><span class="line">       drawer.source.minLevel,<span class="comment">//dzi的最低level</span></span><br><span class="line">       <span class="built_in">Math</span>.floor(</span><br><span class="line">           <span class="built_in">Math</span>.log( drawer.minZoomImageRatio ) /</span><br><span class="line">           <span class="built_in">Math</span>.log( <span class="number">2</span> )</span><br><span class="line">       )</span><br><span class="line">   )</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>一般来说，lowestLevel的值都为0，只有当minZoomImageRatio的值大于2时，lowsetLevel的值才会超过1，而一般情况下minZoomImageRatio的值都不会超过2。</p>
+<ul>
+<li><strong>highestLevel: 数字值，渲染当前状态所需要的最高dzi等级</strong>，根据用户配置的minPixelRatio计算，minPixelRatio的值越小，那么用户最后看到的效果越清晰，默认值为0.5。计算方法：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">highestLevel    = <span class="built_in">Math</span>.min(</span><br><span class="line">        <span class="built_in">Math</span>.abs(drawer.source.maxLevel),<span class="comment">//dzi的最高level</span></span><br><span class="line">        <span class="built_in">Math</span>.abs(<span class="built_in">Math</span>.floor(</span><br><span class="line">            <span class="built_in">Math</span>.log( zeroRatioC / drawer.minPixelRatio ) /</span><br><span class="line">            <span class="built_in">Math</span>.log( <span class="number">2</span> )</span><br><span class="line">        ))</span><br><span class="line">    ),</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这里的zeroRatioC是当前显示图片宽度与level 0图片宽度的比值。minPixelRatio的实际意义是当前显示的图片宽度与某个level图片宽度的比值，Math.min的第二个表达式就是讲这个level的数值计算出来，这个level就是highestLevel。所以，<strong>minPixelRatio的值越小，highestLevel的值越大，用户看到的效果就越清晰，但这个highestLevel不会超过dzi所提供的maxLevel。</strong></p>
+<ul>
+<li><p><strong>lastDraw: 一个数组，是这次循环完成后，需要画到画布上的tile构成的数组。</strong>这个数组是个<strong>全局属性值，</strong>对于当前循环开始时来说，里面存储的是上次循环结束后的tile信息，所以命名为lastDrawn。在updateViewport函数的一开始，应该将这个数组清空，以便存入这次遍历的结果。存入时，是按照从高到低的顺序将<strong>下载好的并且未被覆盖的tile</strong>放到这个数组中。在后面的drawTiles函数中，是从后向前遍历画出，即先画出低清晰度版本，再画出高清晰度版本，<strong>高清晰度版本会覆盖低清晰度版本的一部分</strong>，所以会出现部分清晰部分模糊的现象。<strong>lastDrawn数组中，按照level从高到低，最低level的tile情况必须是完整的，即是这个level的所有tile，高层次的level中是更高分辨率的部分tile。</strong>当这个最低的完整level是highestLevel时就完成了遍历。注意放到下载队列的顺序和放到lastDrawn的顺序策略不同。放到下载队列时，是根据tile的优先级顺序，一般是从低分辨率版本到高分辨率版本，每次updateViewport只找到一个best。而放到lastDrawn的顺序是从高分辨率到低分辨率，每次updateViewport都会对lastDrawn数组中的内容重新排放。一次updateViewport寻找一个best的方法主要在两个方面：一是看这个tile是否被cover，如果是就不用比较了，否则就与其他比较。当然，在Level遍历层面，tile的cover情况上升到对这个level的cover情况的判断，这样这个level中的所有提了都不用考虑了。<strong>总体来说，寻找best的顺序是：按照从closetLevel到highestLevel、从中间到两遍的优先级顺序，从低分辨率到高分辨率版本，考虑每一个tile，如果某个tile被cover，则跳过这个tile，如果一个level中的所有tile被cover，则跳过这个level。</strong></p>
+</li>
+<li><p><strong>haveDrawn：布尔值，默认为false。</strong>haveDrawn针对每次updateViewport只有一个，所以如果在某次遍历中改变了haveDrawn的值，以后的遍历都会受到影响。其作用是<strong>精确当前update动画帧需要画出的level范围</strong>。<br>从高向低搜索时，只要有一个高的level满足了minPixelRatio的需求，那么下面的level必然是满足的，就不需要再继续检查了。需要这样做的原因，是由于在求取highestLevel时用了一个Math.abs，在<em>minPixelRatio给的很大或者当前显示图片很小</em>的极端情况下，求取的highestLevel本身可能是个负值变来的绝对值，这种情况下就不能满足大于等于minPixelRatio的需求，就要继续往下面的level的搜索，而搜索的极限是lowestLevel，这时即使是不满足的，也要强制使用了。这属于对极端情况的处理。haveDrawn为true时，表示这次updateViewport是有绘画工作要执行的，因为存在满足条件的level。由于是从高向低遍历，在求得使haveDrawn为true的level时，会同时将这个level的drawLevel值设为true，lowestLevel的值也为true，其他level的drawLevel值都为false。drawLevel的作用是为了后面的coverages三维数组的设定。</p>
+</li>
+<li><p><strong>tileMatrix：三维数组：[level][x][y]到tile的映射</strong>。这里面存储着每个tile的信息，除了包含level,x,y这些基本信息以外，还包括：<br>bounds: 这个tile在图片坐标系中相对于图片的归一化信息，包括左上角顶点的坐标以及tile的相对宽高<br>exists: 布尔值，标识这个tile是否存在，即是否超出这个图层的tile范围，一般都为true<br>url： 这个tile的URL，可以据此下载tile</p>
+</li>
+<li><p><strong>coverage: 三维数组：[level][x][y]到布尔值的映射</strong>。记录对应tile的cover值，为true时表明这个tile已经被cover，意思是这个tile本身已经下载完成，或者被更高的tile代替。<strong>被cover的意义是表示这个tile本身已经下载完，或者被更高级别的tile覆盖</strong>。在level级遍历中，如果整个level被cover，则不需要再对这个level以下的level遍历；在tile级遍历中，可以通过多次调用这个函数判断这个tile是否被更高级别的tile所覆盖。coverage数组的构成：对于只有highestLevel（或者满足minPixelRatio的最低level）和lowsetLevel，对应的cover值都是undefined，对于其他的level，如果某个tile不需要下载，那么是undefined，如果需要下载且未下载完，那么是false，如果是需要下载且已经下载完则为true，其他的都是undefined。即coverage数组的true和false只针对临界level以外且需要考虑绘画的tile。</p>
+</li>
+</ul>
+<h3 id="针对循环开始后每次循环中每个level的变量"><a href="#针对循环开始后每次循环中每个level的变量" class="headerlink" title="针对循环开始后每次循环中每个level的变量"></a>针对循环开始后每次循环中每个level的变量</h3><ul>
+<li><p><strong>renderPixelRatioC: 数字值，当前显示的图片宽度与该level图片宽度的比值</strong>这个值是随着level的增大而减小的，从高的level向低的level遍历时，这个值会越来越大</p>
+</li>
+<li><p><strong>renderPixelRatioT: 数字值，目标图片宽度与该level图片宽度的比值</strong>这个值是随着level的增大而减小的，从高的level向低的level遍历时，这个值会越来越大</p>
+</li>
+<li><p><strong>drawLevel: 布尔值，默认为false。只有highestLevel（或者满足minPixelRatio的最低level）和lowsetLevel为true</strong>，其他level对应的值均为false。drawLevel对应后面tile级循环中的drawTile，当其值为true时，表示这个tile是要被画出来的，为false时表示这个tile已经被覆盖，不需要再画出来。在后面的updateTile函数中，对drawTile（即drawlevel针对每个tile的具体值）的值会重新判断，标识这个tile是否要画出。可以看到，highestLevel（或者满足minPixelRatio的最低level）和lowsetLevel每次遍历时(只要lowestLevel不是被直接cover判断跳过)都要考虑到必绘画，即在lowestLevel被cover之前，每次绘画都会将其放在lastDrawn数组中，这也是为了确保每个区域最起码都有图显示，虽然分辨率可能不同。</p>
+</li>
+<li><p><strong>getClosetLevel(): 一个函数，执行的结果是获取最接近的level值。</strong>这个<em>最接近</em>的原意是指某个level的图片与viewport的窗口大小最接近（但不超过），而实际计算的结果，确是将这个level向下<em>降了2层</em>，即减去2。</p>
+</li>
+<li><p><strong>zeroRatioT： 数字值，目标图片的宽度与最接近level图片宽度的比值</strong></p>
+</li>
+<li><p><strong>optimalRatio: 数字值，最佳的pixelRatio值。</strong>有一个用户配置的immediateRender布尔值，默认为false，但是如果用户设置为true，那么optimalRatio的值为1，否则，optimalRatio的值等于zeroRatioT。</p>
+</li>
+<li><p><strong>levelOpacity： 衡量整个level透明度，数字值。</strong>level越高，levelOpacity越小。</p>
+</li>
+<li><p><strong>levelVisibility： 数字值，衡量这个level的优先程度。</strong>levelVisibility是衡量这个level中tile下载顺序的重要因素,tile排序时，levelVisibility<strong>越大越好</strong>。计算方法如下;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">levelVisibility = optimalRatio / <span class="built_in">Math</span>.abs(</span><br><span class="line">     optimalRatio - renderPixelRatioT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果用户配置的immediateRender为false，即默认情况下，那么closetLevel的levelVisibility为无穷大，肯定排在下载队列的最前面，然后level越高，其levelVisibility越大。如果用户配置immediateRender为true，那么当前level的图片宽度与目标图片宽度越接近时，levelVisibility的值越小。levelVisibility随level的关系是非线性的，增减速度上来说，level越高时，其levelVisibility越大。</p>
+<ul>
+<li><strong>best: 本次update找到的最佳的tile</strong>，默认为false</li>
+</ul>
+<h2 id="两层遍历的过程"><a href="#两层遍历的过程" class="headerlink" title="两层遍历的过程"></a>两层遍历的过程</h2><h3 id="level级遍历"><a href="#level级遍历" class="headerlink" title="level级遍历"></a>level级遍历</h3><ol>
+<li>首先计算出viewport在这个level中显示时，对应的<strong>tile范围</strong>。并且获取这个level所有的tile数目，以及其对应的水平方向和垂直方向的分布情况；</li>
+<li>将这个level对应的coverage数组清空。coverage数组是标识这个level中的每个tile是否被更高级别的tile覆盖的情况，是一个三维数组，存储的是布尔值；</li>
+<li>在这个level上与viewport显示所需要用到的tile，也就是第一步获取的<strong>tile范围</strong>之中，进行tile级遍历。</li>
+<li>对一个level遍历完成后，要检查该level中所有需要的tile的coverage是否为true，如果是，那么表明合格level中所有需要的tile已经下载完成，或者已经被更高的level覆盖。这时跳出循环，对lastDrawn数组中的所有tile执行绘画操作。由于遍历时从高到底的，所以画出的总是最高level的。</li>
+</ol>
+<h3 id="tile级遍历"><a href="#tile级遍历" class="headerlink" title="tile级遍历"></a>tile级遍历</h3><ol>
+<li>从tileMatrix中获取这个tile的信息，如果没有，则将信息存储到tileMatrix中；</li>
+<li>默认将coverage数组里面对应的值设置成false；</li>
+<li>如果这个tile.exists属性为false，即不存在，那么则返回之前的best为best tile；</li>
+<li>对于除最高level（指highestLevel或者满足minPixelRatio的最大level）和lowestLevel（因为只有这两个level的drawLevel为true）之外的level中tile，要判断它是否已经被更高level中对应的tile覆盖，也就是在coverage数组中的对应值是否为true。如果已经被覆盖，那么设置该tile的coverage对应值为true，并且返回之前的best为best tile，表明这个tile已经没必要再继续显示出来，避免了后面不必要的操作。否则，继续执行后续操作。</li>
+<li>给此tile进行定位。定位的结果返回以下信息：</li>
+</ol>
+<ul>
+<li>position：该tile左上角相对于viewport左上角顶点的真实坐标</li>
+<li>size：该tile在当前动画帧显示状态下，对应的大小。也就是当前画到画布上时对应的大小</li>
+<li>distance：动画<strong>终态</strong>时,该tile中心与viewport中心点的距离</li>
+<li>visibility：该tile的优先级参数，也就是前面level中计算的levelVisibility</li>
+</ul>
+<ol start="6">
+<li>检查该tile的下载状态，有两个属性：tile.loading表示该tile是否正在下载，tile.loaded表示该tile是否已经下载完成，都是布尔值。这两个值都是由下载队列控制的。</li>
+</ol>
+<ul>
+<li>如果已经下载完成：那么表明这个tile是之前遍历中已经找到的best tile，所以此次循环直接返回上一次的best为best tile。然后将之前的best tile加入到lastDrawn数组中，在两次遍历结束后就可以开始绘画；同时，要将该best tile对应的cover值设置为true，这样，它下面的level对应的tile就不需要重复。</li>
+<li><p>如果正在下载中，那么表明这个tile是之前遍历中已经找到的best tile，所以此次循环直接返回上一次的best为best tile。<br>总结：返回之前的best（如果是第一轮，那么之前的best就是null）作为本次循环的best tile情况总结起来有以下三种：这个tile已经被cover，这个tile已经被下载或者这个tile正在下载中</p>
+</li>
+<li><p>如果tile.loading和tile.loaded都为false，那么表明这个tile还没有加入下载队列，即不是之前循环中找到的best。那么，将这个tile和之前的tile进行一次比较。比较时先比较levelVisibility，然后比较tile.distance，在当前的tile和之前的best tile中，返回levelVisibility较大的一个，如果两者相等，那么返回tile.distance较小的一个，如果都相等，那么返回之前的best tile即可。</p>
+</li>
+</ul>
+<h3 id="总结两级遍历分别完成的功能"><a href="#总结两级遍历分别完成的功能" class="headerlink" title="总结两级遍历分别完成的功能"></a>总结两级遍历分别完成的功能</h3><ul>
+<li>level级遍历：找出该level下对应当前显示状态时，需要用到的tile范围，然后对这些tile进行遍历</li>
+<li>tile级遍历：在level级遍历确定的tile范围中，对每个tile执行相应操作，主要有：<br>如果能找到新的best，那么返回这个tile作为新的best，其中包含了这个tile的定位信息。<br>在遍历时，对于之前所有updata找到的，已经加入下载队列<strong>下载完成的所有tile</strong>，并且在level级遍历中确定范围时也是取得这些tile对于当前显示也是需要的，则重新根据当前动画帧的状态对其定位，然后加入lastDrawn数组中，在遍历完成后绘出。</li>
+</ul>
+<h2 id="updateViewport过程总览"><a href="#updateViewport过程总览" class="headerlink" title="updateViewport过程总览"></a>updateViewport过程总览</h2><ol>
+<li>进入后，首先计算前文提到的一些常量，并且清空数组和画布，为后面的绘画做准备。</li>
+<li>对所有的level中的tile遍历。遍历的过程中会对用到的所有已经下载的tile重新对当前动画帧定位。遍历完成后，将lastDrawn数组里面的tile画出。此时对应的lastDrawn有两种情况：一是某个level中的全部tile已经cover，即从providesCoverage判断跳出来的，直接画出更高清晰度的版本；这种情况主要对于移动，当然移动时也有可能下载。二是lastDrawn中包含了不同level的已经下载好的tile，此时的tile不会出现覆盖的情况，所以此时绘出时可能是同一张图片上不同位置的清晰度不同。同时，将这次update找到的best（如果有）加入下载队列。这种情况可以简单理解为初次打开或者缩放时，当然拖动时也会有。</li>
+</ol>
+<h2 id="updateViewport流程图"><a href="#updateViewport流程图" class="headerlink" title="updateViewport流程图"></a>updateViewport流程图</h2><p><img src="/images/JavaScript/osd_updateviewport.png" alt="updateViewport流程图"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/04/30/重装系统后hexo写博客功能的恢复/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/04/30/重装系统后hexo写博客功能的恢复/" itemprop="url">
+                  重装系统后hexo写博客功能的恢复
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-04-30 11:00:01" itemprop="dateCreated datePublished" datetime="2016-04-30T11:00:01+08:00">2016-04-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:52:10" itemprop="dateModified" datetime="2017-08-02T15:52:10+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端工具/" itemprop="url" rel="index"><span itemprop="name">前端工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前两天重新给电脑装了个win10，之前存放在C盘的里面的hexo全部没有了，折腾了半天，终于恢复了hexo写博客的功能，现在记录下来，给需要的朋友备用。</p>
+<p>对于hexo来说，两个配置文件是最重要的，一个是hexo本身的配置文件，位于”你的hexo主目录/“下的”_config.yml”，另一个是主题的配置文件，位于”你的hexo主目录/themes/你的主题文件夹/_config.yml”，这两个文件一定要记得备份，如果没有了，那就只能重新配置了。另外就是source文件夹下的博客文章资源等，也应该做好备份。如果没有备份，那么恢复hexo的发博客功能也是没有关系的，但是配置上和博客文档上可能需要自己重新配置了。</p>
+<p>首先声明，以下所有的操作都假定你之前的hexo已经配置好，博客系统可以正常工作，只是因为重装系统或者其他操作失去了本地的hexo文件夹，现在要恢复hexo而已，并且以下都是基于windows系统的。</p>
+<h2 id="安装git和nodejs"><a href="#安装git和nodejs" class="headerlink" title="安装git和nodejs"></a>安装git和nodejs</h2><p>这两个软件是hexo可以正常工作的基础，必须要先安装好。安装后，要在cmd命令行执行<code>node -v</code>和<code>npm -v</code>检查是否安装成功。</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>如果git和npm都已经安装好了，那么现在可以直接安装hexo了，在命令行中执行以下命令：<br>    npm install -g hexo-cli</p>
+<p>将hexo安装到全局。</p>
+<h2 id="建立hexo文件夹"><a href="#建立hexo文件夹" class="headerlink" title="建立hexo文件夹"></a>建立hexo文件夹</h2><p>在自己选定的某个目录下，新建一个文件夹，这个文件夹就是之前的hexo文件夹，可以命名为’hexo’。进入hexo文件夹，按住shift加鼠标右键，选择“在此处打开命令窗口”（或者直接通过cmd进入此文件夹也可），在打开的命令行窗口中执行：</p>
+<pre><code>hexo init
+</code></pre><p>此命令执行完成后，会在该文件夹下生成多个文件，这是hexo的基本文件，然后继续执行：</p>
+<pre><code>npm install
+</code></pre><p>安装hexo必须的依赖包。安装时可能会有一些warning的提示，但一般不会影响使用。可以进入node_modules文件夹查看安装的依赖包情况。至此hexo文件夹的基础部分就恢复了。</p>
+<p>如果备份了hexo的配置文件_config.yml，可以直接将文件复制过来覆盖，如果没有备份，那么就只能自己重新配置了。</p>
+<h2 id="恢复主题"><a href="#恢复主题" class="headerlink" title="恢复主题"></a>恢复主题</h2><p>先在网上搜索自己需要恢复的主题的github链接，进入hexo/themes文件夹，鼠标右键，选择”Git Bash Here”，打开git窗口，执行</p>
+<pre><code>git clone http://你找到的gitbub链接
+</code></pre><p>克隆完成后，进入该主题的文件夹。如果之前备份了主题的_config.yml文件，则直接复制过来覆盖。hexo的_config.yml文件和主题的_config.yml不是同一个文件，前面已经提过。如果没有备份，那么只能重新配置一遍。</p>
+<h2 id="测试本地"><a href="#测试本地" class="headerlink" title="测试本地"></a>测试本地</h2><p>至此，本地的配置已经完成了，可以先进行简单的本地测试。进入hexo文件夹，打开命令行窗口，或着打开Git的命令行窗口也可，执行：</p>
+<pre><code>hexo g
+</code></pre><p>此时可以看到hexo在执行生成页面文件，再执行</p>
+<pre><code>hexo s
+</code></pre><p>hexo启动本地服务，浏览器中输入’<a href="http://localhost:4000/&#39;，可以看到在本地的预览效果。至此，说明本地的配置已经完成。" target="_blank" rel="noopener">http://localhost:4000/&#39;，可以看到在本地的预览效果。至此，说明本地的配置已经完成。</a></p>
+<h2 id="恢复与github的链接"><a href="#恢复与github的链接" class="headerlink" title="恢复与github的链接"></a>恢复与github的链接</h2><p>恢复到github有以下几个步骤：</p>
+<h3 id="配置-config-yml中的deploy"><a href="#配置-config-yml中的deploy" class="headerlink" title="配置_config.yml中的deploy"></a>配置_config.yml中的deploy</h3><p>在hexo根目录下的_config.yml文件中，要配置deploy（如果是之前已经备份的则不需要改变，如果是重新写那么先要配置这个选项），格式为：</p>
+<pre><code>deploy:
+  type: git
+  repository: git@github.com:yourname/yourname.github.io.git
+  branch: master
+</code></pre><h3 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h3><p>一般来说，重装系统后并没有配置SSH Keys，所以还要配置SSH Key。在hexo文件夹中点击鼠标右键选择“Git Bash Here”打开命令行窗口，执行以下命令：</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot;
+</code></pre><p>此时会看到窗口显示以下信息</p>
+<pre><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):
+</code></pre><p>要求用户选择公钥的存放路径，可以手动定制，也可以直接回车放在默认的路径，后面要用到这个路径。然后，系统会要求用户输入密码：</p>
+<pre><code>Enter passphrase (empty for no passphrase):&lt;输入加密串，回车&gt;
+Enter same passphrase again:&lt;再次输入加密串，回车&gt;
+</code></pre><p>此时命令行窗口会显示以下内容：</p>
+<p><img src="/images/tools/ssh_key.png" alt="SSH-Key公钥生成截图"></p>
+<p>说明公钥已经生成。</p>
+<h3 id="添加公钥到Github："><a href="#添加公钥到Github：" class="headerlink" title="添加公钥到Github："></a>添加公钥到Github：</h3><p>找到刚刚生成的公钥文件，文件名为id_rsa.pub。如果是自定义的公钥存放路径那是在该目录下，否则是默认的路径下。在我的win10系统中，默认路径是在’C:\Users\cattle.ssh’目录下，cattle是我的windows用户名，如果在win7系统，应该在’C:\Documents and Settings\Administrator.ssh\’，如果实在找不到，在上面公钥生成后的提示中也可以找到，如上面的截图中的第一句就是路径信息，如果你把窗口关了，好吧，按照文件名搜一下吧。找到这个文件，用文本编辑器打开。</p>
+<p>登录到Github，点击头像，在下拉菜单中选择Account Settings–&gt;SSH Public keys –&gt; add another public keys，会弹出一个文本框，title随意填写，然后复制文本编辑器中的内容，直接复制粘贴到Key中，点击Add key按钮即可。</p>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><p>用户信息被Github用来记录提交信息。执行以下命令：</p>
+<pre><code>$ git config --global user.name &quot;cnfeat&quot;//用户名
+$ git config --global user.email  &quot;cnfeat@gmail.com&quot;//邮箱
+</code></pre><p>至此，已经完成了到Github的连接。</p>
+<h2 id="添加CNAME和README文件"><a href="#添加CNAME和README文件" class="headerlink" title="添加CNAME和README文件"></a>添加CNAME和README文件</h2><p>此时，如果直接执行<code>hexo g</code>和<code>hexo d</code>，按照提示输入密码，就可以部署了。但是在浏览器中输入域名打开时会提示404，原因是缺少CNAME文件。</p>
+<p>在hexo/source文件夹下，新建一个文本文件，里面的内容是域名，如’liugui.me’，然后保存，关闭，选中点击右键，属性，将文件名改成CNAME，去掉后缀，弹出的提示框直接选是。</p>
+<p>另外，一般还需要一个README文件，同样是新建文本，内容自己写，是描述自己的博客的，然后修改属性，去掉后缀。注意，千万不要把后缀改成md，这样会编译成一个HTML文件。</p>
+<p>重新执行以下命令：</p>
+<pre><code>hexo g
+hexo d
+</code></pre><p>然后，在浏览器中可以打开了。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>至此，已经完成了全部操作。提醒大家平时要备份配置文件，这样以后恢复的时候就方便多了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/03/26/学习WebGL-三-：创建基本WebGL的程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/26/学习WebGL-三-：创建基本WebGL的程序/" itemprop="url">
+                  学习WebGL(三)：创建基本的WebGL程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-26 20:07:48" itemprop="dateCreated datePublished" datetime="2016-03-26T20:07:48+08:00">2016-03-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:50:48" itemprop="dateModified" datetime="2017-08-02T15:50:48+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前面两篇博客介绍的是关于WebGL的一些预备知识，但都没有涉及到代码。这篇博客介绍一个基本的WebGL程序，这个程序的最终效果是在屏幕上绘制一个白色的三角形。程序虽然简单，但是可以从这个小程序来分析WebGL程序的基本结构，以及编写WebGL应用程序的基本流程。</p>
+<h2 id="WebGL程序的基本结构"><a href="#WebGL程序的基本结构" class="headerlink" title="WebGL程序的基本结构"></a>WebGL程序的基本结构</h2><p>WebGL程序的基本结构如下所示。为了看出整体结构，我省去了每个函数的具体代码实现，这些代码实现将在后面逐步介绍。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;First WebGL Application&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;meta charset="utf-8"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script id="shader-vs" type="x-shader/</span>x-vertex<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        // 顶点着色器的源码</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;script id="</span>shader-fs<span class="string">" type="</span>x-shader/x-fragment<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        //片段着色器的源码</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;script type="</span>text/javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    // 定义一些全局变量</span></span><br><span class="line"><span class="string">    var gl, canvas, shaderProgram, vertexBuffer;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    function createGLContext(canvas) &#123;</span></span><br><span class="line"><span class="string">      // 创建WebGL环境</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function loadShaderFromDOM(id) &#123;</span></span><br><span class="line"><span class="string">        // 创建Shader，引入源码，并且编译链接</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function setupShaders() &#123;</span></span><br><span class="line"><span class="string">        // 创建Program，链接Shader</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function setupBuffers() &#123;</span></span><br><span class="line"><span class="string">        //设置WebGL缓存对象 </span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    function draw() &#123;</span></span><br><span class="line"><span class="string">       // 绘画的主函数</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    // startup函数，负责整个流程</span></span><br><span class="line"><span class="string">    function startup() &#123;</span></span><br><span class="line"><span class="string">        canvas = document.getElementById("</span>myGLCanvas<span class="string">");</span></span><br><span class="line"><span class="string">        gl = WebGLDebugUtils.makeDebugContext(createGLContext(canvas));</span></span><br><span class="line"><span class="string">        setupShaders();</span></span><br><span class="line"><span class="string">        setupBuffers();</span></span><br><span class="line"><span class="string">        gl.clearColor(0.0, 0.0, 0.0, 1.0);// 定义初始化画布的颜色，即背景色</span></span><br><span class="line"><span class="string">        draw();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;body onload="</span>startup();<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;canvas id="</span>myGLCanvas<span class="string">" width="</span><span class="number">500</span><span class="string">" height="</span><span class="number">500</span><span class="string">"&gt;&lt;/canvas&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<p>startup()函数是程序的主函数，当页面加载完成后触发，通过它来调用各个函数，控制整体的绘画流程。下面逐步介绍。</p>
+<h3 id="创建WebGL环境"><a href="#创建WebGL环境" class="headerlink" title="创建WebGL环境"></a>创建WebGL环境</h3><p>要使用WebGL提供的API，首先要创建WebGL环境，获取WebGLRenderingContext对象。所以，在HTML代码部分，需要有一个<code>&lt;canvas&gt;</code>标签。用document.getElementById找到这个DOM对象后，调用getContext方法获取WebGLRenderingContext对象，然后将该对象保存在全局变量gl中，之后就可以通过gl来调用WebGL的API，以及访问WebGL的内置变量了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createGLContext</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> names = [<span class="string">"webgl"</span>, <span class="string">"experimental-webgl"</span>]，</span><br><span class="line">        context = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; names.length; i++) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            context = canvas.getContext(names[i]);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> (context) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (context) &#123; <span class="comment">// 设置WebGL会话窗口的大小与Canvas画布的大小一致 </span></span><br><span class="line">        context.viewportWidth = canvas.width;</span><br><span class="line">        context.viewportHeight = canvas.height;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">"Failed to create WebGL context!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> context;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在WebGL标准定稿前，使用getContext()函数输入的参数是”experimental-webgl”，在WebGL标准正式定稿之后，变成了”webgl”，为了考虑新旧浏览器的兼容性，最好将这两个参数都写出来。这里使用一个try-catch语句，只要有一个输入参数获取WebGLRenderingContext对象成功了，就使用break语句跳出。获取环境对象后，访问环境对象的viewportWidth和viewportHeight属性，这两个属性分别表示WebGL最终绘画的视口（viewport）的宽度和高度。视口就是最终在画布上绘画的区域。如果设置的宽高比与canvas的宽高比不同，则显示的时候看起来会扭曲，如果设置的大小超过了画布的大小，那么会有一部分在画布之外而无法显示。我们将视口宽高设成与canvas画布的宽高一致。最后，将这个WebGLRenderingContext对象返回给调用函数。</p>
+<h3 id="编写Shader源码"><a href="#编写Shader源码" class="headerlink" title="编写Shader源码"></a>编写Shader源码</h3><p>为了方便，将Shader的源码写在单独的<code>&lt;script&gt;&lt;/script&gt;</code>标签里面。也有另一种方法，是将shader源码以字符串形式直接写在JavaScript代码中。使用第一种方法的好处是，可以将Shader代码和JavaScript代码分开，而且避免了使用字符串编写时要用到的很多’+’号连接，提升易读性，这一点在Shader源码变得复杂时尤为明显。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=<span class="string">"shader-vs"</span> type=<span class="string">"x-shader/x-vertex"</span>&gt;<span class="comment">// 顶点着色器(vertex shader)的源码</span></span><br><span class="line">    attribute vec3 aVertexPosition; </span><br><span class="line">    <span class="keyword">void</span> main() &#123; </span><br><span class="line">        gl_Position = vec4(aVertexPosition, <span class="number">1.0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script id="shader-fs" type="x-shader/</span>x-fragment<span class="string">"&gt;// 片段着色器(fragment shader)的源码</span></span><br><span class="line"><span class="string">    precision mediump float; </span></span><br><span class="line"><span class="string">    void main() &#123; </span></span><br><span class="line"><span class="string">        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); </span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;script&gt;</code>标签里面本来是用来存放JavaScript代码的，一般type值为”text/javascript”，这也是type的默认值，它告诉浏览器这里面存储的是JavaScript代码，浏览器便会执行。当type设置成了其他值时，浏览器就不会执行<code>&lt;script&gt;</code>标签里面的代码。所以，我们就可以将用GLSL ES编写的Shader的源码放在<code>&lt;script&gt;</code>标签中。WebGL中的两种着色器都有自己的结构特点、输入和输出值，分别比较如下：</p>
+<h4 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h4><p>顶点着色器的输入包括：</p>
+<ol>
+<li>vertex shader的实际源代码： 用GLSL ES设计的。因为是可编程的，所以可以输入代码</li>
+<li>attribute变量： 用户自定义的变量，包含<strong>特定于每个顶点</strong>的数据</li>
+<li>uniform变量： 用户自定义的变量，用来表示<strong>所有顶点</strong>都相同的数据，在一次绘制调用期间保持不变</li>
+</ol>
+<p>顶点着色器的输出包括：</p>
+<ol>
+<li>内置特殊变量： 以gl_开头，如gl_Position,gl_FrontFacing</li>
+<li>varying变量： 从vertex shader发送到fragment shader</li>
+</ol>
+<p>在本例的vertex shader源码中，输入只有一个attribute变量aVertextPostion，表示输入的顶点数据，vec3表示它的数据是一个三维向量，即一个顶点的三个坐标。类似的，vec4表示四维向量，mat4表示四维矩阵，mat3表示三维矩阵。这些是GLSL ES语言中规定的数据类型。前面介绍WebGL数据时提到，向量和矩阵是WebGL中经常用到的数据类型。</p>
+<p>vec3是变量的<strong>数据类型</strong>，而attribute和uniform是变量<strong>存储限定符</strong>。attribute类型的变量是普通的变量，在Shader中可以修改attribute变量的值，Shader执行时，它的值针对每个顶点可以是不同的。而uniform变量在Shader中是不可以修改的，只能读取，在一次绘制调用期间它对每个顶点的值都是相同的。</p>
+<p>varying表示定义一个可变变量，即这个变量的值是可以改变的，主要用来做颜色的<strong>自动插值计算</strong>。比如，要绘制一条线，定义线的左端顶点为红色，右端顶点为绿色，只要将这两个顶点颜色值传递给vertex shader，然后vertex shader通过一个varying变量将颜色值传递给fragment shader，那么fragment shader就可以自动的计算这条线段上其他点的颜色，使其平稳的从红色变成绿色。</p>
+<p>在变量的命名中有以下约定:</p>
+<ol>
+<li>attribute变量命名以”a”开头，如<code>attribute vec3 aVertexPosition</code></li>
+<li>uniform变量命名以”u”开头，如<code>uniform mat4 uMVMatrix</code></li>
+<li>varying变量命名以”v”开头，如<code>varying vec4 vColor</code></li>
+<li>WebGL内置变量都是以”gl_”开头的，如<code>gl_Position</code></li>
+</ol>
+<p>本例中的顶点着色器，接收用户输入的顶点数据到aVertexPostion变量，然后将三维的顶点坐标变成四维的<strong>齐次坐标</strong>，保存到gl_Position变量中，这个变量表示顶点的位置。</p>
+<h4 id="片段着色器"><a href="#片段着色器" class="headerlink" title="片段着色器"></a>片段着色器</h4><p>片段着色器的输入包括：</p>
+<ol>
+<li>shader源代码</li>
+<li>内置特殊变量</li>
+<li>用户自定义的varying变量</li>
+<li>uniform变量</li>
+<li>采样器(sampler): 特殊的uniform变量，用于<strong>纹理</strong>映射</li>
+</ol>
+<p>片段着色器的输出包括：</p>
+<ol>
+<li>内置特殊变量： gl_FragColor，表示片段的颜色。</li>
+</ol>
+<p>片段着色器最主要的作用就是根据vertex shader的处理结果，计算各个片段的颜色，输出到内置变量gl_FragColor。WebGL中的颜色用一个vec4类型表示，即一个四维向量，每个分量分别对应R,G,B,A,但是需要注意的是，每个分量的值都在[0,1]之间，它们对应[0,255]这种整数值的颜色表示，最后一位是透明度。</p>
+<p>在这个例子中，第一句<code>precision mediump float;</code>用来定义一个<strong>精度限定符</strong>，通过这个精度限定符，着色器编译器就可以知道着色器的变量或者数据类型的最小精度。在WebGL中，所有片段着色器中都必须定义浮点类型数据的精度，这里采用的<code>mediump</code>表示中等精度。</p>
+<h3 id="创建Shader"><a href="#创建Shader" class="headerlink" title="创建Shader"></a>创建Shader</h3><p>现在已经将shader的源代码写好并且放在了<code>&lt;script&gt;</code>标签中，接下来就要利用这些源代码创建Shader程序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadShaderFromDOM</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> shaderScript = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!shaderScript) &#123;<span class="comment">// 如果没有找到DOM则返回null</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> shaderSource = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> currentChild = shaderScript.firstChild;        <span class="keyword">while</span> (currentChild) &#123;</span><br><span class="line">        <span class="keyword">if</span> (currentChild.nodeType == <span class="number">3</span>) &#123; <span class="comment">// 3代表文本节点</span></span><br><span class="line">            shaderSource += currentChild.textContent;</span><br><span class="line">        &#125;</span><br><span class="line">        currentChild = currentChild.nextSibling;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> shader;</span><br><span class="line">    <span class="keyword">if</span> (shaderScript.type == <span class="string">"x-shader/x-fragment"</span>) &#123;</span><br><span class="line">        shader = gl.createShader(gl.FRAGMENT_SHADER);<span class="comment">// 创建新的vertex shader</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shaderScript.type == <span class="string">"x-shader/x-vertex"</span>) &#123;</span><br><span class="line">        shader = gl.createShader(gl.VERTEX_SHADER);<span class="comment">// 创建新的fragment shader</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    gl.shaderSource(shader, shaderSource);<span class="comment">// 将Shader源码放到Shader对象</span></span><br><span class="line">    gl.compileShader(shader);<span class="comment">// 编译Shader</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) &#123;</span><br><span class="line">        alert(gl.getShaderInfoLog(shader));</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> shader;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数的作用是：从DOM中读取源码创建Shader对象。一次执行创建一个Shader，一共可以创建两种类型的Shader。</p>
+<p>首先通过id找到这个DOM对象，这个DOM对象就是容纳Shader源码的<code>&lt;script&gt;</code>节点。用一个while循环来遍历这个对象的子节点（在本例中其实就只有一个子节点），如果子节点的nodeType属性为3，那么表示这个子节点的类型为文本节点。读取该子节点的文本内容，以字符串的形式保存在shaderSource变量中。之前提到的直接在JavaScript代码中以字符串形式编写Shader源码的方法，两种方法最后得到的结果都是相同的。</p>
+<p>现在得到了Shader源码的字符串形式，但字符串还不是一个Shader对象，于是创建一个空的Shader对象。根据在<code>&lt;script&gt;</code>标签中定义的type类型，判断要创建何种类型的Shader对象。创建Shader对象用到WebGL提供的<code>gl.createShader()</code>，这个函数接收一个参数：gl.VERTEX_SHADER表示创建顶点着色器，gl.FRAGMENT_SHADER表示创建片段着色器，创建的Shader对象作为返回值保存在shader变量中。</p>
+<p>有了新建的空Shader对象和Shader源码，就可以调用gl.shaderSource()函数，将源码引入到新建的空Shader对象中。到此为止，Shader对象创建完成。然后调用gl.compileShader()函数对Shader进行<strong>编译</strong>。因为Shader是用GLSL ES编写的，而不是JavaScript这种不需要编译的脚本语言。</p>
+<p>最后的if语句是为了检查编译是否成功，gl.getShaderParameter访问gl.COMPILE_STATUS的值，如果是true则表示编译成功，否则编译失败。</p>
+<h3 id="将Shader链接成程序"><a href="#将Shader链接成程序" class="headerlink" title="将Shader链接成程序"></a>将Shader链接成程序</h3><p>上面已经创建了Shader并且编译，但是Shader还需要经过链接以后才能执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setupShaders</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vertexShader = loadShaderFromDOM(<span class="string">"shader-vs"</span>);</span><br><span class="line">    fragmentShader = loadShaderFromDOM(<span class="string">"shader-fs"</span>);</span><br><span class="line"></span><br><span class="line">    shaderProgram = gl.createProgram();<span class="comment">// 创建一个新的空程序</span></span><br><span class="line">    gl.attachShader(shaderProgram, vertexShader);</span><br><span class="line">    gl.attachShader(shaderProgram, fragmentShader);<span class="comment">// 将两个Shader放到程序中</span></span><br><span class="line">    gl.linkProgram(shaderProgram);<span class="comment">// 将程序中的所有Shader链接</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) &#123;</span><br><span class="line">        alert(<span class="string">"Failed to setup shaders"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    gl.useProgram(shaderProgram);<span class="comment">// 指示WebGL使用这个程序</span></span><br><span class="line"></span><br><span class="line">    shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, <span class="string">"aVertexPosition"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先，两次调用上一小节介绍的loadShaderFromDOM()函数，分别得到编译好的vertex shader和fragment shader。然后调用gl.createProgram()创建一个新程序，通过gl.attachShader()函数把编译好的两个Shader放到这个新程序里面，接着调用gl.linkProgram将程序中的两个Shader<strong>链接</strong>。与检查编译状态类似，gl.getProgramParameter()函数访问gl.LINK_STATUS来检查链接是否完成。到此为止，Shader的编译和链接都已经完成了，通过gl.useProgram()指定WebGL引擎要使用这个程序绘图。最后的gl.getAttribLocation()方法用来获取通用属性索引，将在下一篇博客中详细介绍。</p>
+<h3 id="创建Buffer"><a href="#创建Buffer" class="headerlink" title="创建Buffer"></a>创建Buffer</h3><p>WebGL创建的Buffer是内存上的一块区域，它由WebGL来管理。 用户的数据都要先发送到Buffer里面，然后WebGL从Buffer中读取。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setupBuffers</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    vertexBuffer = gl.createBuffer();</span><br><span class="line">    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);</span><br><span class="line">    <span class="keyword">var</span> triangleVertices = [</span><br><span class="line">        <span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">0.0</span>, </span><br><span class="line">       <span class="number">-0.5</span>, <span class="number">-0.5</span>, <span class="number">0.0</span>,</span><br><span class="line">        <span class="number">0.5</span>, <span class="number">-0.5</span>, <span class="number">0.0</span></span><br><span class="line">    ];</span><br><span class="line">    gl.bufferData(gl.ARRAY_BUFFER, <span class="keyword">new</span> <span class="built_in">Float32Array</span>(triangleVertices), gl.STATIC_DRAW);</span><br><span class="line">    vertexBuffer.itemSize = <span class="number">3</span>;</span><br><span class="line">    vertexBuffer.numberOfItems = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>gl.createBuffer()用来创建一个buffer。WebGL可以创建很多个buffer，每个buffer用来专门存放一类数据。gl.bindBuffer将新建的Buffer与Shader的中的一个<strong>目标</strong>绑定，即告诉Shader要从这个Buffer中获取什么数据。然后定义顶点数据，本例要绘制一个三角形，所以只用传入三个三维的顶点数据。gl.bufferData()将定义的数据上传到缓存中，由于缓存已经绑定了目标，所以第一个参数直接写成目标。后面的itemSize和numberOfItems属性分别表每个顶点包含的坐标数据个数（三维坐标），以及顶点的个数（三角形有三个顶点），加到buffer对象上以便后面调用。关于WebGL的buffer数据管理策略后面的博客中会有更详细的介绍。</p>
+<h3 id="绘画的主函数"><a href="#绘画的主函数" class="headerlink" title="绘画的主函数"></a>绘画的主函数</h3><p>到目前为止，已经准备好了绘画用到的WebGL程序和数据，终于可以开始绘画了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gl.viewport(<span class="number">0</span>, <span class="number">0</span>, gl.viewportWidth, gl.viewportHeight);<span class="comment">// 设置窗口大小</span></span><br><span class="line">    gl.clear(gl.COLOR_BUFFER_BIT);<span class="comment">// 重置窗口颜色</span></span><br><span class="line">    <span class="comment">// 下面这两个函数指定数据的导入格式</span></span><br><span class="line">    gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, vertexBuffer.itemSize, gl.FLOAT, <span class="literal">false</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);</span><br><span class="line">    gl.drawArrays(gl.TRIANGLES, <span class="number">0</span>, vertexBuffer.numberOfItems);<span class="comment">// 开始绘画</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>hexo<br>gl.viewport定义绘画视口的大小和位置。绘画视口是一个矩形区域，前两个参数定义了视口矩形的左下角顶点，其坐标相对于canvas画布的左下角顶点而言，后两个参数定义了矩形的宽高，以像素为单位。gl.clear()把颜色缓存清除为在下面的startup()函数中用gl.clearColor()函数定义的颜色。这相当于描绘背景色，因为后面只绘画我们定义的三角形以，也只给三角形填充颜色。gl.vertexAttribPointer()用来指定Buffer中数据的引用方法，gl.enableVertexAttribArray()用来激活通用属性索引，最后一个函数是绘画命令。</p>
+<h2 id="WebGL程序的一般步骤"><a href="#WebGL程序的一般步骤" class="headerlink" title="WebGL程序的一般步骤"></a>WebGL程序的一般步骤</h2><p>最后，我们总结WebGL程序的一般步骤：</p>
+<ol>
+<li>在HTML代码中加入一个<code>&lt;canvas&gt;</code>标签，在JavaScript代码中引用这个<code>&lt;canvas&gt;</code>标签，创建一个WebGLRenderingContext对象，这个对象包含了所有的WebGL API,一般命名为gl，即<code>gl.function()</code>的方法；</li>
+<li>用GLSL ES编写vertex shader和fragment shader的源代码；</li>
+<li>用WebGL的API，创建shader对象，然后引入vertex shader和fragment shader的源代码并且编译；</li>
+<li>用WebGL的API，创建一个程序，程序中引入编译好的shader object，然后链接这个程序，再指示WebGL如何使用这个程序对象进行绘制；</li>
+<li>设置WebGL缓存对象，并把几何对象的顶点数据载入到顶点缓存；</li>
+<li>指示WebGL，哪个缓存对应于着色器的属性，最后绘制几何对象。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客很长，介绍了WebGL程序的一般结构。可以发现，有很多代码是为了错误处理或者提高兼容性，所以使整个程序长了很多。这里介绍的有些函数在其他更高级的WebGL程序中都是通用的，如createGLContext, loadShaderFromDOM等，更复杂的功能也是在这个程序的代码上增加一些函数，或者对这里的函数做修改实现的。总之，这个简单程序的结构，是开发WebGL应用程序的基础。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/03/24/学习WebGL-二-WebGL的基本原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/24/学习WebGL-二-WebGL的基本原理/" itemprop="url">
+                  学习WebGL(二): WebGL基础知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-24 20:31:25" itemprop="dateCreated datePublished" datetime="2016-03-24T20:31:25+08:00">2016-03-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-08-02 15:51:50" itemprop="dateModified" datetime="2017-08-02T15:51:50+08:00">2017-08-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="WebGL中的术语"><a href="#WebGL中的术语" class="headerlink" title="WebGL中的术语"></a>WebGL中的术语</h2><p>在WebGL中，有一些重要的术语和基本概念。我学习WebGL时，发现很多学习资料都缺少对这些术语和基本概念的详细而明确的解释，导致学习的时候一头雾水，所以在这里先将它们中最重要的部分列出来。</p>
+<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>不需要研究GPU的硬件结构和工作原理，我们只需要知道GPU是<strong>流水线结构</strong>，也就是一级一级的级联结构，数据在GPU中经过一级一级的处理，每一级都会完成相应的操作。</p>
+<h3 id="帧缓存"><a href="#帧缓存" class="headerlink" title="帧缓存"></a>帧缓存</h3><p>帧是一个单位，比如电影就是由很多帧画面连续变换组成。WebGL在浏览器上的一次完整的绘画就产生一帧图像，如果要产生动画效果那就是在一秒钟内快速的进行多次绘画。打开这个<a href="http://webglsamples.org/aquarium/aquarium.html" target="_blank" rel="noopener">例子</a>，可以看到左上角有一个fps数据，这个fps就是帧率，即一秒钟WebGL绘画的次数，fps越高，动画效果越流畅，表明电脑的GPU性能越好。帧缓存就是一个存储器，它保存了最终显示在屏幕上的一帧图像的<strong>全部信息</strong>。我们绘制图形的第一部是传入数据，数据经过GPU流水线的处理之后，最终到达帧缓存，然后只要访问帧缓存中的数据就可以将图像完整的绘制出来。帧缓存通常至少由以下三个子缓存组成：</p>
+<ol>
+<li>颜色缓存(color buffer): 一帧图像是由很多个像素点组成的，图像的信息也就是每个像素点的信息，颜色缓存中保存了每个像素点的颜色信息。</li>
+<li>Z-缓存（Z-buffer）： 绘图是在平面上绘图，但绘图的对象是立体的，就像拍照一样，总会有些物体被遮挡住，Z-缓存就是提供这些信息的，根绝这些信息，WebGL不用绘制那些被遮挡的点，它存储的信息就相当于CSS中的z-index属性。</li>
+<li>模板缓存（stencil buffer）:  可以用来控制在颜色缓存的某个位置写入操作，一个实际应用的示例是用它来处理阴影。</li>
+</ol>
+<h3 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h3><p>着色器（Shader）是用户编写的，经过编译和链接后在GPU上运行的程序，它是WebGL最核心的部分。WebGL有两个着色器，分别是顶点着色器(vertex shader)和片段着色器（fragment shader），着色器是用GLSL ES语言编写的，每个着色器的具体功能会在后面介绍。</p>
+<h3 id="GLSL-ES"><a href="#GLSL-ES" class="headerlink" title="GLSL ES"></a>GLSL ES</h3><p>OpenGL用来编写着色器的语言是GLSL（OpenGL Shading Language），OpenGL ES用来编写着色器的语言是GLSL ES，由于WebGL是基于OpenGL ES 2.0的，所以WebGL也是使用GLSL ES，这是一种类C风格的编程语言。如果需要深入学习这门语言，可以参考<a href="https://www.khronos.org/files/opengles_shading_language.pdf" target="_blank" rel="noopener">这里的官方文档</a>。在博客中没有对这门语言做专门的介绍，但是在用到的地方都会有详细说明。</p>
+<h2 id="WebGL中的数据"><a href="#WebGL中的数据" class="headerlink" title="WebGL中的数据"></a>WebGL中的数据</h2><p>WebGL中的数据需要用到一些矩阵论的知识，主要是矩阵和向量。</p>
+<h3 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h3><p>在三维空间中，向量是没有位置的，只有长度和方向。正因如此，(1,2,1)既可以表示三维空间中的一个点，也可以表示三维空间中的一个向量。所以如果只给定(1,2,1)这个数据，很难判断是点还是向量。使用齐次坐标可以解决这个问题。齐次坐标是用四维坐标数据来表示三维空间中的点和向量。三维空间中的点(x1,y1,z1)，用齐次坐标就可以表示成(x2,y2,z2,w)，其中x1 = x2/w, y1 = y2/w, z1 = z2/w。由于w的取值不唯一，所以同一点的齐次坐标有多种形式，如(1,2,1)的齐次坐标既可以是(2,4,2)，又可以是(3,6,3)。如果w=0，那么这个齐次坐标表示的就是矢量，否则这个齐次坐标表示的就是一个点，这样就有了明确的区分。</p>
+<p>在JavaScript中，坐标使用数组表示，如点(1,2,1)和点(0,1,0)表示成[1,2,1,0,1,0]。对于表示坐标每三个数组元素，我们不妨统一看成是一个向量。使用齐次坐标的另一个更重要的好处是将三维向量变成了四维向量，由于在WebGL中用到的矩阵基本都是四维的，所以将矩阵和向量计算时就非常方便，因为矩阵和向量的运算对于维数是有严格要求的。</p>
+<h3 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h3><p>WebGL中的坐标变换包括三种类型：平移，缩放和旋转，这三种变换都可以用与矩阵的相乘来表示，相乘的矩阵称为变换矩阵，一般都是一个4*4的方阵。为了方便在JavaScript进行矩阵运算，会用到一些JavaScript库。我在学习WebGL时用的是<a href="http://glmatrix.net/" target="_blank" rel="noopener">glMatrix</a>，它是专门为了WebGL设计的基于JavaScript的矩阵运算库，比一些通用的矩阵运算库用起来要方便很多。</p>
+<h3 id="输入到WebGL的数据"><a href="#输入到WebGL的数据" class="headerlink" title="输入到WebGL的数据"></a>输入到WebGL的数据</h3><p>用户输入到WebGL的主要是顶点数据。比如，现在要用WebGL绘制一个立方体，那么用户需要输入这个立方体八个顶点的坐标，用户定义坐标时可以用三维的，在WebGL中会自动扩展成四维的其次坐标。WebGL会根据用户输入的顶点数据，自动连接成一个立方体。</p>
+<h2 id="WebGL图形流水线"><a href="#WebGL图形流水线" class="headerlink" title="WebGL图形流水线"></a>WebGL图形流水线</h2><p>由于GPU是流水线结构的，所以WebGL在处理绘图时也是流水线结构，从输入数据开始，经过流水线每个阶段的处理，到最后生成图像信息绘制在屏幕上。一个WebGL程序的组成包括：</p>
+<ol>
+<li>HTML，CSS和JavaScript： 与HTML相关的主要是<code>&lt;canvas&gt;</code>标签和<code>&lt;script&gt;</code>标签，CSS定义样式，JavaScript负责着色器以外部分的编程</li>
+<li>着色器代码： 用GLSL ES编写的vertex shader和fragment shader</li>
+<li>3D或2D对象的数据： 即用户输入的数据</li>
+</ol>
+<p>WebGL流水线的总体结构图如下所示：</p>
+<p><img src="/images/JavaScript/webgl-pipeline.png" alt="WebGL图形流水线的总体结构"></p>
+<p>接下来逐步分析WebGL图形流水线的各个阶段。</p>
+<h3 id="顶点着色器"><a href="#顶点着色器" class="headerlink" title="顶点着色器"></a>顶点着色器</h3><p>用户输入到WebGL的，是顶点数据，顶点着色器就是对这些顶点数据进行处理的。比如，对用户输入的顶点数据进行变换，将用户输入的三维坐标自动扩展成四维的齐次坐标，顶点着色器还可以改变各个顶点的位置，进而影响最后绘制出来的几何对象的大小和位置。</p>
+<h3 id="图元装配-primitive-assembly"><a href="#图元装配-primitive-assembly" class="headerlink" title="图元装配(primitive assembly)"></a>图元装配(primitive assembly)</h3><p>所谓图元(primitive)，是WebGL绘图的一些基本单元。WebGL中的图元有三种：点、线和三角形，其他的复杂图形都是由这三种基本图元组合而成的，如绘制一个矩阵，就可以通过绘制两个三角形组合而成。图元装配就是将经过顶点着色器处理后的顶点，装配成基本图元。装配的图元最后不一定都会显示出来，显示区域也是由用户自定义的，比如只显示一个立方体的右上角顶点。对于在显示区域外的图元则要被抛弃，一部分在显示区域内另一部分在显示区域外的图元则要被剪裁掉。</p>
+<h3 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h3><p>光栅化的作用就是将图元转换成片段(fragment)，一个片段最后对应的就是屏幕上的一个像素点。</p>
+<h3 id="片段着色器"><a href="#片段着色器" class="headerlink" title="片段着色器"></a>片段着色器</h3><p>片段着色器(fragment shader)就是处理光栅化之后处理片段的，它给片段加上颜色信息。</p>
+<h3 id="逐片段操作"><a href="#逐片段操作" class="headerlink" title="逐片段操作"></a>逐片段操作</h3><p>在fragment shader之后，对每一个片段都要进行一些操作，包括：</p>
+<ol>
+<li>裁剪测试：测试决定片段是否位于剪裁矩形中，剪裁矩形可以理解成因为用户自定义显示区域而决定的矩形，剪裁矩形外的片段被抛弃。</li>
+<li>多重采样片段操作：修改片段的alpha值和覆盖值，是抗锯齿的一个措施。所谓抗锯齿，是指让两点之间的连线看起来尽量光滑，而不是有很多锯齿。</li>
+<li>深度缓存测试： 根据Z-缓存的值丢弃输入的部分片段，即被覆盖的片段不会传到绘制缓存（可以将绘制缓存理解成上面提到的帧缓存）。</li>
+<li>融合：把传入片段的颜色与已经在颜色缓存中相应位置片段的颜色进行组合。创建透明对象时需要使用融合技术。</li>
+<li>抖动：抖动用来以某种方式排列颜色，得到比实际颜色数更多的颜色。当颜色缓存可用的颜色数有限时，抖动就非常有用。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇博客对WebGL中常用的术语以及WebGL中用到的数据做了介绍。WebGL中的这些术语与OpenGL是非常相似的，甚至是通用的。WebGL流水线相对复杂，但是理解其大致过程，对于编写WebGL程序也是很有帮助的。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/websites/avatar.jpg"
+                alt="刘贵" />
+            
+              <p class="site-author-name" itemprop="name">刘贵</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liugui" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:lghustcic@126.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2839022630" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i>微博</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://suta.name/" title="设计师苏塔" target="_blank">设计师苏塔</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

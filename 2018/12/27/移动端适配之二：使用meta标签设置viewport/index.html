@@ -115,25 +115,27 @@
 
 
 
-  <meta name="description" content="路漫漫其修远兮，吾将上下而求索">
-<meta name="keywords" content="HTML, CSS, css3，JavaScript，OpenSeadragon, backbone，Nodejs，jQuery，Web前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://liugui.org/tags/index.html">
+  <meta name="description" content="上一篇博文，可算把像素这个东西讲清楚了。在这篇博文里面，将继续介绍viewport相关的内容。 很多博客都会提到PPK所讲的三个viewport，有的讲的比较复杂，看的云里雾里，我这里也大概介绍一下，三个viewport主要是相对于移动端而言的。 visual viewport这个是浏览器给我们用的、能真正用来显示网页内容的区域，可以通过下面的js命令获取： 12window.innerWidth">
+<meta name="keywords" content="meta, viewport, visual viewport, layout viewport, ideal viewport, HTML, CSS, 移动端, 像素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端适配之二：visual viewport、layout viewport和ideal viewport介绍">
+<meta property="og:url" content="http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/index.html">
 <meta property="og:site_name" content="刘贵的博客">
-<meta property="og:description" content="路漫漫其修远兮，吾将上下而求索">
+<meta property="og:description" content="上一篇博文，可算把像素这个东西讲清楚了。在这篇博文里面，将继续介绍viewport相关的内容。 很多博客都会提到PPK所讲的三个viewport，有的讲的比较复杂，看的云里雾里，我这里也大概介绍一下，三个viewport主要是相对于移动端而言的。 visual viewport这个是浏览器给我们用的、能真正用来显示网页内容的区域，可以通过下面的js命令获取： 12window.innerWidth">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-07-30T05:03:53.000Z">
+<meta property="og:image" content="http://liugui.org/images/css/visual-viewport.jpg">
+<meta property="og:updated_time" content="2018-12-27T12:24:25.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="路漫漫其修远兮，吾将上下而求索">
+<meta name="twitter:title" content="移动端适配之二：visual viewport、layout viewport和ideal viewport介绍">
+<meta name="twitter:description" content="上一篇博文，可算把像素这个东西讲清楚了。在这篇博文里面，将继续介绍viewport相关的内容。 很多博客都会提到PPK所讲的三个viewport，有的讲的比较复杂，看的云里雾里，我这里也大概介绍一下，三个viewport主要是相对于移动端而言的。 visual viewport这个是浏览器给我们用的、能真正用来显示网页内容的区域，可以通过下面的js命令获取： 12window.innerWidth">
+<meta name="twitter:image" content="http://liugui.org/images/css/visual-viewport.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://liugui.org/tags/"/>
+  <link rel="canonical" href="http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/"/>
 
 
 
@@ -143,7 +145,7 @@
   };
 </script>
 
-  <title>Tags | 刘贵的博客</title>
+  <title>移动端适配之二：visual viewport、layout viewport和ideal viewport介绍 | 刘贵的博客</title>
   
 
 
@@ -256,7 +258,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -313,131 +315,241 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">Tags</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                目前共计 12 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/CSS/" style="font-size: 16.5px; color: #9d9d9d">CSS</a> <a href="/tags/Git/" style="font-size: 12px; color: #ccc">Git</a> <a href="/tags/HTML/" style="font-size: 12px; color: #ccc">HTML</a> <a href="/tags/HTML-CSS-移动端/" style="font-size: 16.5px; color: #9d9d9d">HTML, CSS, 移动端</a> <a href="/tags/JavaScript/" style="font-size: 25.5px; color: #404040">JavaScript</a> <a href="/tags/JavaScript-openSeadragon/" style="font-size: 12px; color: #ccc">JavaScript openSeadragon</a> <a href="/tags/Sublime-前端工具/" style="font-size: 12px; color: #ccc">Sublime 前端工具</a> <a href="/tags/WebGL/" style="font-size: 21px; color: #6f6f6f">WebGL</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/计算机网络/" style="font-size: 30px; color: #111">计算机网络</a> <a href="/tags/读书笔记/" style="font-size: 12px; color: #ccc">读书笔记</a> <a href="/tags/读书笔记-JavaScript/" style="font-size: 21px; color: #6f6f6f">读书笔记, JavaScript</a>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">移动端适配之二：visual viewport、layout viewport和ideal viewport介绍
+              
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-27 19:54:32 / 修改时间：20:24:25" itemprop="dateCreated datePublished" datetime="2018-12-27T19:54:32+08:00">2018-12-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>上一篇博文，可算把像素这个东西讲清楚了。在这篇博文里面，将继续介绍viewport相关的内容。</p>
+<p>很多博客都会提到PPK所讲的三个viewport，有的讲的比较复杂，看的云里雾里，我这里也大概介绍一下，三个viewport主要是相对于移动端而言的。</p>
+<h2 id="visual-viewport"><a href="#visual-viewport" class="headerlink" title="visual viewport"></a>visual viewport</h2><p>这个是浏览器给我们用的、能真正用来显示网页内容的区域，可以通过下面的js命令获取：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.innerWidth</span><br><span class="line"><span class="built_in">window</span>.innerHeight</span><br></pre></td></tr></table></figure>
+<p>正如上篇博客所说的，前端里面能获取到的像素基本上都是CSS像素，所以这个的单位也是CSS像素。对于iPhone X，浏览器全屏状态下，其<code>window.innerWidth</code>的值为375。</p>
+<p>上篇博客中还提到<code>screen.width</code>和<code>screen.height</code>，主要是用来获取整个屏幕的大小的，而<code>window.innerWidth</code>和<code>window.innerHeight</code>只是获取浏览器可用显示区域的大小，也就是浏览器中间负责显示的部分。当浏览器全屏时，要去掉状态栏、标签栏、任务栏等区域，当浏览器非全屏时，其值更小。由于在移动端，浏览器一般都是全屏的，所以大多数情况下<code>screen.width</code>与<code>window.innerWidth</code>的值相等，也有的博客中说用<code>screen.width</code>和<code>screen.height</code>来获取visual viewport的大小，就是这个原因。</p>
+<p>visual viewport是我们可以直观看到的，不严谨的说，就是差不多等于手机屏幕的大小，偏向于一个物理概念。</p>
+<h2 id="layout-viewport"><a href="#layout-viewport" class="headerlink" title="layout viewport"></a>layout viewport</h2><p>网页最早是出现在电脑上的，上一篇博客中提到，电脑的物理像素可能比手机还要低，但是电脑的设备无关像素（或者说是分辨率吧，更严谨一些）是明显大于手机的设备无关像素的，毕竟电脑的屏幕尺寸远比手机大啊。那些在电脑上的网页，如果没有经过专门的优化，直接搬到手机上看，那么问题就来了，网页会被挤得变形，相信这种问题大家都遇到过。所以呢，手机厂商为了解决这个问题，设置了一个layout viewport。</p>
+<p>这是一个虚拟的窗口，其大小比手机屏幕大，加载网页时，直接把HTML渲染在这个虚拟的窗口中，这样就不会样式错乱了。在查看的时候，毕竟手机的visual viewport小啊，那就只能通过滚动条来看了。</p>
+<p><img src="/images/css/visual-viewport.jpg" alt="viewport示例"></p>
+<p>做个比喻，layout viewport就是一张大白纸，HTML的内容就写在这个大白纸上，visual viewport就是一个放大镜，上下左右移动，可以显示其中的一部分。</p>
+<p>Layout viewport的大小可以通过<code>document.documentElement.clientWidth</code>和<code>document.document.clientHeight</code>，实际使用中可能会有一些兼容问题，这跟DOCTYPE声明有关。不同浏览器的layout viewport大小不同，常见的有980px、1024px。</p>
+<h2 id="ideal-viewport"><a href="#ideal-viewport" class="headerlink" title="ideal viewport"></a>ideal viewport</h2><p>Layout viewport是为了能将电脑上的网页正确的显示到手机上。当浏览器拿到一个网页时，首先会渲染到这个layout viewport里面。可是现在有很多网页会针对手机做专门的设计，比如现在的一些H5活动页，设计的尺寸就是在手机上看的。此时如果还是把网页渲染到这个大的layout viewport上，实在是有点不合适了。所以，还应该有个ideal viewport，这个ideal viewport应该与手机屏幕大小的相同，确切来说，等于visual viewport的大小。把页面渲染到这个ideal viewport里面，就能在visual viewport中完美显示。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>根据我的理解小结一下：layout viewport和ideal viewport都是用来渲染页面，layout viewport较大，用来渲染电脑上的页面，ideal viewport较小，用来渲染专门针对手机设计的页面；而visual viewport是用来查看layout viewport和ideal viewport的，是用来查看渲染的结果的。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/12/27/移动端适配之二：使用meta标签设置viewport/">移动端适配之二：visual viewport、layout viewport和ideal viewport介绍</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 刘贵 的个人博客">刘贵</a></p>
+  <p><span>发布时间:</span>2018年12月27日 - 19:12</p>
+  <p><span>最后更新:</span>2018年12月27日 - 20:12</p>
+  <p><span>原始链接:</span><a href="/2018/12/27/移动端适配之二：使用meta标签设置viewport/" title="移动端适配之二：visual viewport、layout viewport和ideal viewport介绍">http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML-CSS-移动端/" rel="tag"><i class="fa fa-tag"></i> HTML, CSS, 移动端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/24/移动端适配之一：到底什么是像素/" rel="next" title="移动端适配之一：到底什么是像素">
+                <i class="fa fa-chevron-left"></i> 移动端适配之一：到底什么是像素
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -472,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -623,6 +744,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-viewport"><span class="nav-number">1.</span> <span class="nav-text">visual viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layout-viewport"><span class="nav-number">2.</span> <span class="nav-text">layout viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideal-viewport"><span class="nav-number">3.</span> <span class="nav-text">ideal viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -803,7 +940,7 @@
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: 'tags/index.html'
+        refer: '2018/12/27/移动端适配之二：使用meta标签设置viewport/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];

@@ -124,7 +124,7 @@
 <meta property="og:description" content="上一篇博文，可算把像素这个东西讲清楚了。在这篇博文里面，将继续介绍viewport相关的内容。 很多博客都会提到PPK所讲的三个viewport，有的讲的比较复杂，看的云里雾里，我这里也大概介绍一下，三个viewport主要是相对于移动端而言的。 visual viewport这个是浏览器给我们用的、能真正用来显示网页内容的区域，可以通过下面的js命令获取： 12window.innerWidth">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://liugui.org/images/css/visual-viewport.jpg">
-<meta property="og:updated_time" content="2018-12-27T12:48:41.960Z">
+<meta property="og:updated_time" content="2018-12-29T06:25:41.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端适配之二：visual viewport、layout viewport和ideal viewport介绍">
 <meta name="twitter:description" content="上一篇博文，可算把像素这个东西讲清楚了。在这篇博文里面，将继续介绍viewport相关的内容。 很多博客都会提到PPK所讲的三个viewport，有的讲的比较复杂，看的云里雾里，我这里也大概介绍一下，三个viewport主要是相对于移动端而言的。 visual viewport这个是浏览器给我们用的、能真正用来显示网页内容的区域，可以通过下面的js命令获取： 12window.innerWidth">
@@ -379,12 +379,24 @@
                 
               
 
-              <time title="创建时间：2018-12-27 19:54:32 / 修改时间：20:48:41" itemprop="dateCreated datePublished" datetime="2018-12-27T19:54:32+08:00">2018-12-27</time>
+              <time title="创建时间：2018-12-27 19:54:32" itemprop="dateCreated datePublished" datetime="2018-12-27T19:54:32+08:00">2018-12-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-29 14:25:41" itemprop="dateModified" datetime="2018-12-29T14:25:41+08:00">2018-12-29</time>
               
             
           </span>
@@ -446,9 +458,12 @@
 <p>这是一个虚拟的窗口，其大小比手机屏幕大，加载网页时，直接把HTML渲染在这个虚拟的窗口中，这样就不会样式错乱了。在查看的时候，毕竟手机的visual viewport小啊，那就只能通过滚动条来看了。</p>
 <p><img src="/images/css/visual-viewport.jpg" alt="viewport示例"></p>
 <p>做个比喻，layout viewport就是一张大白纸，HTML的内容就写在这个大白纸上，visual viewport就是一个放大镜，上下左右移动，可以显示其中的一部分。</p>
-<p>Layout viewport的大小可以通过<code>document.documentElement.clientWidth</code>和<code>document.document.clientHeight</code>，实际使用中可能会有一些兼容问题，这跟DOCTYPE声明有关。不同浏览器的layout viewport大小不同，常见的有980px、1024px。</p>
+<p>Layout viewport的大小可以通过<code>document.documentElement.clientWidth</code>和<code>document.document.clientHeight</code>，实际使用中可能会有一些兼容问题，这跟DOCTYPE声明有关。不同浏览器默认的layout viewport大小不同，常见的有980px、1024px。</p>
 <h2 id="ideal-viewport"><a href="#ideal-viewport" class="headerlink" title="ideal viewport"></a>ideal viewport</h2><p>Layout viewport是为了能将电脑上的网页正确的显示到手机上。当浏览器拿到一个网页时，首先会渲染到这个layout viewport里面。可是现在有很多网页会针对手机做专门的设计，比如现在的一些H5活动页，设计的尺寸就是在手机上看的。此时如果还是把网页渲染到这个大的layout viewport上，实在是有点不合适了。所以，还应该有个ideal viewport，这个ideal viewport应该与手机屏幕大小的相同，确切来说，等于visual viewport的大小。把页面渲染到这个ideal viewport里面，就能在visual viewport中完美显示。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>根据我的理解小结一下：layout viewport和ideal viewport都是用来渲染页面，layout viewport较大，用来渲染电脑上的页面，ideal viewport较小，用来渲染专门针对手机设计的页面；而visual viewport是用来查看layout viewport和ideal viewport的，是用来查看渲染的结果的。visual viewport是很具体的，而layout viewport和ideal viewport是比较抽象的。某种程度来说，layout viewport和ideal viewport可以理解成是两种尺寸，承载页面渲染的盒子，可以设置成layout viewport的尺寸，也可以设置成ideal viewport的尺寸，而且在默认情况下是layout viewport的尺寸。如果我们设置HTML中body为<code>width:100%</code>，那么这个body的实际宽度，将由这个盒子的宽度决定。在下一篇博文中，将介绍如何用meta标签来设置viewport，也就是设置这个承载HTML页面渲染的盒子的尺寸，从而达到最佳的显示效果。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>根据我的理解小结一下：</p>
+<p>首先，我们可以假想，layout viewport和ideal viewport都是用来渲染页面的两个<strong>盒子</strong>，HTML页面渲染在盒子里面，而visual viewport用来查看渲染后的结果的，相当于一个<strong>窗口</strong>。我们设置HTML的body为<code>width:100%</code>，那么盒子有多宽，HTML页面就有多宽。layout viewport用来渲染电脑上的页面，所以比较大，而ideal viewport较小，用来渲染专门针对手机设计的页面。</p>
+<p>然而，在浏览器的实现中，其实并没有那么多盒子。就只有一个layout viewport的盒子，页面就渲染在这个盒子中。layout viewport默认是比较大的。如果我们希望渲染到ideal viewport的盒子里面，那就只要调整这个layout viewport的大小即可，具体如何调整，将在下一节中介绍。</p>
+<p>综上，layout viewport用来承载HTML的渲染，visual viewport是查看渲染结果的窗口，而ideal viewport可以理解成是一种尺寸，其大小等于visual viewport。调整layout viewport的大小，让其在visual viewport的查看下有最佳效果，就是我们想要的移动端适配。</p>
 
       
     </div>
@@ -470,7 +485,7 @@
   <p><span>本文标题:</span><a href="/2018/12/27/移动端适配之二：使用meta标签设置viewport/">移动端适配之二：visual viewport、layout viewport和ideal viewport介绍</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘贵 的个人博客">刘贵</a></p>
   <p><span>发布时间:</span>2018年12月27日 - 19:12</p>
-  <p><span>最后更新:</span>2018年12月27日 - 20:12</p>
+  <p><span>最后更新:</span>2018年12月29日 - 14:12</p>
   <p><span>原始链接:</span><a href="/2018/12/27/移动端适配之二：使用meta标签设置viewport/" title="移动端适配之二：visual viewport、layout viewport和ideal viewport介绍">http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2018/12/27/移动端适配之二：使用meta标签设置viewport/"  aria-label="复制成功！"></i></span>
   </p>

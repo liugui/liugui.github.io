@@ -115,23 +115,23 @@
 
 
 
-  <meta name="description" content="上一篇博客中介绍white-space属性时聊到了换行，这一偏介绍换行的细节。 浏览器的默认行为浏览器的换行行为，对于中文和英文存在一些差别。 中文换行正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是MDN介绍word-break属性时所说的CJK（Chinese, Japanese, Korean的缩写）。 英文换行来">
+  <meta name="description" content="上一篇博客中介绍white-space属性时聊到了换行，这一篇介绍换行的细节。 浏览器的默认行为浏览器的换行行为，对于中文和英文存在一些差别。 中文换行正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是MDN介绍word-break属性时所说的CJK（Chinese, Japanese, Korean的缩写）。 英文换行来">
 <meta name="keywords" content="word-break, word-wrap, break-word, break-all, HTML, CSS, 换行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文字处理之二：换行及word-break和word-wrap属性">
 <meta property="og:url" content="http://liugui.org/2019/08/29/文字处理之换行及word-break和word-wrap属性详解/index.html">
 <meta property="og:site_name" content="刘贵的博客">
-<meta property="og:description" content="上一篇博客中介绍white-space属性时聊到了换行，这一偏介绍换行的细节。 浏览器的默认行为浏览器的换行行为，对于中文和英文存在一些差别。 中文换行正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是MDN介绍word-break属性时所说的CJK（Chinese, Japanese, Korean的缩写）。 英文换行来">
+<meta property="og:description" content="上一篇博客中介绍white-space属性时聊到了换行，这一篇介绍换行的细节。 浏览器的默认行为浏览器的换行行为，对于中文和英文存在一些差别。 中文换行正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是MDN介绍word-break属性时所说的CJK（Chinese, Japanese, Korean的缩写）。 英文换行来">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://liugui.org/images/css/text_not_change_line_in_word.png">
 <meta property="og:image" content="http://liugui.org/images/css/text_not_change_to_new_line.png">
 <meta property="og:image" content="http://liugui.org/images/css/text_word_break_break_all.png">
 <meta property="og:image" content="http://liugui.org/images/css/text_word_break_keep_all.png">
 <meta property="og:image" content="http://liugui.org/images/css/text_word_wrap_break_word.png">
-<meta property="og:updated_time" content="2019-08-29T02:37:40.543Z">
+<meta property="og:updated_time" content="2019-08-29T02:43:34.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文字处理之二：换行及word-break和word-wrap属性">
-<meta name="twitter:description" content="上一篇博客中介绍white-space属性时聊到了换行，这一偏介绍换行的细节。 浏览器的默认行为浏览器的换行行为，对于中文和英文存在一些差别。 中文换行正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是MDN介绍word-break属性时所说的CJK（Chinese, Japanese, Korean的缩写）。 英文换行来">
+<meta name="twitter:description" content="上一篇博客中介绍white-space属性时聊到了换行，这一篇介绍换行的细节。 浏览器的默认行为浏览器的换行行为，对于中文和英文存在一些差别。 中文换行正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是MDN介绍word-break属性时所说的CJK（Chinese, Japanese, Korean的缩写）。 英文换行来">
 <meta name="twitter:image" content="http://liugui.org/images/css/text_not_change_line_in_word.png">
 
 
@@ -383,7 +383,7 @@
                 
               
 
-              <time title="创建时间：2019-08-29 18:57:32 / 修改时间：10:37:40" itemprop="dateCreated datePublished" datetime="2019-08-29T18:57:32+08:00">2019-08-29</time>
+              <time title="创建时间：2019-08-29 18:57:32 / 修改时间：10:43:34" itemprop="dateCreated datePublished" datetime="2019-08-29T18:57:32+08:00">2019-08-29</time>
             
 
             
@@ -439,10 +439,10 @@
       
 
       
-        <p>上一篇博客中介绍<code>white-space</code>属性时聊到了换行，这一偏介绍换行的细节。</p>
+        <p>上一篇博客中介绍<code>white-space</code>属性时聊到了换行，这一篇介绍换行的细节。</p>
 <h2 id="浏览器的默认行为"><a href="#浏览器的默认行为" class="headerlink" title="浏览器的默认行为"></a>浏览器的默认行为</h2><p>浏览器的换行行为，对于中文和英文存在一些差别。</p>
 <h3 id="中文换行"><a href="#中文换行" class="headerlink" title="中文换行"></a>中文换行</h3><p>正如上一篇博客中所说的，中文换行比较简单，这一行放不下就换行。除了中文之外，韩文和日文的处理也是一样的。这三种文字合在一起就是<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/word-break" target="_blank" rel="noopener">MDN介绍<code>word-break</code>属性</a>时所说的CJK（Chinese, Japanese, Korean的缩写）。</p>
-<h3 id="英文换行"><a href="#英文换行" class="headerlink" title="英文换行"></a>英文换行</h3><p>来到英文，情况就要复杂一些，英文在英文中有<strong>单词</strong>的概念，所以在换行时就得考虑单词的完整性。</p>
+<h3 id="英文换行"><a href="#英文换行" class="headerlink" title="英文换行"></a>英文换行</h3><p>来到英文，情况就要复杂一些。在英文中有<strong>单词</strong>的概念，所以在换行时就得考虑单词的完整性。</p>
 <ol>
 <li><p>浏览器按照空格来识别单词，默认情况下，浏览器不会在单词内换行</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> thisisalonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglongword<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -477,7 +477,7 @@
 <li>以字母为单位处理，尽量将这个长单词的字母往第一行放，能放多少放多少</li>
 <li>后面连单个字母都放不下时，再换行，放其他字母。</li>
 </ol>
-<p>而<code>word-wrap:break-word</code>则不同，他会直接换行，放单词，第二行放不下，再拆单词</p>
+<p>而<code>word-wrap:break-word</code>则不同，他会首先直接换行，放单词，第二行放不下，再拆单词</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"word-break:break-word"</span>&gt;</span>this is a longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglongword<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/css/text_word_wrap_break_word.png" alt="word-wrap:break-word"></p>
 <p>与上面的<code>word-break:break-all</code>的图对比一下就明白了，拆单词也是拆单词，只不过我先换到下一行再拆。</p>

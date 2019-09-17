@@ -115,28 +115,25 @@
 
 
 
-  <meta name="description" content="上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。 点到点与端到端计算机网络中经常提到点到点和端到端，但对于这两个概念很多博客上并不会单独解释，根据我查阅的资料和自己的理解，总结如下： 点到点是物理拓扑结构，是网络层的，即两头都是机器，中间通过线路连接，中间可以没有其他机器，IP协议就是解决这点到点之间的通信问题。">
-<meta name="keywords" content="TCP, IP, UDP, TCP协议, UDP协议, TCP UDP区别, 点到点, 端到端, 三次握手, 四次挥手,">
+  <meta name="description" content="看了很多webpack的教程，大多是上来就讲一堆配置，一堆插件的使用。这种文章看起来有点类似于官方文档，或者新华字典。我想回归初心，换一种方式，基于实际使用出发，一步一步介绍webpack。 从一个最简单的例子开始，这个例子只为了描述最简单的webpack功能，实现一个最简单的需求：在浏览器上显示一段文字。 传统方式首先我们有一个index.html，这个html中只是引入了index.js，a.">
+<meta name="keywords" content="webpack, node, javascript, 打包, 编译，构建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP&#x2F;IP协议之传输层TCP和UDP">
-<meta property="og:url" content="http://liugui.org/2016/01/15/TCP:IP协议之传输层TCP和UDP/index.html">
+<meta property="og:title" content="学习webpack：从最简单的webpack说起">
+<meta property="og:url" content="http://liugui.org/2019/09/16/学习webpack：从最简单的webpack说起/index.html">
 <meta property="og:site_name" content="刘贵的博客">
-<meta property="og:description" content="上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。 点到点与端到端计算机网络中经常提到点到点和端到端，但对于这两个概念很多博客上并不会单独解释，根据我查阅的资料和自己的理解，总结如下： 点到点是物理拓扑结构，是网络层的，即两头都是机器，中间通过线路连接，中间可以没有其他机器，IP协议就是解决这点到点之间的通信问题。">
+<meta property="og:description" content="看了很多webpack的教程，大多是上来就讲一堆配置，一堆插件的使用。这种文章看起来有点类似于官方文档，或者新华字典。我想回归初心，换一种方式，基于实际使用出发，一步一步介绍webpack。 从一个最简单的例子开始，这个例子只为了描述最简单的webpack功能，实现一个最简单的需求：在浏览器上显示一段文字。 传统方式首先我们有一个index.html，这个html中只是引入了index.js，a.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://liugui.org/images/protocol/tcp_three.png">
-<meta property="og:image" content="http://liugui.org/images/protocol/tcp_four.png">
-<meta property="og:updated_time" content="2018-09-04T12:28:43.745Z">
+<meta property="og:updated_time" content="2019-09-17T03:01:23.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP&#x2F;IP协议之传输层TCP和UDP">
-<meta name="twitter:description" content="上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。 点到点与端到端计算机网络中经常提到点到点和端到端，但对于这两个概念很多博客上并不会单独解释，根据我查阅的资料和自己的理解，总结如下： 点到点是物理拓扑结构，是网络层的，即两头都是机器，中间通过线路连接，中间可以没有其他机器，IP协议就是解决这点到点之间的通信问题。">
-<meta name="twitter:image" content="http://liugui.org/images/protocol/tcp_three.png">
+<meta name="twitter:title" content="学习webpack：从最简单的webpack说起">
+<meta name="twitter:description" content="看了很多webpack的教程，大多是上来就讲一堆配置，一堆插件的使用。这种文章看起来有点类似于官方文档，或者新华字典。我想回归初心，换一种方式，基于实际使用出发，一步一步介绍webpack。 从一个最简单的例子开始，这个例子只为了描述最简单的webpack功能，实现一个最简单的需求：在浏览器上显示一段文字。 传统方式首先我们有一个index.html，这个html中只是引入了index.js，a.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://liugui.org/2016/01/15/TCP:IP协议之传输层TCP和UDP/"/>
+  <link rel="canonical" href="http://liugui.org/2019/09/16/学习webpack：从最简单的webpack说起/"/>
 
 
 
@@ -146,7 +143,7 @@
   };
 </script>
 
-  <title>TCP/IP协议之传输层TCP和UDP | 刘贵的博客</title>
+  <title>学习webpack：从最简单的webpack说起 | 刘贵的博客</title>
   
 
 
@@ -338,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liugui.org/2016/01/15/TCP:IP协议之传输层TCP和UDP/">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2019/09/16/学习webpack：从最简单的webpack说起/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘贵">
@@ -355,7 +352,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">TCP/IP协议之传输层TCP和UDP
+          <h2 class="post-title" itemprop="name headline">学习webpack：从最简单的webpack说起
               
             
           </h2>
@@ -380,7 +377,7 @@
                 
               
 
-              <time title="创建时间：2016-01-15 22:12:30" itemprop="dateCreated datePublished" datetime="2016-01-15T22:12:30+08:00">2016-01-15</time>
+              <time title="创建时间：2019-09-16 19:39:46" itemprop="dateCreated datePublished" datetime="2019-09-16T19:39:46+08:00">2019-09-16</time>
             
 
             
@@ -397,7 +394,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-04 20:28:43" itemprop="dateModified" datetime="2018-09-04T20:28:43+08:00">2018-09-04</time>
+                <time title="修改时间：2019-09-17 11:01:23" itemprop="dateModified" datetime="2019-09-17T11:01:23+08:00">2019-09-17</time>
               
             
           </span>
@@ -414,7 +411,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
 
                 
                 
@@ -448,51 +445,61 @@
       
 
       
-        <p>上一篇博客介绍了网络层，其中最重要的是IP协议，这篇博客继续介绍传输层。传输层主要有两个协议：TCP协议和UDP协议，下面分别介绍。</p>
-<h2 id="点到点与端到端"><a href="#点到点与端到端" class="headerlink" title="点到点与端到端"></a>点到点与端到端</h2><p>计算机网络中经常提到点到点和端到端，但对于这两个概念很多博客上并不会单独解释，根据我查阅的资料和自己的理解，总结如下：</p>
-<p>点到点是物理拓扑结构，是网络层的，即两头都是机器，中间通过线路连接，中间可以没有其他机器，IP协议就是解决这点到点之间的通信问题。</p>
-<p>端到端是网络连接，中间可能经理多个路由器、主机等，一旦连接建立起来，就形成了端到端的逻辑链路，这条路可能经过了很复杂的物理路线，但两端主机不管，只认为是有两端的连接，TCP和UDP就是提供端到端的服务。</p>
-<p>也就是说，点到点是拓扑结构上点到点，端到端是服务上的端到端，可能包含多个点到点。</p>
-<h2 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h2><h3 id="TCP的特性"><a href="#TCP的特性" class="headerlink" title="TCP的特性"></a>TCP的特性</h3><ul>
-<li>TCP提供一种面向连接的、可靠地字节流服务</li>
-<li>在一个TCP连接中，仅有两方进行彼此通信，<strong>广播和多播不能用于TCP</strong></li>
-<li>TCP使用校验和，确认和重传机制来保证可靠传输</li>
-<li>TCP给数据分节进行排序，并使用累计确认保证数据的顺序不变和非重复</li>
-<li>TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制</li>
-</ul>
-<p><strong>注意</strong>：TCP 并不能保证数据一定会被对方接收到，因为这是不可能的。TCP 能够做到的是，如果有可能，就把数据递送到接收方，否则就（通过放弃重传并且中断连接这一手段）通知用户。因此准确说 TCP 也不是 100% 可靠的协议，它所能提供的是数据的可靠递送或故障的可靠通知。</p>
-<h3 id="TCP建立连接的三次握手"><a href="#TCP建立连接的三次握手" class="headerlink" title="TCP建立连接的三次握手"></a>TCP建立连接的三次握手</h3><p>指在建立一个TCP连接时，需要客户端和服务器总共发送3个包</p>
+        <p>看了很多webpack的教程，大多是上来就讲一堆配置，一堆插件的使用。这种文章看起来有点类似于官方文档，或者新华字典。我想回归初心，换一种方式，基于实际使用出发，一步一步介绍webpack。</p>
+<p>从一个最简单的例子开始，这个例子只为了描述最简单的webpack功能，实现一个最简单的需求：在浏览器上显示一段文字。</p>
+<h2 id="传统方式"><a href="#传统方式" class="headerlink" title="传统方式"></a>传统方式</h2><p>首先我们有一个<code>index.html</code>，这个html中只是引入了<code>index.js</code>，<code>a.js</code>和<code>b.js</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!Doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"charset"</span> <span class="attr">content</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>webpack<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./b.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在<code>a.js</code>中声明了变量<code>var a = 1;</code>，在<code>b.js</code>中声明了变量<code>var b = 2;</code>。由于这种方式下，作用域是共享的，a和b相当于都是挂载在window上，所以在<code>index.js</code>中可以直接访问到a和b的值。</p>
+<p>在<code>index.js</code>中，我们创建一个DOM并挂载到HTML上：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dom = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">dom.innerHTML = <span class="string">`a=<span class="subst">$&#123;a&#125;</span>; b=<span class="subst">$&#123;b&#125;</span>`</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(dom);</span><br></pre></td></tr></table></figure>
+<p>最后，在浏览器上就会显示<code>a=1; b=2</code>。</p>
+<p>这种使用方式虽然简单，但是会有潜在的问题：</p>
 <ol>
-<li>第一次握手：客户端发送一个SYN包，SYN=1，Seq=x，发送完毕后进入<code>SYN_SEND</code>状态</li>
-<li>第二次握手：服务器发送回发ACK+SYN包，ACK=1，SYN=1，ACKnum=x+1，Seq=y发送完毕后服务器进入<code>SYN_RCVD</code>状态</li>
-<li>第三次握手：客户端再次发送ACK包，SYN=0，ACK=1，ACKnum=y+1，发送完毕后客户端进入<code>EATABLISHED</code>状态，当服务器收到这个包之后也进入<code>ESTABLISHED</code>状态，三次握手结束</li>
+<li>浏览器在加载时，会先加载html文件，然后根据HTML里面的script标签去依次加载每个js文件。这样对于每个js文件，浏览器都会向服务器发送一次请求。如果引入的文件数很多，那么发送的请求次数就会过多，对服务器造成一定的压力。而且，单个文件可能并不大，相对于浏览器对每次请求都需要建立链接、断开链接的成本来说很不划算。要解决这个问题，就需要打包，将多个js文件打包成单个。</li>
+<li>不能严格保证js文件的加载顺序，比如<code>index.js</code>加载完了，但它所依赖的<code>a.js</code>还没加载。当然，这个问题可以用<code>require.js</code>解决。</li>
+<li>不同script标签引入的js代码，会污染全局作用域，比如<code>a.js</code>中声明的a就直接挂载到了window上，其他文件中如果再声明a变量，就会有冲突。这个问题可以用立即执行函数的方式解决。</li>
 </ol>
-<p><img src="/images/protocol/tcp_three.png" alt="TCP协议的三次握手"></p>
-<h3 id="TCP断开连接的四次挥手"><a href="#TCP断开连接的四次挥手" class="headerlink" title="TCP断开连接的四次挥手"></a>TCP断开连接的四次挥手</h3><p>TCP连接的拆除需要发送4个包，称为4次挥手</p>
+<p>虽然有办法解决，但总感觉不是那么完美，治标而不治本。回归到js的运行环境上，这都是因为js代码需要在浏览器中运行。如果是在node环境中运行，那可以直接使用CommonJS规范，每个文件就是一个模块，各个模块之间的作用域是独立的，通过require可以解决模块依赖和加载问题。甚至还可以在node中利用ES6的模块机制，也同样可以解决这个问题。显然，这种写代码的方式要简单很多，但只能在node环境下。而webpack的一个重要作用，就是可以让你这种方式写出来的代码能在浏览器中运行。</p>
+<h2 id="webpack方式"><a href="#webpack方式" class="headerlink" title="webpack方式"></a>webpack方式</h2><p><code>a.js</code>和<code>b.js</code>分别作为2个模块，通过ES6的export导出变量a和b，在index.js中通过import引入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//b.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">'./a.js'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;b&#125; <span class="keyword">from</span> <span class="string">'./b.js'</span>;</span><br><span class="line"><span class="keyword">var</span> dom = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">dom.innerHTML = <span class="string">`a=<span class="subst">$&#123;a&#125;</span>; b=<span class="subst">$&#123;b&#125;</span>`</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(dom);</span><br></pre></td></tr></table></figure>
+<p>最后，我们希望用webpack，将其打包成一个单独的文件，直接挂载到<code>index.html</code>中。从零开始，安装webpack。</p>
 <ol>
-<li>客户端发送FIN=1的包，表示已经没有数据可以发送了，发送完毕后客户端进入<code>FIN_WAIT_1</code>状态</li>
-<li>服务器收到FIN包后发送一个ACK包，表示已经收到客户端关闭连接的请求，但还没有准备好关闭连接，发送完毕后，服务器进入<code>CLOSE_WAIT</code>状态，客户端收到这个请求后，进入<code>FIN_WAIT_2</code>状态，等待服务器关闭连接</li>
-<li>服务器端准备好关闭连接，向客户端发送结束连接请求，发送FIN包和ACK包，发送完毕后，服务器进入<code>LAST_ACK</code>状态，表示等待来自客户端的最后一个ACK</li>
-<li>客户端收到服务器端的关闭请求，发送一个ACK包，并且进入<code>TIME_WAIT</code>状态，等待可能出现的要求重传的ACK包。服务器端接收到这个确认包之后，关闭连接，进入<code>CLOSED</code>状态。客户端等待某个固定的之间之后，没有收到服务器的ACK，认为服务器已经正常关闭，于是进入<code>CLOSED</code>状态。</li>
-</ol>
-<p><img src="/images/protocol/tcp_four.png" alt="TCP协议的四次挥手"></p>
-<h3 id="TCP如何保证可靠性"><a href="#TCP如何保证可靠性" class="headerlink" title="TCP如何保证可靠性"></a>TCP如何保证可靠性</h3><p>TCP连接的一个重要特点就是提供可靠的传输服务，主要来说，有以下几点措施保证传输的可靠性：</p>
-<ol>
-<li>TCP 报文段的长度可变，根据收发双方的缓存状态、网络状态而调整。</li>
-<li>当 TCP 收到发自 TCP 连接另一端的数据，它将发送一个确认。</li>
-<li>当 TCP 发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段，如果不能及时收到一个确认，将重发这个报文段。这就是稍后介绍的超时重传。</li>
-<li>TCP 将保持它首部和数据的检验和。如果通过检验和发现报文段有差错，这个报文段将被丢弃，等待超时重传。</li>
-<li>TCP 将数据按字节排序，报文段中有序号，以确保顺序的正确性。</li>
-<li>TCP 还能提供流量控制。TCP 连接的每一方都有收发缓存。TCP 的接收端只允许另一端发送接收端缓冲区所能接纳的数据。这将防止较快主机致使较慢主机的缓冲区溢出。</li>
-</ol>
-<h2 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h2><p>UDP是一个简单的<strong>传输层</strong>协议，UDP不是面向连接的，UDP传送数据前并不与对方建立连接，对接收到的数据也不发送确认信号，发送端不知道数据是否会正确接收，当然也不用重发，所以说UDP是无连接的、不可靠的一种数据传输协议。与TCP相比，有以下几个特性：</p>
+<li><p>新建一个文件夹，在这个文件夹中<code>npm init</code>，初始化。</p>
+</li>
+<li><p>安装<code>webpack</code>和<code>webpack-cli</code>，运行<code>npm install webpack webpack-cli -D</code>。<code>webpack-cli</code>为webpack提供了命令行工具，让我们可以直接在命令行中使用webpack</p>
+</li>
+<li><p>建立src文件夹，将<code>a.js</code>,<code>b.js</code>和<code>index.js</code>存放在src文件夹下。这个文件夹存放的是原始文件</p>
+</li>
+<li><p>建立dist文件夹，用来存放编译后的文件，也就是打包后的单个文件</p>
+</li>
+<li><p>将<code>index.html</code>放到src文件夹下，这时引用的不是<code>index.js</code>，而是打包后的位于dist目录下的<code>bundle.js</code>文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置webpack。webpack的配置就是在根目录下直接新建一个<code>webpack.config.js</code>，配置如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>UDP 缺乏可靠性。UDP 本身不提供确认，序列号，超时重传等机制。UDP 数据报可能在网络中被复制，被重新排序。即 UDP 不保证数据报会到达其最终目的地，也不保证各个数据报的先后顺序，也不保证每个数据报只到达一次</li>
-<li>UDP 数据报是有长度的。而 TCP 是一个字节流协议。对于TCP，发送一串数字（1，2，3，4，5），接收时有可能变成两次（1，2）和（3，4，5），或者变成任意接收方式，协议栈只保证接收顺序正确；UDP发送一个分组，接收方要么接收完全失败，要么成功整个分组都会接收到。</li>
-<li>UDP 是无连接的，TCP是面向连接的。TCP需要经过三次握手建立连接，而UDP 发送数据报之前不需要经过握手创建连接的过程。</li>
-<li>UDP 支持多播和广播。</li>
+<li>entry是打包的入口文件，也就是告诉webpack打包哪个文件，这里指定的是<code>index.js</code>。由于在<code>index.js</code>中<code>import</code>了<code>a.js</code>和<code>b.js</code>，所以webpack在打包时会同时将<code>a.js</code>和<code>b.js</code>引入。从这里可以看到，只用告诉webpack入口文件即可，所有的依赖文件webpack会自己寻找和解决。</li>
+<li>output是告诉webpack，打包后的文件放哪里。path指定了打包后的文件路径，filename指定了打包后的文件名。综合起来，打包后的文件就是dist目录下的<code>bundle.js</code></li>
 </ul>
-<p>参考：<a href="https://hit-alibaba.github.io/interview/basic/network/TCP.html" target="_blank" rel="noopener">https://hit-alibaba.github.io/interview/basic/network/TCP.html</a></p>
+</li>
+<li><p>在<code>package.json</code>中的script下做个配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"webpack"</span> </span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接运行<code>npm run build</code>，node就会自动执行webpack，这时在dist目录下就可以看到生成的js文件（只有一个），将<code>index.html</code>放到浏览器中，就会看到最后显示的效果。</p>
+</li>
+</ol>
+<h2 id="不止于此"><a href="#不止于此" class="headerlink" title="不止于此"></a>不止于此</h2><p>从上面的例子看到，使用了webpack之后，我们解决了传统方式里面遇到的各种问题。当然，webpack能做的，远不止这些。比如在写代码时，可能还会有这些需求：</p>
+<ul>
+<li>代码转换：将 TypeScript 编译成JavaScript、将 SCSS 编译成 CSS等。</li>
+<li>文件优化：压缩JavaScript、CSS、HTML 代码，压缩合并图片等。</li>
+<li>代码分割：提取多个页面的公共代码，提取首屏不需要执行部分代码让其异步记在。</li>
+<li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要通过构建功能将模块分类合并成一个文件。</li>
+<li>自动刷新：监听本地源代码变化，自动重新构建、刷新浏览器。</li>
+<li>代码校验：在代码被提交到仓库前需要校验代码是否符合规范，以及单元测试是否通过。</li>
+<li>自动发布：更新代码后，自动构建出线上发布代码并传输给发布系统。</li>
+</ul>
+<p>我们需要一个工具来帮我们解决这些问题，完成整个<strong>构建</strong>流程。使用构建工具的目的，是为了让我们写代码更加方便，可以用更新的特性而不用过多关心浏览器的兼容问题；让我们可以省去很多机械重复性的工作，比如修改代码后浏览器会自动刷新，提高我们的开发效率。</p>
+<p>当然，在webpack之前，已经有很多优秀的构建工具了，比如grunt、gulp等。称webpack是当下最流行的构建工具毫不为过。webpack强大不仅在其本身，还在于很多基于webpack的插件，提供了一个强大的生态系统。webpack能做的事情还有很多，将在后面一步步继续学习。</p>
 
       
     </div>
@@ -511,12 +518,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2016/01/15/TCP:IP协议之传输层TCP和UDP/">TCP/IP协议之传输层TCP和UDP</a></p>
+  <p><span>本文标题:</span><a href="/2019/09/16/学习webpack：从最简单的webpack说起/">学习webpack：从最简单的webpack说起</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘贵 的个人博客">刘贵</a></p>
-  <p><span>发布时间:</span>2016年01月15日 - 22:01</p>
-  <p><span>最后更新:</span>2018年09月04日 - 20:09</p>
-  <p><span>原始链接:</span><a href="/2016/01/15/TCP:IP协议之传输层TCP和UDP/" title="TCP/IP协议之传输层TCP和UDP">http://liugui.org/2016/01/15/TCP:IP协议之传输层TCP和UDP/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2016/01/15/TCP:IP协议之传输层TCP和UDP/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年09月16日 - 19:09</p>
+  <p><span>最后更新:</span>2019年09月17日 - 11:09</p>
+  <p><span>原始链接:</span><a href="/2019/09/16/学习webpack：从最简单的webpack说起/" title="学习webpack：从最简单的webpack说起">http://liugui.org/2019/09/16/学习webpack：从最简单的webpack说起/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2019/09/16/学习webpack：从最简单的webpack说起/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -557,7 +564,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+            <a href="/tags/javascript-node-webpack/" rel="tag"><i class="fa fa-tag"></i> javascript, node, webpack</a>
           
         </div>
       
@@ -570,8 +577,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/13/TCP:IP协议之网络层/" rel="next" title="TCP/IP协议之网络层">
-                <i class="fa fa-chevron-left"></i> TCP/IP协议之网络层
+              <a href="/2019/08/29/文字处理之换行及word-break和word-wrap属性详解/" rel="next" title="文字处理之二：换行及word-break和word-wrap属性">
+                <i class="fa fa-chevron-left"></i> 文字处理之二：换行及word-break和word-wrap属性
               </a>
             
           </div>
@@ -579,10 +586,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/17/TCP:IP协议之应用层HTTP/" rel="prev" title="TCP/IP协议之应用层HTTP协议">
-                TCP/IP协议之应用层HTTP协议 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -808,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#点到点与端到端"><span class="nav-number">1.</span> <span class="nav-text">点到点与端到端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP协议"><span class="nav-number">2.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP的特性"><span class="nav-number">2.1.</span> <span class="nav-text">TCP的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP建立连接的三次握手"><span class="nav-number">2.2.</span> <span class="nav-text">TCP建立连接的三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP断开连接的四次挥手"><span class="nav-number">2.3.</span> <span class="nav-text">TCP断开连接的四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP如何保证可靠性"><span class="nav-number">2.4.</span> <span class="nav-text">TCP如何保证可靠性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP协议"><span class="nav-number">3.</span> <span class="nav-text">UDP协议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统方式"><span class="nav-number">1.</span> <span class="nav-text">传统方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack方式"><span class="nav-number">2.</span> <span class="nav-text">webpack方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不止于此"><span class="nav-number">3.</span> <span class="nav-text">不止于此</span></a></li></ol></div>
             
 
           </div>
@@ -994,7 +997,7 @@
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: '2016/01/15/TCP:IP协议之传输层TCP和UDP/'
+        refer: '2019/09/16/学习webpack：从最简单的webpack说起/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];

@@ -127,7 +127,7 @@
 <meta property="og:image" content="http://liugui.org/images/css/mobile-displayer.png">
 <meta property="og:image" content="http://liugui.org/images/css/small-than-retina.png">
 <meta property="og:image" content="http://liugui.org/images/css/equal-to-retina.png">
-<meta property="og:updated_time" content="2018-12-26T12:35:00.156Z">
+<meta property="og:updated_time" content="2019-09-17T09:17:39.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端适配之一：到底什么是像素">
 <meta name="twitter:description" content="最近在做移动端的开发，深入了解了下移动端适配的一些问题，加上自己的理解，记录下来，写一个小的系列博客，与大家分享。所有的问题，就开始从像素说起吧~ 像素是一个经常提到的概念，写CSS的人都经常会用到px作为单位。但是，在移动端，看着分辨率高达1125x2436的iPhone X，在控制台中却只有375x812的分辨率，似乎有点不合逻辑。这些问题，都将在下面找到答案。 一切都是点经常用像素来描述分辨">
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-26 20:35:00" itemprop="dateModified" datetime="2018-12-26T20:35:00+08:00">2018-12-26</time>
+                <time title="修改时间：2019-09-17 17:17:39" itemprop="dateModified" datetime="2019-09-17T17:17:39+08:00">2019-09-17</time>
               
             
           </span>
@@ -510,15 +510,15 @@
 <h3 id="相对长度单位"><a href="#相对长度单位" class="headerlink" title="相对长度单位"></a>相对长度单位</h3><p>相对于预定义的长度或特征，一般是相对于字体或者viewport，在移动端适配中有很重要的作用</p>
 <h4 id="相对于字体"><a href="#相对于字体" class="headerlink" title="相对于字体"></a>相对于字体</h4><ul>
 <li>ex (x-height)：等于所用字体的小写字母x的高度</li>
-<li>ch (character)：等于所用字体的数字0的高度</li>
+<li>ch (character)：等于所用字体的数字0的宽度</li>
 <li>em：相对于最近父级font-size，所以会有层层嵌套的问题，每一层都是相对于最近父级</li>
 <li>rem ：相对于html标签的font-size</li>
 </ul>
 <h4 id="相对于viewport"><a href="#相对于viewport" class="headerlink" title="相对于viewport"></a>相对于viewport</h4><ul>
-<li>vh：viewport高度的1/10</li>
-<li>vw：viewport宽度的1/10</li>
-<li>vmin：viewport宽高较小者的1/10</li>
-<li>vmax：viewport宽高较大者的1/10</li>
+<li>vh：viewport高度的1/100</li>
+<li>vw：viewport宽度的1/100</li>
+<li>vmin：viewport宽高较小者的1/100</li>
+<li>vmax：viewport宽高较大者的1/100</li>
 </ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里花了很大的篇幅去介绍像素，这个看起来简单实际却有点复杂但又必须弄清楚的东西，为后面的移动端适配做基础。</p>
 
@@ -542,7 +542,7 @@
   <p><span>本文标题:</span><a href="/2018/12/24/移动端适配之一：到底什么是像素/">移动端适配之一：到底什么是像素</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘贵 的个人博客">刘贵</a></p>
   <p><span>发布时间:</span>2018年12月24日 - 15:12</p>
-  <p><span>最后更新:</span>2018年12月26日 - 20:12</p>
+  <p><span>最后更新:</span>2019年09月17日 - 17:09</p>
   <p><span>原始链接:</span><a href="/2018/12/24/移动端适配之一：到底什么是像素/" title="移动端适配之一：到底什么是像素">http://liugui.org/2018/12/24/移动端适配之一：到底什么是像素/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2018/12/24/移动端适配之一：到底什么是像素/"  aria-label="复制成功！"></i></span>
   </p>

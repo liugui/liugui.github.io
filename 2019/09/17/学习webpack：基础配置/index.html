@@ -115,20 +115,20 @@
 
 
 
-  <meta name="description" content="上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。 entry和output上一篇博客说道，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到ou">
+  <meta name="description" content="上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。 entry和output上一篇博客说到，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到ou">
 <meta name="keywords" content="webpack, node, javascript, 打包, 编译，构建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习webpack：基础配置">
 <meta property="og:url" content="http://liugui.org/2019/09/17/学习webpack：基础配置/index.html">
 <meta property="og:site_name" content="刘贵的博客">
-<meta property="og:description" content="上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。 entry和output上一篇博客说道，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到ou">
+<meta property="og:description" content="上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。 entry和output上一篇博客说到，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到ou">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://liugui.org/Users/liugui01/Sites/blog/source/images/webpack/devtool.png">
-<meta property="og:updated_time" content="2019-09-27T08:01:44.746Z">
+<meta property="og:image" content="http://liugui.org/2019/09/17/images/webpack/devtool.png">
+<meta property="og:updated_time" content="2019-09-27T08:28:58.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习webpack：基础配置">
-<meta name="twitter:description" content="上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。 entry和output上一篇博客说道，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到ou">
-<meta name="twitter:image" content="http://liugui.org/Users/liugui01/Sites/blog/source/images/webpack/devtool.png">
+<meta name="twitter:description" content="上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。 entry和output上一篇博客说到，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到ou">
+<meta name="twitter:image" content="http://liugui.org/2019/09/17/images/webpack/devtool.png">
 
 
 
@@ -396,7 +396,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-27 16:01:44" itemprop="dateModified" datetime="2019-09-27T16:01:44+08:00">2019-09-27</time>
+                <time title="修改时间：2019-09-27 16:28:58" itemprop="dateModified" datetime="2019-09-27T16:28:58+08:00">2019-09-27</time>
               
             
           </span>
@@ -448,7 +448,7 @@
 
       
         <p>上一篇博客起了个头，介绍了为什么要用webpack，用webpack可以做什么，以及最简单地配置。这篇博客将结合实际需求，一步一步的引入一些配置，所有内容基于实际需求出发。</p>
-<h2 id="entry和output"><a href="#entry和output" class="headerlink" title="entry和output"></a>entry和output</h2><p>上一篇博客说道，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到output配置的路径。根据不同的使用场景，主要有一对一、多对一、多对多等不同情况。</p>
+<h2 id="entry和output"><a href="#entry和output" class="headerlink" title="entry和output"></a>entry和output</h2><p>上一篇博客说到，entry是webpack打包的入口文件，webpack会从这个入口文件开始，寻找该入口文件的依赖模块，以及递归的寻找依赖模块的依赖模块，直到将所有的依赖模块打包成单个js文件输出到output配置的路径。根据不同的使用场景，主要有一对一、多对一、多对多等不同情况。</p>
 <h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>如果没有设置entry，那么其默认值是<code>./src/index.js</code>，即webpack会自动寻找根目录下的src文件夹中的index.js当做入口文件</p>
 <h3 id="entry为字符串：一对一"><a href="#entry为字符串：一对一" class="headerlink" title="entry为字符串：一对一"></a>entry为字符串：一对一</h3><p>通过字符串值可以直接指定入口文件的路径，比如上一篇博客中的例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -492,7 +492,7 @@
 <p>如果希望有多个HTML，那么就可以设置多个html-webpack-plugin:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="comment">// 第一个页面，index1.html，引用page1.js打包后的文件</span></span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    template: <span class="string">'src/index.html'</span>,</span><br><span class="line">    filename: <span class="string">'index1.html'</span>,</span><br><span class="line">    chunks: [<span class="string">'page1'</span>]</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">// 第二个页面，index2.html，引用page2.js打包后的文件</span></span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    template: <span class="string">'src/index.html'</span>,</span><br><span class="line">    filename: <span class="string">'index2.html'</span>,</span><br><span class="line">    chunks: [<span class="string">'page2'</span>]</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>当然，如果页面个数是动态变化的，也可以用多entry类型的形式读取文件夹下的所有文件。更多的配置可以<a href="https://github.com/jantimon/html-webpack-plugin#options" target="_blank" rel="noopener">Github</a></p>
-<h2 id="清除dist"><a href="#清除dist" class="headerlink" title="清除dist"></a>清除dist</h2><p>webpack每执行一次，就会在dist目录下生成一些文件。如果这次生成的文件和上次是同名的，则会直接覆盖，问题不大。但如果是不同名的，则会在dist文件中累加，最后导致dist文件夹中存在很多不必要的文件。例如上面我们加上md5戳之后，每次打包生成的输出文件名并不相同，这就会造成dist文件夹的累积。即使不是用md5戳，也会有类似场景。比如开始我在pages下有一个<code>page3.js</code>，打包后在dist目录下生成了<code>page3.js</code>，后来我不需要这个页面了，把pages下的<code>page3.js</code>删除了，执行webpack，但此时dist目录下的<code>page3.js</code>已然存在。显然这些不是我们希望的。一种解决方法是每次执行webpack前手动清空dist，不过这也太麻烦了，这种麻烦的事情当然需要webpack来替我们做。</p>
+<h2 id="清除dist"><a href="#清除dist" class="headerlink" title="清除dist"></a>清除dist</h2><p>webpack每执行一次，就会在dist目录下生成一些文件。如果这次生成的文件和上次是同名的，则会直接覆盖，问题不大。但如果是不同名的，则会在dist文件中累加，最后导致dist文件夹中存在很多不必要的文件。例如上面我们加上md5戳之后，每次打包生成的输出文件名并不相同，这就会造成dist文件夹的累积。即使不是用md5戳，也会有类似场景。比如开始我在pages下有一个<code>page3.js</code>，打包后在dist目录下生成了<code>page3.js</code>，后来我不需要这个页面了，把pages下的<code>page3.js</code>删除了，执行webpack，但此时dist目录下的<code>page3.js</code>依然存在。显然这些不是我们希望的。一种解决方法是每次执行webpack前手动清空dist，不过这也太麻烦了，这种麻烦的事情当然需要webpack来替我们做。</p>
 <p>首先，需要安装这个插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i clean-webpack-plugin</span><br></pre></td></tr></table></figure>
 <p>然后，在配置文件中使用这个插件</p>
@@ -541,7 +541,7 @@
 <h2 id="Devtool调试"><a href="#Devtool调试" class="headerlink" title="Devtool调试"></a>Devtool调试</h2><p>到目前为止，都是介绍如何用webpack打包从而进行开发，却忽视了一个问题于webpack将多个文件打包成了单个文件的。最后在浏览器中，我们能看到的也就是打包后的这个文件。如果是打断点调试，我们当然希望是能在打包之前原始模块中，这样定位问题和修改也比较方便。为了实现这个功能，webpack中提供了devtool配置，只需要设置如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devtool: <span class="string">'source-map'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样，在浏览器的控制台中就可以看到打包之前的原始模块文件。</p>
-<p><img src="/Users/liugui01/Sites/blog/source/images/webpack/devtool.png" alt="devtool"></p>
+<p><img src="../images/webpack/devtool.png" alt="devtool"></p>
 <h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p>通常，js代码都要分开发模式和生产模式。比如，在开发模式中，不用太纠结代码的性能，更加重视代码的可读性，而在生产模式中，代码一般需要进行<strong>优化和压缩</strong>等。在webpack4中，可以通过mode来配置development模式和production模式，主要有两种配置方法：</p>
 <ol>
 <li><p>直接在配置文件中指定mode</p>

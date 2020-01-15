@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="刘贵的博客">
 <meta property="og:description" content="JavaScript对象的属性，看起来是一个很简单的问题，但是往细了想有很多细节需要注意。比如，可枚举属性与不可枚举属性的区别是什么，当我们打印一个对象的时候，打印的是对象本身的属性，还是包含继承的属性？我们去遍历一个对象的时候，多种方法之间又有什么区别？在这里我们做一个全面的分析和总结。 属性的设置在搞清楚对象的属性之前，先看看我们一般如何设置一个对象的属性。总的来说有两种方法：  直接访问对象">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-15T02:51:42.588Z">
+<meta property="og:updated_time" content="2020-01-15T03:00:12.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你真的了解js对象的属性吗">
 <meta name="twitter:description" content="JavaScript对象的属性，看起来是一个很简单的问题，但是往细了想有很多细节需要注意。比如，可枚举属性与不可枚举属性的区别是什么，当我们打印一个对象的时候，打印的是对象本身的属性，还是包含继承的属性？我们去遍历一个对象的时候，多种方法之间又有什么区别？在这里我们做一个全面的分析和总结。 属性的设置在搞清楚对象的属性之前，先看看我们一般如何设置一个对象的属性。总的来说有两种方法：  直接访问对象">
@@ -394,7 +394,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-01-15 10:51:42" itemprop="dateModified" datetime="2020-01-15T10:51:42+08:00">2020-01-15</time>
+                <time title="修改时间：2020-01-15 11:00:12" itemprop="dateModified" datetime="2020-01-15T11:00:12+08:00">2020-01-15</time>
               
             
           </span>
@@ -474,14 +474,14 @@
 <li>继承不可枚举Symbol属性</li>
 <li>继承不可枚举非Symbol属性</li>
 </ul>
-<p>很复杂，有点多是不是。其实，Symbol属性只是key值的类型不同而已，在一般情况下隐藏的更深，不会轻易暴露，<strong>所以Symbol属性一般不会访问到</strong>。所以，为了简单起见，我们不单独考虑这种，默认都是访问不到的，只有在能访问到的时候才单独说明。所以，我们还是按照4种分类：</p>
+<p>很复杂，有点多是不是。其实，Symbol属性只是key值的类型为Symbol而已，在一般情况下时作为私有属性，隐藏的更深，<strong>Symbol属性一般不会访问到</strong>。所以，为了简单起见，我们不单独考虑这种，默认都是访问不到的，只有在能访问到的时候才单独说明。所以，我们还是按照4种分类：</p>
 <ul>
 <li>自身可枚举属性</li>
 <li>自身不可枚举属性</li>
 <li>继承可枚举属性</li>
 <li>继承不可枚举属性</li>
 </ul>
-<p>我们构造一个例子，包含上面这4种属性。下面的所有分析都在这个例子的基础上：</p>
+<p>我们构造一个例子，包含上面这8种属性。下面的所有分析都在这个例子的基础上：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> skeyEnumerable = <span class="built_in">Symbol</span>.for(<span class="string">'skeyEnumerable'</span>);</span><br><span class="line"><span class="keyword">var</span> skeyNoEnumerable = <span class="built_in">Symbol</span>.for(<span class="string">'skeyNoEnumerable'</span>);</span><br><span class="line"><span class="keyword">var</span> pkeyEnumerable = <span class="built_in">Symbol</span>.for(<span class="string">'pkeyEnumerable'</span>);</span><br><span class="line"><span class="keyword">var</span> pkeyNoEnumerable = <span class="built_in">Symbol</span>.for(<span class="string">'pkeyNoEnumerable'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.p1 = <span class="string">'p1'</span>;</span><br><span class="line">    <span class="keyword">this</span>[pkeyEnumerable] = <span class="string">'pSymbolEnumerable'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent();</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(parent, <span class="string">'p2'</span>, &#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">'p2'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(parent, pkeyNoEnumerable, &#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">'pSymbolNoEnumerable'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.s1 = <span class="string">'s1'</span>;</span><br><span class="line">    <span class="keyword">this</span>[skeyEnumerable] = <span class="string">'sSymbolEnumerable'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Son.prototype = parent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> son = <span class="keyword">new</span> Son();</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(son, <span class="string">'s2'</span>, &#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">'s2'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(son, skeyNoEnumerable, &#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">'sSymbolNoEnumerable'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>在这个例子中：</p>
 <ul>
@@ -507,14 +507,14 @@
 <h2 id="打印对象"><a href="#打印对象" class="headerlink" title="打印对象"></a>打印对象</h2><h3 id="直接打印"><a href="#直接打印" class="headerlink" title="直接打印"></a>直接打印</h3><p>如果我们直接将son对象打印出来，我们会得到什么？这4中属性里面，有哪些属性会被打印访问到呢？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(son);</span><br><span class="line"><span class="comment">// 在Chrome中，打印的结果是Son &#123;s1: "s1", s2: "s2"&#125;</span></span><br><span class="line"><span class="comment">// 在node中，打印的结果是Parent &#123; s1: 's1' &#125;</span></span><br></pre></td></tr></table></figure>
 <p>可以看出打印出来的结果并不一致。这是因为，我们常用的<code>console.log</code>函数，并不是一个标准的方法，每个浏览器或引擎都有自己的一套实现方法，也并不是简单地调用对象的toString方法（如果是toString应该返回[object Object]），比如在Chrome中会打印可枚举和不可枚举，而在node中只会打印可枚举。需要提到的是，<code>son.p1</code>和<code>son.p2</code>是可以访问，只是这里没有打印出来。</p>
-<p>至于Symbol属性，由于个平台实现不一致，有的能打印出来，有的不能。</p>
+<p>至于Symbol属性，由于个平台实现不一致，有的能打印出来，有的不能，不多纠结。</p>
 <h3 id="JSON-stringify方法"><a href="#JSON-stringify方法" class="headerlink" title="JSON.stringify方法"></a>JSON.stringify方法</h3><p>虽然<code>console.log</code>跨引擎实现是不一样的，但也不是很重要，毕竟这只是一个debug用的方法。换一种更通用的方法，通过JSON.stringfy序列化成字符换，最后的结果又是怎样呢</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(son)); <span class="comment">// &#123;"s1":"s1"&#125;</span></span><br></pre></td></tr></table></figure>
 <p>可以看出，<strong><code>JSON.stringify</code>会将所有的自身可枚举属性序列化成字符串</strong>。</p>
 <h2 id="遍历对象属性"><a href="#遍历对象属性" class="headerlink" title="遍历对象属性"></a>遍历对象属性</h2><p>前面介绍这么多，都是基础。在实际应用中，我们最多的还是去遍历一个对象。接下来就把所有遍历对象属性的方法做一个分析比较。</p>
 <p>遍历对象的所有属性，就要先得到该对象的所有属性名。只有先得到所有的属性名，才能遍历每个属性的值。JS提供了很多API供我们得到所有的属性名，往往是放在一个数组中，然后遍历数组中的每一个key，访问对象对应的key值。</p>
 <h3 id="1-Object-keys"><a href="#1-Object-keys" class="headerlink" title="1. Object.keys()"></a>1. Object.keys()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(son).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(son[key]);<span class="comment">// s1</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>该方法返回的是对象的所有自身可枚举属性。</p>
+<p>该方法返回的是对象的所有自身可枚举属性。这跟<code>JSON.stringify</code>其实是一样的。</p>
 <h3 id="2-Object-getOwnPropertyNames"><a href="#2-Object-getOwnPropertyNames" class="headerlink" title="2. Object.getOwnPropertyNames()"></a>2. Object.getOwnPropertyNames()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(son).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(son[key]);<span class="comment">// s1 s2</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>该方法返回的是对象自身的所有属性，包含可枚举属性和不可枚举属性。</p>
 <h3 id="3-Object-getOwnPropertySymbols"><a href="#3-Object-getOwnPropertySymbols" class="headerlink" title="3. Object.getOwnPropertySymbols()"></a>3. Object.getOwnPropertySymbols()</h3><p>前面提到，一般Symbol属性都是私有的，隐藏的。而通过该方法可以访问到对象自身的所有Symbol属性，包括自身可枚举的Symbol属性和自身不可枚举Symbol属性。</p>
@@ -555,7 +555,7 @@
   <p><span>本文标题:</span><a href="/2020/01/14/你真的了解js对象的属性吗/">你真的了解js对象的属性吗</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 刘贵 的个人博客">刘贵</a></p>
   <p><span>发布时间:</span>2020年01月14日 - 20:01</p>
-  <p><span>最后更新:</span>2020年01月15日 - 10:01</p>
+  <p><span>最后更新:</span>2020年01月15日 - 11:01</p>
   <p><span>原始链接:</span><a href="/2020/01/14/你真的了解js对象的属性吗/" title="你真的了解js对象的属性吗">http://liugui.org/2020/01/14/你真的了解js对象的属性吗/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2020/01/14/你真的了解js对象的属性吗/"  aria-label="复制成功！"></i></span>
   </p>

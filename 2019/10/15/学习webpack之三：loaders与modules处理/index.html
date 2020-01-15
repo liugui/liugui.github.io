@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/websites/favicon.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/websites/favicon.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/websites/favicon.ico?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/websites/favicon.ico?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="从前两篇博客来看，介绍的webpack主要作用都是：从入口js开始，将所有依赖的js打包成单个文件，并且将这个文件挂载到html模版上，最后在浏览器中显示生成的HTML。也就是目前涉及的都是html和js，这里介绍对其他静态资源的处理。 loaders到目前为止，我们引入的都是js文件，直接用ES6的import语句即可。单从导入的角度（不考虑打包等处理）来说，这是ES6本身就支持的。而webpa">
+<meta name="keywords" content="webpack, node, javascript, 打包, 编译，构建，loaders, modules">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习webpack之三：使用loaders">
+<meta property="og:url" content="http://liugui.org/2019/10/15/学习webpack之三：loaders与modules处理/index.html">
+<meta property="og:site_name" content="刘贵的博客">
+<meta property="og:description" content="从前两篇博客来看，介绍的webpack主要作用都是：从入口js开始，将所有依赖的js打包成单个文件，并且将这个文件挂载到html模版上，最后在浏览器中显示生成的HTML。也就是目前涉及的都是html和js，这里介绍对其他静态资源的处理。 loaders到目前为止，我们引入的都是js文件，直接用ES6的import语句即可。单从导入的角度（不考虑打包等处理）来说，这是ES6本身就支持的。而webpa">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-17T03:36:57.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习webpack之三：使用loaders">
+<meta name="twitter:description" content="从前两篇博客来看，介绍的webpack主要作用都是：从入口js开始，将所有依赖的js打包成单个文件，并且将这个文件挂载到html模版上，最后在浏览器中显示生成的HTML。也就是目前涉及的都是html和js，这里介绍对其他静态资源的处理。 loaders到目前为止，我们引入的都是js文件，直接用ES6的import语句即可。单从导入的角度（不考虑打包等处理）来说，这是ES6本身就支持的。而webpa">
+
+
+
+
+
+
+  <link rel="canonical" href="http://liugui.org/2019/10/15/学习webpack之三：loaders与modules处理/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>学习webpack之三：使用loaders | 刘贵的博客</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?97ba1ea8589b0bc88ee9ece8d10583d5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘贵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">路漫漫其修远兮，吾将上下而求索</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-works">
+    <a href="/works/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />作品展示</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liugui.org/2019/10/15/学习webpack之三：loaders与modules处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘贵">
+      <meta itemprop="description" content="路漫漫其修远兮，吾将上下而求索">
+      <meta itemprop="image" content="/images/websites/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘贵的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">学习webpack之三：使用loaders
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-15 20:24:45" itemprop="dateCreated datePublished" datetime="2019-10-15T20:24:45+08:00">2019-10-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-17 11:36:57" itemprop="dateModified" datetime="2019-10-17T11:36:57+08:00">2019-10-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从前两篇博客来看，介绍的webpack主要作用都是：从入口js开始，将所有依赖的js打包成单个文件，并且将这个文件挂载到html模版上，最后在浏览器中显示生成的HTML。也就是目前涉及的都是html和js，这里介绍对其他静态资源的处理。</p>
+<h2 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h2><p>到目前为止，我们引入的都是js文件，直接用ES6的<code>import</code>语句即可。单从导入的角度（不考虑打包等处理）来说，这是ES6本身就支持的。而webpack的一个强大功能，就是它将CSS、图片等一切都视为模块，这使得我们同样可以使用<code>import</code>或类似方式来导入CSS等静态资源。由于静态资源的种类很多，所以webpack本身并没有包含所有的功能，因为这会导致webpack非常臃肿。相反，webpack生态中提供多个loader，每种类型的静态文件，都可以通过配置特定的loader来导入。下面从CSS来看具体操作。</p>
+<h2 id="CSS的导入"><a href="#CSS的导入" class="headerlink" title="CSS的导入"></a>CSS的导入</h2><ol>
+<li><p>首先，需要安装导入CSS需要的两个loader：<code>css-loader</code>和<code>style-loader</code></p>
+<ul>
+<li><code>css-loader</code>使我们可以用import的方式导入css文件</li>
+<li><code>style-loader</code>的作用是在html模板中创建style标签，并将打包生成的css代码插入到<code>style</code>中</li>
+</ul>
+<p>安装命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i css-loader style-loader -D</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成后，在<code>webpack.config.js</code>(或者是<code>webpack.base.config.js</code>/<code>webpack.dev.config.js</code>/<code>webpack.prod.config.js</code>)中配置使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>rules是一个数组，其中每个元素都指定一套规则。所谓规则，就是<strong>指定什么类型的文件用哪一种loader。</strong></p>
+<ul>
+<li>test解决<strong>指定什么类型文件</strong>的问题，其值是一个正则表达式，对应import语句引入的文件后缀类型。如<code>import &#39;./test.css&#39;</code>，表示引入的是css后缀的文件，就适用这套规则，而<code>import test from &#39;./test.vue&#39;</code>就不适用。</li>
+<li>use解决<strong>用哪一种loader</strong>的问题，其值是一个数组。当有多个loader时，webpack会依次<strong>从右向左</strong>执行。比如这里就是先执行<code>css-loader</code>打包，然后执行<code>style-loader</code>插入</li>
+</ul>
+</li>
+<li><p>配置完成后，在js中就可以使用了。比如在入口文件<code>page1.js</code>中引入一个css文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">'../module/a'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;b&#125; <span class="keyword">from</span> <span class="string">'../module/b'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'../assets/css/base.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dom = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">dom.innerHTML = <span class="string">`index1 dd file, a=<span class="subst">$&#123;a&#125;</span>; b=<span class="subst">$&#123;b&#125;</span>`</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(dom);</span><br></pre></td></tr></table></figure>
+<p>最后显示的HTML中就会有一个style标签，里面插入了<code>base.css</code>中的代码</p>
+</li>
+</ol>
+<p>关于css文件的几点说明：</p>
+<ol>
+<li>如果是less，需要先安装<code>less</code>和<code>less-loader</code>，然后配置<code>.less</code>文件的loader依次是<code>[style-loader, css-loader, less-loader]</code></li>
+<li>不要忘了css本身就是有<code>@import</code>语句的。在一个css中引入另一个<code>css</code>就直接用css自带的<code>@import</code>即可</li>
+<li>如果在入口js中引入多个css文件，默认情况下会创建多个style标签</li>
+<li>关于rule的配置，还有include、exclude等更多功能，详见<a href="https://webpack.js.org/configuration/module/#modulerules" target="_blank" rel="noopener">官方文档</a>。关于每个loader的配置，可参见loader的官方文档。</li>
+</ol>
+<h2 id="路径别名处理"><a href="#路径别名处理" class="headerlink" title="路径别名处理"></a>路径别名处理</h2><p>通常，源代码和静态资源都放在根目录下的<code>src</code>文件夹中，比如上面的示例中，<code>page1.js</code>位于<code>src/pages/page1.js</code>，<code>base.css</code>位于<code>src/assets/css/base.css</code>，在<code>page1.js</code>中引入<code>base.css</code>，采用相对路径就是<code>../assets/css/base.css</code>。需要注意的是，在webpack中，我们只用关心打包前源代码中的相对路径关系，打包后webpack会自动解决路径问题，引入打包后的文件或资源。在这里，可以使用路径别名的方式，指定<code>@</code>表示<code>src</code>目录。只需要在<code>webpack.config.js</code>中配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line">modules.exports = &#123;</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    <span class="comment">// alias配置别名</span></span><br><span class="line">    alias: &#123;</span><br><span class="line">      <span class="comment">// 指定@为src目录的别名</span></span><br><span class="line">      <span class="string">'@'</span>: path.resolve(__dirname, <span class="string">'./src'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，在<code>page1.js</code>中就可以直接用<code>@</code>引用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'@/assets/css/base.css'</span></span><br></pre></td></tr></table></figure>
+<p>同样，对于一些常用的模块，也可以用别名的方式。比如<code>base.css</code>是所有入口js文件都要加载的，那么可以直接指定：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    alias: &#123;</span><br><span class="line">      <span class="string">'base'</span>: path.resolve(__dirname, <span class="string">'./src/assets/css/base.css'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样使用时就可以直接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &apos;base&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="postcss的使用"><a href="#postcss的使用" class="headerlink" title="postcss的使用"></a>postcss的使用</h2><p>目前为止，我们所做的也就是将css打包合并，并且使用相关的loader对less、sass等进行编译。借助postcss，可以对css进行更多的处理，比如给css3属性加上兼容性的浏览器前缀，将px单位转换成rem等等。postcss功能非常强大，它是一个基于js创造的处理css的生态系统，包含诸多插件以实现对css的各种处理。</p>
+<p>如果要说postcss和LESS、SASS等css编译器的区别，主要有以下两个方面：</p>
+<ol>
+<li>LESS和SASS是要求先熟悉其语法，并按照其规定的语法规范书写，postcss也可以实现这样的功能。此外，postcss可以让你更随意的方式来写，不一定非要遵循LESS和SASS的语法规范，只要能用合适的插件来处理成标准css即可</li>
+<li>LESS和SASS的功能postcss也都有，但postcss能做的远比LESS和SASS多。postcss更像是一个webpack这样的生态系统，借助强大的插件生态，可以实现更强大的功能。</li>
+</ol>
+<h2 id="图片资源的处理"><a href="#图片资源的处理" class="headerlink" title="图片资源的处理"></a>图片资源的处理</h2><p>在上面例子中引入的base.css文件中，假如我们加上一张图片的引用：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'../imgs/test.jpeg'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再执行<code>npm run dev</code>，此时webpack会报错。这是因为在这个css文件中，引用了一个后缀名为<code>.jpeg</code>的文件，而我们并没有在loader中指定该文件的规则。看起来很奇怪，为什么普通环境下能跑的css代码，在webpack中却出了问题呢。回想一下webpack的功能就会发现下面这两点：</p>
+<ol>
+<li>webpack将所有资源打包输出到dist文件夹，所以也必须将图片文件打包输出，<strong>我们在src文件夹下存放的资源和代码，并不是最后打包输出显示的资源和代码</strong></li>
+<li>webpack将所有文件当成模块，也会将图片当成模块。从这里可以看到，<strong>webpack中遇到任何对其他文件的依赖都需要进行处理，而不仅仅是import语句指定的依赖。</strong></li>
+</ol>
+<p>处理这个问题，就需要用到<code>file-loader</code>或者<code>url-loader</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i file-loader url-loader -D</span><br></pre></td></tr></table></figure>
+<p>在<code>webpack.config.js</code>中配置loader：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.(jpe?g|png)$/</span>,</span><br><span class="line">      use: [<span class="string">'file-loader'</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在运行webpack，就发现图片可以正常显示。这是因为file-loader会将指定的图片进行打包输出，返回打包后的地址url，并且对css代码中的url进行替换，从而可以正常显示。url-loader也可以实现该功能，并且url-loader可以配置一个固定的大小，并将小于该大小的图片以base64编码形式打包显示。</p>
+<h2 id="js的处理"><a href="#js的处理" class="headerlink" title="js的处理"></a>js的处理</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/10/15/学习webpack之三：loaders与modules处理/">学习webpack之三：使用loaders</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 刘贵 的个人博客">刘贵</a></p>
+  <p><span>发布时间:</span>2019年10月15日 - 20:10</p>
+  <p><span>最后更新:</span>2019年10月17日 - 11:10</p>
+  <p><span>原始链接:</span><a href="/2019/10/15/学习webpack之三：loaders与modules处理/" title="学习webpack之三：使用loaders">http://liugui.org/2019/10/15/学习webpack之三：loaders与modules处理/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liugui.org/2019/10/15/学习webpack之三：loaders与modules处理/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript-node-webpack/" rel="tag"><i class="fa fa-tag"></i> javascript, node, webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/17/学习webpack之一：基础配置/" rel="next" title="学习webpack：基础配置">
+                <i class="fa fa-chevron-left"></i> 学习webpack：基础配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/14/你真的了解js对象的属性吗/" rel="prev" title="你真的了解js对象的属性吗">
+                你真的了解js对象的属性吗 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTQ5OS8xNjAyNg"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/websites/avatar.jpg"
+                alt="刘贵" />
+            
+              <p class="site-author-name" itemprop="name">刘贵</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liugui" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:lghustcic@126.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2839022630" target="_blank" title="微博" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>微博</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tutuge.me/" title="全栈土哥" target="_blank">全栈土哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://raytaylorlin.com/" title="大神寿寿" target="_blank">大神寿寿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://vanney9.com/" title="前后通吃的杰哥" target="_blank">前后通吃的杰哥</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#loaders"><span class="nav-number">1.</span> <span class="nav-text">loaders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS的导入"><span class="nav-number">2.</span> <span class="nav-text">CSS的导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径别名处理"><span class="nav-number">3.</span> <span class="nav-text">路径别名处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postcss的使用"><span class="nav-number">4.</span> <span class="nav-text">postcss的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片资源的处理"><span class="nav-number">5.</span> <span class="nav-text">图片资源的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js的处理"><span class="nav-number">6.</span> <span class="nav-text">js的处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘贵</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+
+
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共63.7k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2019/10/15/学习webpack之三：loaders与modules处理/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
